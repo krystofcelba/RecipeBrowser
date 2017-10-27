@@ -1,22 +1,27 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Component } from 'react';
+import { Navigation } from 'react-native-navigation';
+
+import { registerScreens } from './screens';
+
+registerScreens();
 
 class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>It works!</Text>
-      </View>
-    );
+  constructor(props) {
+    super(props);
+    this.startApp();
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+  startApp = () => {
+    Navigation.startSingleScreenApp({
+      screen: {
+        screen: 'recipeBrowser.RecipesList',
+        title: '',
+      },
+      appStyle: {
+        keepStyleAcrossPush: false,
+      },
+    });
+  };
+}
 
 export default App;
