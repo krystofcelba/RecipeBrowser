@@ -22,18 +22,17 @@ it('should call fetchRecipes api method and dispatch success action with array o
 
 /************ integration tests ************/
 
-it('should start fetchAllRecipes saga on FETCH_RECIPES action dispatched', () => {
-  expectSaga(recipesSaga)
+it('should start fetchAllRecipes saga on FETCH_RECIPES action dispatched', async () => {
+  const { storeState } = await expectSaga(recipesSaga)
     .withReducer(reducers)
     .provide([[matchers.call.fn(API.fetchRecipes), { ok: true, data: mockedRecipes }]])
     .dispatch(actionCreators.fetchRecipes())
     .put({ type: FETCH_RECIPES_SUCCESS, recipes: mockedRecipes })
-    .hasFinalState({
-      nav: { currentScreenId: '' },
-      recipes: {
-        recipesById: [mockedRecipes[0].id],
-        recipes: { [mockedRecipes[0].id]: mockedRecipes[0] },
-      },
-    })
     .run();
+
+  expect(storeState.recipes).toEqual({
+    recipesById: [mockedRecipes[0].id],
+    recipes: { [mockedRecipes[0].id]: mockedRecipes[0] },
+    loading: false,
+  });
 });
