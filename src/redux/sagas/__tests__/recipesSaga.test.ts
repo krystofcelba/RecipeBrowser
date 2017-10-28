@@ -3,10 +3,12 @@ import * as matchers from 'redux-saga-test-plan/matchers';
 
 import recipesSaga, { fetchAllRecipes } from '../recipesSaga';
 import * as API from 'src/services/api';
-import { FETCH_RECIPES, FETCH_RECIPES_SUCCESS } from 'src/redux/reducers/recipes';
+import { actionCreators, FETCH_RECIPES_SUCCESS } from 'src/redux/reducers/recipes';
 import reducers from 'src/redux/reducers';
 
 const mockedRecipes = require('../../../services/__mockData__/recipes.json');
+
+/************ unit tests ************/
 
 it('should call fetchRecipes api method and dispatch success action with array of recipes', () => {
   testSaga(fetchAllRecipes, '')
@@ -18,11 +20,20 @@ it('should call fetchRecipes api method and dispatch success action with array o
     .isDone();
 });
 
+/************ integration tests ************/
+
 it('should start fetchAllRecipes saga on FETCH_RECIPES action dispatched', () => {
   expectSaga(recipesSaga)
     .withReducer(reducers)
     .provide([[matchers.call.fn(API.fetchRecipes), { ok: true, data: mockedRecipes }]])
-    .dispatch({ type: FETCH_RECIPES })
+    .dispatch(actionCreators.fetchRecipes())
     .put({ type: FETCH_RECIPES_SUCCESS, recipes: mockedRecipes })
+    .hasFinalState({
+      nav: { currentScreenId: '' },
+      recipes: {
+        recipesById: [mockedRecipes[0].id],
+        recipes: { [mockedRecipes[0].id]: mockedRecipes[0] },
+      },
+    })
     .run();
 });
