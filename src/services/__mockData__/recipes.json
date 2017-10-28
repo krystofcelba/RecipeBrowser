@@ -1,0 +1,37 @@
+[
+  {
+    "description":
+      "This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.",
+    "id": 9,
+    "image": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+    "ingredients": [
+      {
+        "amount": 4,
+        "name": "hard-boiled eggs",
+        "unit": ""
+      },
+      {
+        "amount": 2,
+        "name": "Dijon mustard",
+        "unit": "tsp"
+      },
+      {
+        "amount": 100,
+        "name": "cottage cheese",
+        "unit": "g"
+      },
+      {
+        "amount": 2,
+        "name": "chopped dill",
+        "unit": "tbsp"
+      }
+    ],
+    "name": "Mustard Deviled Eggs",
+    "seasonings": ["Paprika powder"],
+    "steps": [
+      "Halve eggs and remove yolk.",
+      "Mix yolks with mustard, cottage cheese and half of dill.",
+      "Fill egg halves with yolk mixture and garnish with remaining dill."
+    ]
+  }
+]
