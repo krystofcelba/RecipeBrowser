@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "test-with-coverage": "jest --collectCoverage",
     "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
@@ -42,12 +43,9 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+    "collectCoverage": false,
+    "mapCoverage": true,
+    "collectCoverageFrom": ["src/**/*.ts"]
   }
 }

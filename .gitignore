@@ -53,5 +53,7 @@ buck-out/
 */fastlane/screenshots
 
 # vscode
-
 .vscode/.react
+
+# test coverage
+coverage
