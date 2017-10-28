@@ -46,9 +46,10 @@ it('should call axois.post with absolute url and post body, then return data fro
 });
 
 it('should get recipes', () => {
+  const response = { ok: true, data: require('../__mockData__/recipes.json') };
   testSaga(API.fetchRecipes, '')
     .next()
     .call(API.get, '/recipes')
-    .next()
-    .isDone();
+    .next(response)
+    .returns(response);
 });
