@@ -9,7 +9,6 @@ export function* fetchAllRecipes() {
     const recipes: [API.Recipe] = resp.data;
     yield put(actionCreators.fetchRecipesSuccess(recipes));
   }
-  console.log('fetch all recipes', resp);
 }
 
 export default function* root() {
