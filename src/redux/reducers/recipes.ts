@@ -33,7 +33,10 @@ export type State = {
   readonly loading: boolean;
 };
 
-export const reducer = (state = { recipes: {}, loading: false }, action: Actions[keyof Actions]) => {
+export const reducer = (
+  state = { recipesById: [] as [number], recipes: {}, loading: false },
+  action: Actions[keyof Actions],
+): State => {
   switch (action.type) {
     case FETCH_RECIPES:
       return { ...state, loading: true };
@@ -41,7 +44,7 @@ export const reducer = (state = { recipes: {}, loading: false }, action: Actions
       const { recipes } = action;
       return {
         ...state,
-        recipesById: recipes.map(recipe => recipe.id),
+        recipesById: recipes.map(recipe => recipe.id) as [number],
         recipes: recipes.reduce((recipesHash, recipe) => ({ ...recipesHash, [recipe.id]: recipe }), {}),
         loading: false,
       };
