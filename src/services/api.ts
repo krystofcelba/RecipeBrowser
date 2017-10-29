@@ -3,12 +3,14 @@ import { call } from 'redux-saga/effects';
 
 import { BASE_URL } from '../assets/constants';
 
+export type Ingredient = { name: string; amount: number; unit: string };
+
 export type Recipe = {
   id: number;
   name: string;
   description: string;
   image: string;
-  ingredients: [{ name: string; amount: number; unit: string }];
+  ingredients: [Ingredient];
   seasonings: [string];
   steps: [string];
   ingredientsNames?: string;
