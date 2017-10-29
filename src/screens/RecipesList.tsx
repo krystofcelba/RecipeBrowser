@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, FlatList, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actionCreators } from '../redux/reducers/recipes';
@@ -33,13 +33,17 @@ class RecipesList extends Component<Props, any> {
     const { recipes } = this.props;
     console.log(this.props.recipes);
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={60}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.container}
+      >
         <FlatList
           data={recipes}
           keyExtractor={item => item.id}
           renderItem={({ item }) => <RecipeCard recipe={item as Recipe} onPress={this.onPressRecipe} />}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
