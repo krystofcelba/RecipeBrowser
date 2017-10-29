@@ -14,10 +14,10 @@ interface Props {
   navigator: any;
   newRecipe: NewRecipe;
   canBeSubmitted: boolean;
-  addIngredient: typeof actionCreators.addRecipeFormAddIngredient;
-  updateIngredient: typeof actionCreators.addRecipeFormUpdateIngredient;
-  updateName: typeof actionCreators.addRecipeFormUpdateName;
-  updateDescription: typeof actionCreators.addRecipeFormUpdateDescription;
+  addIngredient: typeof actionCreators.addIngredientToAddRecipeForm;
+  updateIngredient: typeof actionCreators.updateIngredientInAddRecipeForm;
+  updateName: typeof actionCreators.updateNameInAddRecipeForm;
+  updateDescription: typeof actionCreators.updateDescriptionInAddRecipeForm;
 }
 
 class AddRecipeForm extends Component<Props> {
@@ -101,10 +101,10 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({ ui: { addRecipeForm: { newRecipe, canBeSubmitted } } }) => ({ newRecipe, canBeSubmitted });
 
 const mapDispatchToProps = {
-  updateName: actionCreators.addRecipeFormUpdateName,
-  updateDescription: actionCreators.addRecipeFormUpdateDescription,
-  addIngredient: actionCreators.addRecipeFormAddIngredient,
-  updateIngredient: actionCreators.addRecipeFormUpdateIngredient,
+  updateName: actionCreators.updateNameInAddRecipeForm,
+  updateDescription: actionCreators.updateDescriptionInAddRecipeForm,
+  addIngredient: actionCreators.addIngredientToAddRecipeForm,
+  updateIngredient: actionCreators.updateIngredientInAddRecipeForm,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);

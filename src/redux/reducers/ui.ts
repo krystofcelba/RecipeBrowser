@@ -1,9 +1,9 @@
 export const UPDATE_RECIPES_SEARCH_INPUT_TEXT = 'UPDATE_RECIPES_SEARCH_INPUT_TEXT';
 
-export const ADD_RECIPE_FORM_UPDATE_NAME = 'ADD_RECIPE_FORM_UPDATE_NAME';
-export const ADD_RECIPE_FORM_UPDATE_DESCRIPTION = 'ADD_RECIPE_FORM_UPDATE_DESCRIPTION';
-export const ADD_RECIPE_FORM_ADD_INGREDIENT = 'ADD_RECIPE_FORM_ADD_INGREDIENT';
-export const ADD_RECIPE_FORM_UPDATE_INGREDIENT = 'ADD_RECIPE_FORM_UPDATE_INGREDIENT';
+export const UPDATE_NAME_ADD_RECIPE_FORM = 'UPDATE_NAME_ADD_RECIPE_FORM';
+export const UPDATE_DESCRIPTION_ADD_RECIPE_FORM = 'UPDATE_DESCRIPTION_ADD_RECIPE_FORM';
+export const ADD_INGREDIENT_ADD_RECIPE_FORM = 'ADD_INGREDIENT_ADD_RECIPE_FORM';
+export const UPDATE_INGREDIENT_ADD_RECIPE_FORM = 'UPDATE_INGREDIENT_ADD_RECIPE_FORM';
 
 export interface NewIngredient {
   id: number;
@@ -35,19 +35,19 @@ export type Actions = {
     type: typeof UPDATE_RECIPES_SEARCH_INPUT_TEXT;
     text: string;
   };
-  ADD_RECIPE_FORM_UPDATE_NAME: {
-    type: typeof ADD_RECIPE_FORM_UPDATE_NAME;
+  UPDATE_NAME_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_NAME_ADD_RECIPE_FORM;
     name: string;
   };
-  ADD_RECIPE_FORM_UPDATE_DESCRIPTION: {
-    type: typeof ADD_RECIPE_FORM_UPDATE_DESCRIPTION;
+  UPDATE_DESCRIPTION_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_DESCRIPTION_ADD_RECIPE_FORM;
     description: string;
   };
-  ADD_RECIPE_FORM_ADD_INGREDIENT: {
-    type: typeof ADD_RECIPE_FORM_ADD_INGREDIENT;
+  ADD_INGREDIENT_ADD_RECIPE_FORM: {
+    type: typeof ADD_INGREDIENT_ADD_RECIPE_FORM;
   };
-  ADD_RECIPE_FORM_UPDATE_INGREDIENT: {
-    type: typeof ADD_RECIPE_FORM_UPDATE_INGREDIENT;
+  UPDATE_INGREDIENT_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_INGREDIENT_ADD_RECIPE_FORM;
     ingredient: NewIngredient;
   };
 };
@@ -57,19 +57,19 @@ export const actionCreators = {
     type: UPDATE_RECIPES_SEARCH_INPUT_TEXT,
     text,
   }),
-  addRecipeFormUpdateName: (name: string): Actions[typeof ADD_RECIPE_FORM_UPDATE_NAME] => ({
-    type: ADD_RECIPE_FORM_UPDATE_NAME,
+  updateNameInAddRecipeForm: (name: string): Actions[typeof UPDATE_NAME_ADD_RECIPE_FORM] => ({
+    type: UPDATE_NAME_ADD_RECIPE_FORM,
     name,
   }),
-  addRecipeFormUpdateDescription: (description: string): Actions[typeof ADD_RECIPE_FORM_UPDATE_DESCRIPTION] => ({
-    type: ADD_RECIPE_FORM_UPDATE_DESCRIPTION,
+  updateDescriptionInAddRecipeForm: (description: string): Actions[typeof UPDATE_DESCRIPTION_ADD_RECIPE_FORM] => ({
+    type: UPDATE_DESCRIPTION_ADD_RECIPE_FORM,
     description,
   }),
-  addRecipeFormAddIngredient: (): Actions[typeof ADD_RECIPE_FORM_ADD_INGREDIENT] => ({
-    type: ADD_RECIPE_FORM_ADD_INGREDIENT,
+  addIngredientToAddRecipeForm: (): Actions[typeof ADD_INGREDIENT_ADD_RECIPE_FORM] => ({
+    type: ADD_INGREDIENT_ADD_RECIPE_FORM,
   }),
-  addRecipeFormUpdateIngredient: (ingredient: NewIngredient): Actions[typeof ADD_RECIPE_FORM_UPDATE_INGREDIENT] => ({
-    type: ADD_RECIPE_FORM_UPDATE_INGREDIENT,
+  updateIngredientInAddRecipeForm: (ingredient: NewIngredient): Actions[typeof UPDATE_INGREDIENT_ADD_RECIPE_FORM] => ({
+    type: UPDATE_INGREDIENT_ADD_RECIPE_FORM,
     ingredient,
   }),
 };
@@ -100,7 +100,7 @@ export const reducer = (
     case UPDATE_RECIPES_SEARCH_INPUT_TEXT: {
       return { ...state, recipesList: { ...state.recipesList, searchInput: { text: action.text } } };
     }
-    case ADD_RECIPE_FORM_UPDATE_NAME: {
+    case UPDATE_NAME_ADD_RECIPE_FORM: {
       const { name } = action;
       return {
         ...state,
@@ -110,7 +110,7 @@ export const reducer = (
         },
       };
     }
-    case ADD_RECIPE_FORM_UPDATE_DESCRIPTION: {
+    case UPDATE_DESCRIPTION_ADD_RECIPE_FORM: {
       const { description } = action;
       return {
         ...state,
@@ -120,7 +120,7 @@ export const reducer = (
         },
       };
     }
-    case ADD_RECIPE_FORM_UPDATE_INGREDIENT: {
+    case UPDATE_INGREDIENT_ADD_RECIPE_FORM: {
       const { ingredient } = action;
       return {
         ...state,
