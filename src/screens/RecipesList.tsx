@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
-import { Colors } from '../assets/constants';
+import { navigatorStyle, navigatorConfig } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
 
@@ -17,7 +17,7 @@ interface Props {
 class RecipesList extends Component<Props, any> {
   componentDidMount() {
     this.props.navigator.setStyle({
-      navBarBackgroundColor: Colors.primaryColor,
+      ...navigatorStyle,
       navBarCustomView: 'recipeBrowser.RecipesListTopBar',
       navBarComponentAlignment: 'center',
       navBarCustomViewInitialProps: {},
@@ -25,8 +25,14 @@ class RecipesList extends Component<Props, any> {
     this.props.fetchRecipes();
   }
 
-  onPressRecipe = (recipeId: number) => {
-    console.log('on press recipe: ', recipeId);
+  onPressRecipe = (recipe: Recipe) => {
+    console.log('on press recipe: ', recipe.id);
+    this.props.navigator.push({
+      ...navigatorConfig,
+      screen: 'recipeBrowser.RecipeDetail',
+      title: recipe.name,
+      passProps: { recipeId: recipe.id },
+    });
   };
 
   render() {

@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 
 import configureStore from './redux';
 import { registerScreens } from './screens';
-import { Colors } from './assets/constants';
+import { navigatorStyle } from './assets/constants';
 
 const store = configureStore();
 registerScreens(store, Provider);
@@ -19,7 +19,7 @@ class App extends Component {
     Navigation.startSingleScreenApp({
       screen: {
         screen: 'recipeBrowser.RecipesList',
-        navBarBackgroundColor: Colors.primaryColor,
+        ...navigatorStyle,
       },
       appStyle: {
         keepStyleAcrossPush: false,
