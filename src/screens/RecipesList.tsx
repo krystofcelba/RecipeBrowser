@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { KeyboardAvoidingView, StyleSheet, FlatList, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import ActionButton from 'react-native-action-button';
 
 import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
-import { navigatorStyle, navigatorConfig, StylesConstants } from '../assets/constants';
+import { navigatorStyle, navigatorConfig, StylesConstants, Colors } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
 
@@ -35,6 +36,10 @@ class RecipesList extends Component<Props, any> {
     });
   };
 
+  onPressAddButton = () => {
+    console.log('on press add button');
+  };
+
   render() {
     const { recipes } = this.props;
     console.log(this.props.recipes);
@@ -49,6 +54,7 @@ class RecipesList extends Component<Props, any> {
           keyExtractor={item => item.id}
           renderItem={({ item }) => <RecipeCard recipe={item as Recipe} onPress={this.onPressRecipe} />}
         />
+        <ActionButton buttonColor={Colors.secondaryColor} onPress={this.onPressAddButton} hideShadow />
       </KeyboardAvoidingView>
     );
   }
