@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
+import { Navigation } from 'react-native-navigation';
 
 import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
+import { Colors } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
+import SearchTopBar from '../components/recipes-list/SearchTopBar';
+
+Navigation.registerComponent('recipeBrowser.TopBar', () => SearchTopBar);
 
 interface Props {
+  navigator: any;
   fetchRecipes: typeof actionCreators.fetchRecipes;
   recipes: [Recipe];
 }
 
 class RecipesList extends Component<Props, any> {
   componentDidMount() {
+    this.props.navigator.setStyle({
+      navBarBackgroundColor: Colors.primaryColor,
+      navBarCustomView: 'recipeBrowser.TopBar',
+      navBarComponentAlignment: 'center',
+      navBarCustomViewInitialProps: {},
+    });
     this.props.fetchRecipes();
   }
 
