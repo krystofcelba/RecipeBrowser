@@ -12,12 +12,15 @@ export class Colors {
   static searchBarTextColor = 'rgba(255, 255, 255, 1.0)';
 
   static primaryTextColor = '#000000';
+
+  static formButtonCellColor = '#007AFF';
 }
 
 export class StylesConstants {
   static defaultMargin = 10;
   static fontFamily = 'Avenir';
   static detailBoxHeadingFontSize = 20;
+  static inputFontSize = 15;
 }
 
 export const navigatorStyle = {

@@ -6,7 +6,7 @@ import { BASE_URL } from '../assets/constants';
 export type Ingredient = { name: string; amount: number; unit: string };
 
 export type Recipe = {
-  id: number;
+  id?: number;
   name: string;
   description: string;
   image: string;

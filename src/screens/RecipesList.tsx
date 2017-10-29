@@ -8,6 +8,7 @@ import { Recipe } from '../services/api';
 import { navigatorStyle, navigatorConfig, StylesConstants, Colors } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
+import i18n from '../assets/i18n';
 
 interface Props {
   navigator: any;
@@ -37,7 +38,11 @@ class RecipesList extends Component<Props, any> {
   };
 
   onPressAddButton = () => {
-    console.log('on press add button');
+    this.props.navigator.showModal({
+      ...navigatorConfig,
+      screen: 'recipeBrowser.NewRecipeForm',
+      title: i18n.t('addRecipe'),
+    });
   };
 
   render() {
