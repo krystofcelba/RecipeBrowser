@@ -23,7 +23,7 @@ export const actionCreators = {
   }),
 };
 
-interface RecipesHash {
+export interface RecipesHash {
   [id: number]: Recipe;
 }
 
@@ -45,10 +45,23 @@ export const reducer = (
       return {
         ...state,
         recipesById: recipes.map(recipe => recipe.id) as [number],
-        recipes: recipes.reduce((recipesHash, recipe) => ({ ...recipesHash, [recipe.id]: recipe }), {}),
+        recipes: recipes.reduce(
+          (recipesHash, recipe) => ({
+            ...recipesHash,
+            [recipe.id]: {
+              ...recipe,
+              ingredientsNames: concatIngredientsNames(recipe),
+            },
+          }),
+          {},
+        ),
         loading: false,
       };
     default:
       return state;
   }
+};
+
+export const concatIngredientsNames = (recipe: Recipe) => {
+  return recipe.ingredients.reduce((str, ingredient) => `${str}${ingredient.name};`, '').toLowerCase();
 };
