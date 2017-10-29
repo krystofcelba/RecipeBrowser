@@ -7,11 +7,11 @@ export function generateId() {
   return date.valueOf();
 }
 
-export function* addNewIngredientToNewRecipeForm() {
+export function* addNewIngredientToAddRecipeForm() {
   const id: number = yield call(generateId);
   yield put(actionCreators.addRecipeFormUpdateIngredient({ id, name: '', amount: '0', unit: '' }));
 }
 
 export default function* root() {
-  yield takeEvery(ADD_RECIPE_FORM_ADD_INGREDIENT, addNewIngredientToNewRecipeForm);
+  yield takeEvery(ADD_RECIPE_FORM_ADD_INGREDIENT, addNewIngredientToAddRecipeForm);
 }

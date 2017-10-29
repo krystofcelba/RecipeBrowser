@@ -20,7 +20,7 @@ interface Props {
   updateDescription: typeof actionCreators.addRecipeFormUpdateDescription;
 }
 
-class NewRecipeForm extends Component<Props> {
+class AddRecipeForm extends Component<Props> {
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
@@ -107,4 +107,4 @@ const mapDispatchToProps = {
   updateIngredient: actionCreators.addRecipeFormUpdateIngredient,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewRecipeForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);

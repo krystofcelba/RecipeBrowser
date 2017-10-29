@@ -40,7 +40,7 @@ class RecipesList extends Component<Props, any> {
   onPressAddButton = () => {
     this.props.navigator.showModal({
       ...navigatorConfig,
-      screen: 'recipeBrowser.NewRecipeForm',
+      screen: 'recipeBrowser.AddRecipeForm',
       title: i18n.t('addRecipe'),
     });
   };
