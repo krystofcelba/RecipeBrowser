@@ -10,6 +10,8 @@ const strings = {
   addIngredient: 'Add Ingredient',
   amount: 'Amount',
   unit: 'Unit',
+  seasoning: 'Seasoning',
+  seasonings: 'Seasonings',
 };
 
 export default strings;

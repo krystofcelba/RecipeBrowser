@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { Cell } from 'react-native-tableview-simple';
 
-import { StylesConstants } from '../../assets/constants';
 import { NewIngredient } from '../../redux/reducers/ui';
 import Input from './Input';
 import i18n from '../../assets/i18n';

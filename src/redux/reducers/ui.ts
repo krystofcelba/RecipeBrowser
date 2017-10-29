@@ -4,6 +4,8 @@ export const UPDATE_NAME_ADD_RECIPE_FORM = 'UPDATE_NAME_ADD_RECIPE_FORM';
 export const UPDATE_DESCRIPTION_ADD_RECIPE_FORM = 'UPDATE_DESCRIPTION_ADD_RECIPE_FORM';
 export const ADD_INGREDIENT_ADD_RECIPE_FORM = 'ADD_INGREDIENT_ADD_RECIPE_FORM';
 export const UPDATE_INGREDIENT_ADD_RECIPE_FORM = 'UPDATE_INGREDIENT_ADD_RECIPE_FORM';
+export const ADD_SEASONING_ADD_RECIPE_FORM = 'ADD_SEASONING_ADD_RECIPE_FORM';
+export const UPDATE_SEASONING_ADD_RECIPE_FORM = 'UPDATE_SEASONING_ADD_RECIPE_FORM';
 
 export interface NewIngredient {
   id: number;
@@ -50,6 +52,13 @@ export type Actions = {
     type: typeof UPDATE_INGREDIENT_ADD_RECIPE_FORM;
     ingredient: NewIngredient;
   };
+  ADD_SEASONING_ADD_RECIPE_FORM: {
+    type: typeof ADD_SEASONING_ADD_RECIPE_FORM;
+  };
+  UPDATE_SEASONING_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_SEASONING_ADD_RECIPE_FORM;
+    seasoning: NewSeasoning;
+  };
 };
 
 export const actionCreators = {
@@ -71,6 +80,13 @@ export const actionCreators = {
   updateIngredientInAddRecipeForm: (ingredient: NewIngredient): Actions[typeof UPDATE_INGREDIENT_ADD_RECIPE_FORM] => ({
     type: UPDATE_INGREDIENT_ADD_RECIPE_FORM,
     ingredient,
+  }),
+  addSeasoningToAddRecipeForm: (): Actions[typeof ADD_SEASONING_ADD_RECIPE_FORM] => ({
+    type: ADD_SEASONING_ADD_RECIPE_FORM,
+  }),
+  updateSeasoningInAddRecipeForm: (seasoning: NewSeasoning): Actions[typeof UPDATE_SEASONING_ADD_RECIPE_FORM] => ({
+    type: UPDATE_SEASONING_ADD_RECIPE_FORM,
+    seasoning,
   }),
 };
 
@@ -127,6 +143,16 @@ export const reducer = (
         addRecipeForm: {
           ...state.addRecipeForm,
           newRecipe: { ...newRecipe, ingredients: { ...newRecipe.ingredients, [ingredient.id]: ingredient } },
+        },
+      };
+    }
+    case UPDATE_SEASONING_ADD_RECIPE_FORM: {
+      const { seasoning } = action;
+      return {
+        ...state,
+        addRecipeForm: {
+          ...state.addRecipeForm,
+          newRecipe: { ...newRecipe, seasonings: { ...newRecipe.seasonings, [seasoning.id]: seasoning } },
         },
       };
     }

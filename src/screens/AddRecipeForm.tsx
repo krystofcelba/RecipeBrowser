@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, View, StyleSheet, Text, TextInput } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Cell, Section, TableView } from 'react-native-tableview-simple';
+import { Section, TableView } from 'react-native-tableview-simple';
 
-import { Colors, StylesConstants } from '../assets/constants';
 import i18n from '../assets/i18n';
 import FormInputCell from '../components/new-recipe-form/FormInputCell';
 import FormButtonCell from '../components/new-recipe-form/FormButtonCell';
 import FormIngredientCell from '../components/new-recipe-form/FormIngredientCell';
+import FormSeasoningCell from '../components/new-recipe-form/FormSeasoningCell';
 import { actionCreators, NewRecipe } from '../redux/reducers/ui';
 
 interface Props {
   navigator: any;
   newRecipe: NewRecipe;
   canBeSubmitted: boolean;
-  addIngredient: typeof actionCreators.addIngredientToAddRecipeForm;
-  updateIngredient: typeof actionCreators.updateIngredientInAddRecipeForm;
   updateName: typeof actionCreators.updateNameInAddRecipeForm;
   updateDescription: typeof actionCreators.updateDescriptionInAddRecipeForm;
+  addIngredient: typeof actionCreators.addIngredientToAddRecipeForm;
+  updateIngredient: typeof actionCreators.updateIngredientInAddRecipeForm;
+  addSeasoning: typeof actionCreators.addSeasoningToAddRecipeForm;
+  updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
 }
 
 class AddRecipeForm extends Component<Props> {
@@ -58,11 +60,13 @@ class AddRecipeForm extends Component<Props> {
 
   render() {
     const {
-      newRecipe: { name, description, ingredients },
+      newRecipe: { name, description, ingredients, seasonings },
       updateName,
       updateDescription,
       addIngredient,
       updateIngredient,
+      addSeasoning,
+      updateSeasoning,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -83,6 +87,12 @@ class AddRecipeForm extends Component<Props> {
                 return <FormIngredientCell key={id} ingredient={ingredient} onChange={updateIngredient} />;
               })}
               <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addIngredient} />
+            </Section>
+            <Section header={i18n.t('seasonings')}>
+              {Object.keys(seasonings).map(id => {
+                return <FormSeasoningCell key={id} seasoning={seasonings[id]} onChange={updateSeasoning} />;
+              })}
+              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addSeasoning} />
             </Section>
           </TableView>
         </ScrollView>
@@ -105,6 +115,8 @@ const mapDispatchToProps = {
   updateDescription: actionCreators.updateDescriptionInAddRecipeForm,
   addIngredient: actionCreators.addIngredientToAddRecipeForm,
   updateIngredient: actionCreators.updateIngredientInAddRecipeForm,
+  addSeasoning: actionCreators.addSeasoningToAddRecipeForm,
+  updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);
