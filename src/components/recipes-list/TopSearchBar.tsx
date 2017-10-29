@@ -11,7 +11,7 @@ interface Props {
   updateRecipesSearchInputText: typeof actionCreators.updateRecipesSearchInputText;
 }
 
-const SearchTopBar = ({ updateRecipesSearchInputText }: Props) => (
+const TopSearchBar = ({ updateRecipesSearchInputText }: Props) => (
   <View style={styles.container}>
     <SearchBar
       lightTheme
@@ -49,4 +49,4 @@ const mapDispatchToProps = {
   updateRecipesSearchInputText: actionCreators.updateRecipesSearchInputText,
 };
 
-export default connect(undefined, mapDispatchToProps)(SearchTopBar);
+export default connect(undefined, mapDispatchToProps)(TopSearchBar);
