@@ -3,16 +3,17 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { Recipe } from 'src/services/api';
+import { StylesConstants } from 'src/assets/constants';
 
 interface Props {
   recipe: Recipe;
-  onPress: (recipeId: number) => void;
+  onPress: (recipe: Recipe) => void;
 }
 
 class RecipeCard extends React.PureComponent<Props> {
   onPress = () => {
     const { recipe, onPress } = this.props;
-    onPress(recipe.id);
+    onPress(recipe);
   };
 
   render() {
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     fontWeight: 'bold',
+    fontFamily: StylesConstants.fontFamily,
   },
 });
 
