@@ -44,7 +44,6 @@ const componentsMargin = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 15,
   },
   recipeImage: {
     width: '100%',
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     paddingBottom: StylesConstants.defaultMargin / 2,
     ...componentsMargin,
   },
-  recipesInfoContainer: {},
+  recipesInfoContainer: { paddingBottom: StylesConstants.defaultMargin * 1.5 },
 });
 
 const mapStateToProps = (state, { recipeId }) => ({ recipe: getRecipe(state, recipeId) });

@@ -8,7 +8,7 @@ export class Colors {
 
   static topBarTextColor = '#ffff';
   static searchBarPlaceholderTextColor = 'rgba(255, 255, 255, 0.3)';
-  static searchBarTextColor = 'rgba(255, 255, 255, 0.8)';
+  static searchBarTextColor = 'rgba(255, 255, 255, 1.0)';
 
   static primaryTextColor = '#000000';
 }
@@ -25,6 +25,7 @@ export const navigatorStyle = {
   navBarBackgroundColor: Colors.primaryColor,
   navBarTextColor: Colors.topBarTextColor,
   navBarButtonColor: Colors.topBarTextColor,
+  navBarTextFontFamily: StylesConstants.fontFamily,
 };
 
 export const navigatorConfig = {

@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { Recipe } from 'src/services/api';
+import { StylesConstants } from 'src/assets/constants';
 
 interface Props {
   recipe: Recipe;
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     fontWeight: 'bold',
+    fontFamily: StylesConstants.fontFamily,
   },
 });
 

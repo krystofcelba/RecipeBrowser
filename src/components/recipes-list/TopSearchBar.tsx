@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 
-import { Colors } from 'src/assets/constants';
+import { Colors, StylesConstants } from 'src/assets/constants';
 import i18n from 'src/assets/i18n';
 import { SearchBar } from 'react-native-elements';
 import { actionCreators } from 'src/redux/reducers/ui';
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   searchBarInput: {
     backgroundColor: Colors.darkPrimaryColor,
     color: Colors.searchBarTextColor,
+    fontFamily: StylesConstants.fontFamily,
   },
 });
 

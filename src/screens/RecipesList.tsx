@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
-import { navigatorStyle, navigatorConfig } from '../assets/constants';
+import { navigatorStyle, navigatorConfig, StylesConstants } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
 
@@ -57,7 +57,7 @@ class RecipesList extends Component<Props, any> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 15,
+    marginBottom: StylesConstants.defaultMargin * 1.5,
   },
 });
 
