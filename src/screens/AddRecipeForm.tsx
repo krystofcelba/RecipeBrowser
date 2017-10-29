@@ -23,6 +23,7 @@ interface Props {
   updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
   addStep: typeof actionCreators.addStepToAddRecipeForm;
   updateStep: typeof actionCreators.updateStepInAddRecipeForm;
+  resetForm: typeof actionCreators.resetAddRecipeForm;
 }
 
 class AddRecipeForm extends Component<Props> {
@@ -49,9 +50,10 @@ class AddRecipeForm extends Component<Props> {
 
   onNavigatorEvent = event => {
     if (event.type === 'NavBarButtonPress') {
-      const { navigator } = this.props;
+      const { navigator, resetForm } = this.props;
       switch (event.id) {
         case 'cancel':
+          resetForm();
           navigator.dismissModal();
           break;
 
@@ -130,6 +132,7 @@ const mapDispatchToProps = {
   updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
   addStep: actionCreators.addStepToAddRecipeForm,
   updateStep: actionCreators.updateStepInAddRecipeForm,
+  resetForm: actionCreators.resetAddRecipeForm,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);
