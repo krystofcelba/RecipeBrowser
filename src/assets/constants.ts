@@ -4,7 +4,8 @@ export class Colors {
   static primaryColor = '#81b640';
   static darkPrimaryColor = '#508607';
 
-  static ingredientsBoxBackgroundColor = '#FBE9E7';
+  static secondaryColor = '#FF5722';
+  static lightSecondaryColor = '#FBE9E7';
 
   static topBarTextColor = '#ffff';
   static searchBarPlaceholderTextColor = 'rgba(255, 255, 255, 0.3)';

@@ -28,7 +28,7 @@ class RecipeDetail extends Component<Props> {
             </Text>
             <Text style={styles.description}>{description}</Text>
             <IngredientsBox style={styles.ingredientsBox} ingredients={ingredients} seasonings={seasonings} />
-            <StepsBox style={styles.ingredientsBox} steps={steps} />
+            <StepsBox style={styles.stepsBox} steps={steps} />
           </View>
         </ScrollView>
       </View>
@@ -61,6 +61,12 @@ const styles = StyleSheet.create({
     fontFamily: StylesConstants.fontFamily,
   },
   ingredientsBox: {
+    paddingTop: StylesConstants.defaultMargin / 2,
+    paddingBottom: StylesConstants.defaultMargin / 2,
+    backgroundColor: Colors.lightSecondaryColor,
+    ...componentsMargin,
+  },
+  stepsBox: {
     paddingTop: StylesConstants.defaultMargin / 2,
     paddingBottom: StylesConstants.defaultMargin / 2,
     ...componentsMargin,
