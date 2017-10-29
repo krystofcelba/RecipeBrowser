@@ -6,6 +6,8 @@ export const ADD_INGREDIENT_ADD_RECIPE_FORM = 'ADD_INGREDIENT_ADD_RECIPE_FORM';
 export const UPDATE_INGREDIENT_ADD_RECIPE_FORM = 'UPDATE_INGREDIENT_ADD_RECIPE_FORM';
 export const ADD_SEASONING_ADD_RECIPE_FORM = 'ADD_SEASONING_ADD_RECIPE_FORM';
 export const UPDATE_SEASONING_ADD_RECIPE_FORM = 'UPDATE_SEASONING_ADD_RECIPE_FORM';
+export const ADD_STEP_ADD_RECIPE_FORM = 'ADD_STEP_ADD_RECIPE_FORM';
+export const UPDATE_STEP_ADD_RECIPE_FORM = 'UPDATE_STEP_ADD_RECIPE_FORM';
 
 export interface NewIngredient {
   id: number;
@@ -59,6 +61,13 @@ export type Actions = {
     type: typeof UPDATE_SEASONING_ADD_RECIPE_FORM;
     seasoning: NewSeasoning;
   };
+  ADD_STEP_ADD_RECIPE_FORM: {
+    type: typeof ADD_STEP_ADD_RECIPE_FORM;
+  };
+  UPDATE_STEP_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_STEP_ADD_RECIPE_FORM;
+    step: NewStep;
+  };
 };
 
 export const actionCreators = {
@@ -87,6 +96,13 @@ export const actionCreators = {
   updateSeasoningInAddRecipeForm: (seasoning: NewSeasoning): Actions[typeof UPDATE_SEASONING_ADD_RECIPE_FORM] => ({
     type: UPDATE_SEASONING_ADD_RECIPE_FORM,
     seasoning,
+  }),
+  addStepToAddRecipeForm: (): Actions[typeof ADD_STEP_ADD_RECIPE_FORM] => ({
+    type: ADD_STEP_ADD_RECIPE_FORM,
+  }),
+  updateStepInAddRecipeForm: (step: NewStep): Actions[typeof UPDATE_STEP_ADD_RECIPE_FORM] => ({
+    type: UPDATE_STEP_ADD_RECIPE_FORM,
+    step,
   }),
 };
 
@@ -153,6 +169,16 @@ export const reducer = (
         addRecipeForm: {
           ...state.addRecipeForm,
           newRecipe: { ...newRecipe, seasonings: { ...newRecipe.seasonings, [seasoning.id]: seasoning } },
+        },
+      };
+    }
+    case UPDATE_STEP_ADD_RECIPE_FORM: {
+      const { step } = action;
+      return {
+        ...state,
+        addRecipeForm: {
+          ...state.addRecipeForm,
+          newRecipe: { ...newRecipe, steps: { ...newRecipe.steps, [step.id]: step } },
         },
       };
     }

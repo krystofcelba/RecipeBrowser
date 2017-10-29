@@ -1,6 +1,11 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 
-import { actionCreators, ADD_INGREDIENT_ADD_RECIPE_FORM, ADD_SEASONING_ADD_RECIPE_FORM } from '../reducers/ui';
+import {
+  actionCreators,
+  ADD_INGREDIENT_ADD_RECIPE_FORM,
+  ADD_SEASONING_ADD_RECIPE_FORM,
+  ADD_STEP_ADD_RECIPE_FORM,
+} from '../reducers/ui';
 
 export function generateId() {
   const date = new Date();
@@ -17,7 +22,13 @@ export function* addNewSeasoningToAddRecipeForm() {
   yield put(actionCreators.updateSeasoningInAddRecipeForm({ id, seasoning: '' }));
 }
 
+export function* addNewStepToAddRecipeForm() {
+  const id: number = yield call(generateId);
+  yield put(actionCreators.updateStepInAddRecipeForm({ id, step: '' }));
+}
+
 export default function* root() {
   yield takeEvery(ADD_INGREDIENT_ADD_RECIPE_FORM, addNewIngredientToAddRecipeForm);
   yield takeEvery(ADD_SEASONING_ADD_RECIPE_FORM, addNewSeasoningToAddRecipeForm);
+  yield takeEvery(ADD_STEP_ADD_RECIPE_FORM, addNewStepToAddRecipeForm);
 }

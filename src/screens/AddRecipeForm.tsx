@@ -8,6 +8,7 @@ import FormInputCell from '../components/new-recipe-form/FormInputCell';
 import FormButtonCell from '../components/new-recipe-form/FormButtonCell';
 import FormIngredientCell from '../components/new-recipe-form/FormIngredientCell';
 import FormSeasoningCell from '../components/new-recipe-form/FormSeasoningCell';
+import FormStepCell from '../components/new-recipe-form/FormStepCell';
 import { actionCreators, NewRecipe } from '../redux/reducers/ui';
 
 interface Props {
@@ -20,6 +21,8 @@ interface Props {
   updateIngredient: typeof actionCreators.updateIngredientInAddRecipeForm;
   addSeasoning: typeof actionCreators.addSeasoningToAddRecipeForm;
   updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
+  addStep: typeof actionCreators.addStepToAddRecipeForm;
+  updateStep: typeof actionCreators.updateStepInAddRecipeForm;
 }
 
 class AddRecipeForm extends Component<Props> {
@@ -60,13 +63,15 @@ class AddRecipeForm extends Component<Props> {
 
   render() {
     const {
-      newRecipe: { name, description, ingredients, seasonings },
+      newRecipe: { name, description, ingredients, seasonings, steps },
       updateName,
       updateDescription,
       addIngredient,
       updateIngredient,
       addSeasoning,
       updateSeasoning,
+      addStep,
+      updateStep,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -94,6 +99,12 @@ class AddRecipeForm extends Component<Props> {
               })}
               <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addSeasoning} />
             </Section>
+            <Section header={i18n.t('steps')}>
+              {Object.keys(steps).map(id => {
+                return <FormStepCell key={id} step={steps[id]} onChange={updateStep} />;
+              })}
+              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addStep} />
+            </Section>
           </TableView>
         </ScrollView>
       </View>
@@ -117,6 +128,8 @@ const mapDispatchToProps = {
   updateIngredient: actionCreators.updateIngredientInAddRecipeForm,
   addSeasoning: actionCreators.addSeasoningToAddRecipeForm,
   updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
+  addStep: actionCreators.addStepToAddRecipeForm,
+  updateStep: actionCreators.updateStepInAddRecipeForm,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);

@@ -12,6 +12,7 @@ const strings = {
   unit: 'Unit',
   seasoning: 'Seasoning',
   seasonings: 'Seasonings',
+  step: 'Step',
 };
 
 export default strings;
