@@ -5,7 +5,7 @@ import { BASE_URL } from '../assets/constants';
 
 export type Ingredient = { name: string; amount: number; unit: string };
 
-export type Recipe = {
+export interface Recipe {
   id?: number;
   name: string;
   description: string;
@@ -14,7 +14,7 @@ export type Recipe = {
   seasonings: [string];
   steps: [string];
   ingredientsNames?: string;
-};
+}
 
 export const formatApiUrl = path => `${BASE_URL}${path}`;
 

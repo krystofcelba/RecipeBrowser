@@ -1,24 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Cell } from 'react-native-tableview-simple';
 
 import { StylesConstants } from '../../assets/constants';
+import Input from './Input';
 
 interface Props {
   placeholder: string;
   numberOfLines?: number;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 
-const FormInputCell = ({ placeholder, numberOfLines = 1 }: Props) => (
+const FormInputCell = (props: Props) => (
   <Cell
     cellContentView={
       <View style={styles.container}>
-        <TextInput
-          numberOfLines={numberOfLines}
-          style={[styles.input, { height: numberOfLines * StylesConstants.inputFontSize }]}
-          placeholder={placeholder}
-          multiline={numberOfLines > 1}
-        />
+        <Input {...props} />
       </View>
     }
   />

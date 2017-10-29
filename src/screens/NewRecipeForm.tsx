@@ -3,18 +3,21 @@ import { ScrollView, Image, View, StyleSheet, Text, TextInput } from 'react-nati
 import { connect } from 'react-redux';
 import { Cell, Section, TableView } from 'react-native-tableview-simple';
 
-import { Recipe, Ingredient } from '../services/api';
 import { Colors, StylesConstants } from '../assets/constants';
 import i18n from '../assets/i18n';
 import FormInputCell from '../components/new-recipe-form/FormInputCell';
 import FormButtonCell from '../components/new-recipe-form/FormButtonCell';
-import { actionCreators } from '../redux/reducers/ui';
+import FormIngredientCell from '../components/new-recipe-form/FormIngredientCell';
+import { actionCreators, NewRecipe } from '../redux/reducers/ui';
 
 interface Props {
   navigator: any;
-  recipe: Recipe;
+  newRecipe: NewRecipe;
   canBeSubmitted: boolean;
-  addIngredient: (ingredient: Ingredient) => void;
+  addIngredient: typeof actionCreators.addRecipeFormAddIngredient;
+  updateIngredient: typeof actionCreators.addRecipeFormUpdateIngredient;
+  updateName: typeof actionCreators.addRecipeFormUpdateName;
+  updateDescription: typeof actionCreators.addRecipeFormUpdateDescription;
 }
 
 class NewRecipeForm extends Component<Props> {
@@ -38,9 +41,6 @@ class NewRecipeForm extends Component<Props> {
       },
     ],
   };
-  onAddIngredientCellPress = () => {
-    this.props.addIngredient({ name: 'test', amount: 1, unit: 'kg' });
-  };
 
   onNavigatorEvent = event => {
     if (event.type === 'NavBarButtonPress') {
@@ -57,18 +57,32 @@ class NewRecipeForm extends Component<Props> {
   };
 
   render() {
-    const { recipe: { ingredients } } = this.props;
+    const {
+      newRecipe: { name, description, ingredients },
+      updateName,
+      updateDescription,
+      addIngredient,
+      updateIngredient,
+    } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
           <TableView>
             <Section>
-              <FormInputCell placeholder={i18n.t('name')} />
-              <FormInputCell placeholder={i18n.t('description')} numberOfLines={4} />
+              <FormInputCell placeholder={i18n.t('name')} value={name} onChangeText={updateName} />
+              <FormInputCell
+                placeholder={i18n.t('description')}
+                numberOfLines={4}
+                value={description}
+                onChangeText={updateDescription}
+              />
             </Section>
             <Section header={i18n.t('ingredients')}>
-              {ingredients.map((ingredient, i) => <Cell key={i} title={ingredient.name} />)}
-              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={this.onAddIngredientCellPress} />
+              {Object.keys(ingredients).map(id => {
+                const ingredient = ingredients[id];
+                return <FormIngredientCell key={id} ingredient={ingredient} onChange={updateIngredient} />;
+              })}
+              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addIngredient} />
             </Section>
           </TableView>
         </ScrollView>
@@ -84,10 +98,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({ ui: { addRecipeForm: { recipe, canBeSubmitted } } }) => ({ recipe, canBeSubmitted });
+const mapStateToProps = ({ ui: { addRecipeForm: { newRecipe, canBeSubmitted } } }) => ({ newRecipe, canBeSubmitted });
 
 const mapDispatchToProps = {
+  updateName: actionCreators.addRecipeFormUpdateName,
+  updateDescription: actionCreators.addRecipeFormUpdateDescription,
   addIngredient: actionCreators.addRecipeFormAddIngredient,
+  updateIngredient: actionCreators.addRecipeFormUpdateIngredient,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewRecipeForm);
