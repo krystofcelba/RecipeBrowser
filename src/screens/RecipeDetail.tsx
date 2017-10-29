@@ -5,7 +5,9 @@ import { Text } from 'react-native-elements';
 
 import { Recipe } from '../services/api';
 import { getRecipe } from '../redux/selectors';
-import { Colors, Dimensions } from '../assets/constants';
+import { Colors, StylesConstants } from '../assets/constants';
+import IngredientsBox from '../components/recipe-detail/IngredientsBox';
+import StepsBox from '../components/recipe-detail/StepsBox';
 
 interface Props {
   navigator: any;
@@ -15,16 +17,19 @@ interface Props {
 
 class RecipeDetail extends Component<Props> {
   render() {
-    const { recipe } = this.props;
-    console.log(recipe);
+    const { recipe: { image, name, description, ingredients, seasonings, steps } } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Image style={styles.recipeImage} source={{ uri: recipe.image }} resizeMode="cover" />
-          <Text style={styles.title} h3>
-            {recipe.name}
-          </Text>
-          <Text style={styles.description}>{recipe.description}</Text>
+          <Image style={styles.recipeImage} source={{ uri: image }} resizeMode="cover" />
+          <View style={styles.recipesInfoContainer}>
+            <Text style={styles.title} h3>
+              {name}
+            </Text>
+            <Text style={styles.description}>{description}</Text>
+            <IngredientsBox style={styles.ingredientsBox} ingredients={ingredients} seasonings={seasonings} />
+            <StepsBox style={styles.ingredientsBox} steps={steps} />
+          </View>
         </ScrollView>
       </View>
     );
@@ -32,9 +37,8 @@ class RecipeDetail extends Component<Props> {
 }
 
 const componentsMargin = {
-  marginLeft: Dimensions.defaultMargin,
-  marginRight: Dimensions.defaultMargin,
-  marginBottom: Dimensions.defaultMargin,
+  paddingLeft: StylesConstants.defaultMargin,
+  paddingRight: StylesConstants.defaultMargin * 2,
 };
 
 const styles = StyleSheet.create({
@@ -45,15 +49,24 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     height: 220,
-    marginBottom: Dimensions.defaultMargin,
+    marginBottom: StylesConstants.defaultMargin,
   },
   title: {
     ...componentsMargin,
     color: Colors.primaryTextColor,
+    fontFamily: StylesConstants.fontFamily,
   },
   description: {
     ...componentsMargin,
+    marginBottom: StylesConstants.defaultMargin / 2,
+    fontFamily: StylesConstants.fontFamily,
   },
+  ingredientsBox: {
+    paddingTop: StylesConstants.defaultMargin / 2,
+    paddingBottom: StylesConstants.defaultMargin / 2,
+    ...componentsMargin,
+  },
+  recipesInfoContainer: {},
 });
 
 const mapStateToProps = (state, { recipeId }) => ({ recipe: getRecipe(state, recipeId) });
