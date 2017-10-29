@@ -11,6 +11,7 @@ export type Recipe = {
   ingredients: [{ name: string; amount: number; unit: string }];
   seasonings: [string];
   steps: [string];
+  ingredientsNames?: string;
 };
 
 export const formatApiUrl = path => `${BASE_URL}${path}`;

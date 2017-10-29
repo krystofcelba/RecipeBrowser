@@ -1,6 +1,13 @@
 import { Reducer } from 'redux-testkit';
 
-import { reducer, actionCreators, FETCH_RECIPES, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_FAILED } from '../recipes';
+import {
+  reducer,
+  actionCreators,
+  concatIngredientsNames,
+  FETCH_RECIPES,
+  FETCH_RECIPES_SUCCESS,
+  FETCH_RECIPES_FAILED,
+} from '../recipes';
 import { Recipe } from 'src/services/api';
 
 const mockedRecipes = require('../../../services/__mockData__/recipes.json');
@@ -30,14 +37,27 @@ describe('recipes reducer', () => {
   });
 
   it('should handle FETCH_RECIPES_SUCESS action', () => {
-    const action = { type: FETCH_RECIPES_SUCCESS, recipes: mockedRecipes };
+    const recipe = mockedRecipes[0];
+    const action = { type: FETCH_RECIPES_SUCCESS, recipes: [recipe] };
     const result = {
-      recipesById: [mockedRecipes[0].id],
-      recipes: { [mockedRecipes[0].id]: mockedRecipes[0] },
+      recipesById: [recipe.id],
+      recipes: {
+        [recipe.id]: {
+          ...recipe,
+          ingredientsNames: concatIngredientsNames(recipe),
+        },
+      },
       loading: false,
     };
     Reducer(reducer)
       .expect(action)
       .toReturnState(result);
   });
+});
+
+it('should format concat recipe ingredients to simple searchable string', () => {
+  const recipe = mockedRecipes[0];
+  expect(concatIngredientsNames(recipe)).toBe(
+    recipe.ingredients.reduce((str, ingredient) => `${str}${ingredient.name};`, '').toLowerCase(),
+  );
 });
