@@ -6,12 +6,14 @@ import { Colors } from 'src/assets/constants';
 import i18n from 'src/assets/i18n';
 import { SearchBar } from 'react-native-elements';
 import { actionCreators } from 'src/redux/reducers/ui';
+import { getRecipesSearchInputText } from 'src/redux/selectors';
 
 interface Props {
   updateRecipesSearchInputText: typeof actionCreators.updateRecipesSearchInputText;
+  showClearIcon?: boolean;
 }
 
-const TopSearchBar = ({ updateRecipesSearchInputText }: Props) => (
+const TopSearchBar = ({ updateRecipesSearchInputText, showClearIcon = false }: Props) => (
   <View style={styles.container}>
     <SearchBar
       lightTheme
@@ -23,6 +25,7 @@ const TopSearchBar = ({ updateRecipesSearchInputText }: Props) => (
       placeholderTextColor={Colors.searchBarPlaceholderTextColor}
       selectionColor={Colors.searchBarTextColor}
       icon={{ color: Colors.searchBarPlaceholderTextColor, name: 'search' }}
+      clearIcon={showClearIcon ? { color: Colors.searchBarPlaceholderTextColor, name: 'clear' } : undefined}
     />
   </View>
 );
@@ -45,8 +48,10 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = state => ({ showClearIcon: getRecipesSearchInputText(state).length });
+
 const mapDispatchToProps = {
   updateRecipesSearchInputText: actionCreators.updateRecipesSearchInputText,
 };
 
-export default connect(undefined, mapDispatchToProps)(TopSearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(TopSearchBar);
