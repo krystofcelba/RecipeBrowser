@@ -31,4 +31,8 @@ describe('recipes selectors', () => {
     const stateWithSearchString = reducer(state, uiActionCreators.updateRecipesSearchInputText('Grape'));
     expect(selectors.getFilteredRecipes(stateWithSearchString)).toEqual([state.recipes.recipes[31]]);
   });
+
+  it('should get recipe with id', () => {
+    expect(selectors.getRecipe(state, 31)).toEqual(state.recipes.recipes[31]);
+  });
 });

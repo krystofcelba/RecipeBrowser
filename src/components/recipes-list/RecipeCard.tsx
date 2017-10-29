@@ -6,13 +6,13 @@ import { Recipe } from 'src/services/api';
 
 interface Props {
   recipe: Recipe;
-  onPress: (recipeId: number) => void;
+  onPress: (recipe: Recipe) => void;
 }
 
 class RecipeCard extends React.PureComponent<Props> {
   onPress = () => {
     const { recipe, onPress } = this.props;
-    onPress(recipe.id);
+    onPress(recipe);
   };
 
   render() {
