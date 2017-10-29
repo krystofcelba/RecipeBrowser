@@ -6,6 +6,7 @@ import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
 import { Colors } from '../assets/constants';
 import RecipeCard from '../components/recipes-list/RecipeCard';
+import { getFilteredRecipes } from '../redux/selectors';
 
 interface Props {
   navigator: any;
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({ recipes: { recipesById, recipes } }) => ({ recipes: recipesById.map(id => recipes[id]) });
+const mapStateToProps = state => ({ recipes: getFilteredRecipes(state) });
 
 const mapDispatchToProps = {
   fetchRecipes: actionCreators.fetchRecipes,
