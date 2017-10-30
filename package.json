@@ -12,9 +12,12 @@
     "axios": "^0.17.0",
     "react": "16.0.0-beta.5",
     "react-native": "0.49.3",
+    "react-native-action-button": "^2.8.1",
     "react-native-elements": "^0.17.0",
     "react-native-i18n": "^2.0.9",
+    "react-native-image-crop-picker": "^0.18.1",
     "react-native-navigation": "^1.1.253",
+    "react-native-tableview-simple": "^0.17.1",
     "react-native-vector-icons": "^4.4.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
@@ -48,20 +51,15 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
     "collectCoverage": false,
     "mapCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ]
+    "collectCoverageFrom": ["src/**/*.ts*"],
+    "modulePaths": ["<rootDir>"],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
   }
 }

@@ -5,16 +5,16 @@ import { BASE_URL } from '../assets/constants';
 
 export type Ingredient = { name: string; amount: number; unit: string };
 
-export type Recipe = {
-  id: number;
+export interface Recipe {
+  id?: number;
   name: string;
   description: string;
-  image: string;
+  image: string | { uri: string; type: string };
   ingredients: [Ingredient];
   seasonings: [string];
   steps: [string];
   ingredientsNames?: string;
-};
+}
 
 export const formatApiUrl = path => `${BASE_URL}${path}`;
 
@@ -46,4 +46,8 @@ export function* post(path, data, config = {}) {
 
 export function* fetchRecipes() {
   return yield call(get, '/recipes');
+}
+
+export function* postRecipe(recipe: Recipe) {
+  return yield call(post, '/recipes', recipe);
 }
