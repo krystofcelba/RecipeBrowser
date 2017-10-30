@@ -28,7 +28,6 @@ class RecipesList extends Component<Props, any> {
   }
 
   onPressRecipe = (recipe: Recipe) => {
-    console.log('on press recipe: ', recipe.id);
     this.props.navigator.push({
       ...navigatorConfig,
       screen: 'recipeBrowser.RecipeDetail',
@@ -47,7 +46,6 @@ class RecipesList extends Component<Props, any> {
 
   render() {
     const { recipes } = this.props;
-    console.log(this.props.recipes);
     return (
       <KeyboardAvoidingView
         keyboardVerticalOffset={60}

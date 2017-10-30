@@ -1,0 +1,564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipesList component renders as expected 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  keyboardVerticalOffset={60}
+  style={
+    Object {
+      "flex": 1,
+      "marginBottom": 15,
+    }
+  }
+>
+  <FlatList
+    data={
+      Array [
+        Object {
+          "description": "This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.",
+          "id": 9,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 4,
+              "name": "hard-boiled eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 2,
+              "name": "Dijon mustard",
+              "unit": "tsp",
+            },
+            Object {
+              "amount": 100,
+              "name": "cottage cheese",
+              "unit": "g",
+            },
+            Object {
+              "amount": 2,
+              "name": "chopped dill",
+              "unit": "tbsp",
+            },
+          ],
+          "ingredientsNames": "hard-boiled eggs;dijon mustard;cottage cheese;chopped dill;",
+          "name": "Mustard Deviled Eggs",
+          "seasonings": Array [
+            "Paprika powder",
+          ],
+          "steps": Array [
+            "Halve eggs and remove yolk.",
+            "Mix yolks with mustard, cottage cheese and half of dill.",
+            "Fill egg halves with yolk mixture and garnish with remaining dill.",
+          ],
+        },
+        Object {
+          "description": "Scrambled eggs are always a great idea. This version with spinach, tomatoes and salty feta is suitable at any point during the day.",
+          "id": 2,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/feta_scrambled_eggs.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 3,
+              "name": "eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 100,
+              "name": "low-fat feta cheese",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "diced tomato",
+              "unit": "",
+            },
+            Object {
+              "amount": 40,
+              "name": "fresh spinach",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "coconut oil",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "eggs;low-fat feta cheese;diced tomato;fresh spinach;coconut oil;",
+          "name": "Feta Scrambled Eggs",
+          "seasonings": Array [
+            "Grated nutmeg",
+            "unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Heat up coconut oil in a pan. Cook tomatoes and spinach on medium heat for 2 minutes or until spinach softens.",
+            "Crack eggs into pan and cook for approx. 4 minutes or desired consistency.",
+            "Add grated nutmeg, salt and pepper.",
+            "Crumble feta cheese over warm eggs.",
+          ],
+        },
+        Object {
+          "description": "This fruity combination of grapefruit, jalapeños and avocado will invite memories of holidays. A side of quickly fried fish and red cabbage.",
+          "id": 31,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/fried_fish_with_grapefruit_salsa.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 200,
+              "name": "white fish fillet (cod, plaice, sole; fresh or frozen)",
+              "unit": "g",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "avocados",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "grapefruits",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "chopped jalapeño",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "coriander",
+              "unit": "bunches",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "limes (juice)",
+              "unit": "",
+            },
+            Object {
+              "amount": 100,
+              "name": "chopped cabbage",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "coconut oil",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "white fish fillet (cod, plaice, sole; fresh or frozen);avocados;grapefruits;chopped jalapeño;coriander;limes (juice);chopped cabbage;coconut oil;",
+          "name": "Fried Fish With Grapefruit Salsa",
+          "seasonings": Array [
+            "Chili flakes",
+            "unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Peel and cube avocado and grapefruit.",
+            "In a bowl, mix avocado, grapefruit, jalapeño, coriander and lime juice. Add a pinch of salt.",
+            "Heat up coconut oil in a pan. Fry each side of fish fillets for 3 minutes on medium heat.",
+            "Serve fried fish on a bed of chopped red cabbage and grapefruit salsa.",
+          ],
+        },
+        Object {
+          "description": "A timeless dish, that has a lot to offer beyond its taste! Why not make this restaurant classic on your own?",
+          "id": 61,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/classic_tuna_salad.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 150,
+              "name": "water-packed tuna",
+              "unit": "g",
+            },
+            Object {
+              "amount": 2,
+              "name": "hard-boiled eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "sliced onion",
+              "unit": "",
+            },
+            Object {
+              "amount": 50,
+              "name": "pitted green olives",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "diced tomato",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "small romaine lettuce",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "lemons (juice)",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "virgin olive oil",
+              "unit": "tsp",
+            },
+            Object {
+              "amount": 1,
+              "name": "mixed Italian herbs",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "water-packed tuna;hard-boiled eggs;sliced onion;pitted green olives;diced tomato;small romaine lettuce;lemons (juice);virgin olive oil;mixed italian herbs;",
+          "name": "Salade Niçoise",
+          "seasonings": Array [
+            "Unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Drain tuna, chop lettuce then halve eggs and olives.",
+            "Mix ingredients together then drizzle with lemon juice and olive oil. Season with italian herbs, salt and pepper as needed.",
+          ],
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+  <ActionButton
+    active={false}
+    activeOpacity={0.85}
+    autoInactive={true}
+    backdrop={false}
+    backgroundTappable={false}
+    bgColor="transparent"
+    bgOpacity={1}
+    buttonColor="#FF5722"
+    buttonText="+"
+    buttonTextStyle={Object {}}
+    degrees={45}
+    fixNativeFeedbackRadius={false}
+    hideShadow={true}
+    nativeFeedbackRippleColor="rgba(255,255,255,0.75)"
+    offsetX={30}
+    offsetY={30}
+    onPress={[Function]}
+    onPressIn={[Function]}
+    onPressOn={[Function]}
+    outRangeScale={1}
+    position="right"
+    resetToken={null}
+    size={56}
+    spacing={20}
+    useNativeFeedback={true}
+    verticalOrientation="up"
+  />
+</KeyboardAvoidingView>
+`;
+
+exports[`RecipesList component renders as expected 2`] = `
+Array [
+  Array [
+    Object {
+      "navBarBackgroundColor": "#81b640",
+      "navBarButtonColor": "#ffff",
+      "navBarComponentAlignment": "center",
+      "navBarCustomView": "recipeBrowser.RecipesListTopBar",
+      "navBarCustomViewInitialProps": Object {},
+      "navBarTextColor": "#ffff",
+      "navBarTextFontFamily": "Avenir",
+      "statusBarColor": "#508607",
+      "statusBarTextColorScheme": "light",
+    },
+  ],
+]
+`;
+
+exports[`RecipesList component renders as expected on android 1`] = `
+<KeyboardAvoidingView
+  keyboardVerticalOffset={60}
+  style={
+    Object {
+      "flex": 1,
+      "marginBottom": 15,
+    }
+  }
+>
+  <FlatList
+    data={
+      Array [
+        Object {
+          "description": "This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.",
+          "id": 9,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 4,
+              "name": "hard-boiled eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 2,
+              "name": "Dijon mustard",
+              "unit": "tsp",
+            },
+            Object {
+              "amount": 100,
+              "name": "cottage cheese",
+              "unit": "g",
+            },
+            Object {
+              "amount": 2,
+              "name": "chopped dill",
+              "unit": "tbsp",
+            },
+          ],
+          "ingredientsNames": "hard-boiled eggs;dijon mustard;cottage cheese;chopped dill;",
+          "name": "Mustard Deviled Eggs",
+          "seasonings": Array [
+            "Paprika powder",
+          ],
+          "steps": Array [
+            "Halve eggs and remove yolk.",
+            "Mix yolks with mustard, cottage cheese and half of dill.",
+            "Fill egg halves with yolk mixture and garnish with remaining dill.",
+          ],
+        },
+        Object {
+          "description": "Scrambled eggs are always a great idea. This version with spinach, tomatoes and salty feta is suitable at any point during the day.",
+          "id": 2,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/feta_scrambled_eggs.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 3,
+              "name": "eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 100,
+              "name": "low-fat feta cheese",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "diced tomato",
+              "unit": "",
+            },
+            Object {
+              "amount": 40,
+              "name": "fresh spinach",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "coconut oil",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "eggs;low-fat feta cheese;diced tomato;fresh spinach;coconut oil;",
+          "name": "Feta Scrambled Eggs",
+          "seasonings": Array [
+            "Grated nutmeg",
+            "unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Heat up coconut oil in a pan. Cook tomatoes and spinach on medium heat for 2 minutes or until spinach softens.",
+            "Crack eggs into pan and cook for approx. 4 minutes or desired consistency.",
+            "Add grated nutmeg, salt and pepper.",
+            "Crumble feta cheese over warm eggs.",
+          ],
+        },
+        Object {
+          "description": "This fruity combination of grapefruit, jalapeños and avocado will invite memories of holidays. A side of quickly fried fish and red cabbage.",
+          "id": 31,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/fried_fish_with_grapefruit_salsa.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 200,
+              "name": "white fish fillet (cod, plaice, sole; fresh or frozen)",
+              "unit": "g",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "avocados",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "grapefruits",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "chopped jalapeño",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "coriander",
+              "unit": "bunches",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "limes (juice)",
+              "unit": "",
+            },
+            Object {
+              "amount": 100,
+              "name": "chopped cabbage",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "coconut oil",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "white fish fillet (cod, plaice, sole; fresh or frozen);avocados;grapefruits;chopped jalapeño;coriander;limes (juice);chopped cabbage;coconut oil;",
+          "name": "Fried Fish With Grapefruit Salsa",
+          "seasonings": Array [
+            "Chili flakes",
+            "unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Peel and cube avocado and grapefruit.",
+            "In a bowl, mix avocado, grapefruit, jalapeño, coriander and lime juice. Add a pinch of salt.",
+            "Heat up coconut oil in a pan. Fry each side of fish fillets for 3 minutes on medium heat.",
+            "Serve fried fish on a bed of chopped red cabbage and grapefruit salsa.",
+          ],
+        },
+        Object {
+          "description": "A timeless dish, that has a lot to offer beyond its taste! Why not make this restaurant classic on your own?",
+          "id": 61,
+          "image": "https://nutrition-assets.freeletics.com/recipes/large/classic_tuna_salad.jpg",
+          "ingredients": Array [
+            Object {
+              "amount": 150,
+              "name": "water-packed tuna",
+              "unit": "g",
+            },
+            Object {
+              "amount": 2,
+              "name": "hard-boiled eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "sliced onion",
+              "unit": "",
+            },
+            Object {
+              "amount": 50,
+              "name": "pitted green olives",
+              "unit": "g",
+            },
+            Object {
+              "amount": 1,
+              "name": "diced tomato",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "small romaine lettuce",
+              "unit": "",
+            },
+            Object {
+              "amount": 0.5,
+              "name": "lemons (juice)",
+              "unit": "",
+            },
+            Object {
+              "amount": 1,
+              "name": "virgin olive oil",
+              "unit": "tsp",
+            },
+            Object {
+              "amount": 1,
+              "name": "mixed Italian herbs",
+              "unit": "tsp",
+            },
+          ],
+          "ingredientsNames": "water-packed tuna;hard-boiled eggs;sliced onion;pitted green olives;diced tomato;small romaine lettuce;lemons (juice);virgin olive oil;mixed italian herbs;",
+          "name": "Salade Niçoise",
+          "seasonings": Array [
+            "Unrefined salt",
+            "black pepper",
+          ],
+          "steps": Array [
+            "Drain tuna, chop lettuce then halve eggs and olives.",
+            "Mix ingredients together then drizzle with lemon juice and olive oil. Season with italian herbs, salt and pepper as needed.",
+          ],
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+  <ActionButton
+    active={false}
+    activeOpacity={0.85}
+    autoInactive={true}
+    backdrop={false}
+    backgroundTappable={false}
+    bgColor="transparent"
+    bgOpacity={1}
+    buttonColor="#FF5722"
+    buttonText="+"
+    buttonTextStyle={Object {}}
+    degrees={45}
+    fixNativeFeedbackRadius={false}
+    hideShadow={true}
+    nativeFeedbackRippleColor="rgba(255,255,255,0.75)"
+    offsetX={30}
+    offsetY={30}
+    onPress={[Function]}
+    onPressIn={[Function]}
+    onPressOn={[Function]}
+    outRangeScale={1}
+    position="right"
+    resetToken={null}
+    size={56}
+    spacing={20}
+    useNativeFeedback={true}
+    verticalOrientation="up"
+  />
+</KeyboardAvoidingView>
+`;
+
+exports[`RecipesList component show modal as expected on add button press 1`] = `
+Array [
+  Array [
+    Object {
+      "backButtonTitle": "",
+      "navigatorStyle": Object {
+        "navBarBackgroundColor": "#81b640",
+        "navBarButtonColor": "#ffff",
+        "navBarTextColor": "#ffff",
+        "navBarTextFontFamily": "Avenir",
+        "statusBarColor": "#508607",
+        "statusBarTextColorScheme": "light",
+      },
+      "screen": "recipeBrowser.AddRecipeForm",
+      "title": "Add Recipe",
+    },
+  ],
+]
+`;
