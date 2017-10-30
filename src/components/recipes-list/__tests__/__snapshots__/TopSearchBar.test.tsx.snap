@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TopSearchBar component calls action as expected on text change 1`] = `
+Array [
+  Object {
+    "text": "a",
+    "type": "UPDATE_RECIPES_SEARCH_INPUT_TEXT",
+  },
+]
+`;
+
 exports[`TopSearchBar component renders as expected 1`] = `
 <View
   style={

@@ -29,4 +29,14 @@ describe('TopSearchBar component', () => {
     const wrapper = shallow(<TopSearchBar />, { context: { store: mockStore(stateWithSomeInputText) } });
     expect(wrapper.dive()).toMatchSnapshot();
   });
+
+  it('calls action as expected on text change', () => {
+    const store = mockStore(initialState);
+    const wrapper = shallow(<TopSearchBar />, { context: { store } });
+    const render = wrapper.dive();
+    render.find('Search').forEach(child => {
+      child.simulate('changeText', 'a');
+      expect(store.getActions()).toMatchSnapshot();
+    });
+  });
 });
