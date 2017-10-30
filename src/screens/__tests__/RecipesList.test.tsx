@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import sinon from 'sinon';
 import { Platform } from 'react-native';
 
 import RecipesList from '../RecipesList';
@@ -32,8 +31,8 @@ const initialState = {
 };
 
 describe('RecipesList component', () => {
-  const setStyleSpy = sinon.spy();
-  const showModalSpy = sinon.spy();
+  const setStyleSpy = jest.fn();
+  const showModalSpy = jest.fn();
   const navigator = {
     setStyle: setStyleSpy,
     showModal: showModalSpy,
@@ -42,7 +41,7 @@ describe('RecipesList component', () => {
   it('renders as expected', () => {
     const wrapper = shallow(<RecipesList navigator={navigator} />, { context: { store: mockStore(initialState) } });
     expect(wrapper.dive()).toMatchSnapshot();
-    expect(setStyleSpy.args).toMatchSnapshot();
+    expect(setStyleSpy.mock.calls).toMatchSnapshot();
   });
 
   it('renders as expected on android', () => {
@@ -56,7 +55,7 @@ describe('RecipesList component', () => {
     const render = wrapper.dive();
     render.find('ActionButton').forEach(child => {
       child.simulate('press');
-      expect(showModalSpy.args).toMatchSnapshot();
+      expect(showModalSpy.mock.calls).toMatchSnapshot();
     });
   });
 });

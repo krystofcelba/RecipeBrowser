@@ -44,7 +44,6 @@
     "redux-testkit": "^1.0.6",
     "remote-redux-devtools": "^0.5.12",
     "remotedev-server": "^0.2.4",
-    "sinon": "^4.0.2",
     "ts-jest": "^21.1.4",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.3.0",
@@ -58,17 +57,30 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
     "collectCoverage": false,
     "mapCoverage": true,
-    "collectCoverageFrom": ["src/**/*.ts", "src/**/*.tsx"],
-    "modulePaths": ["<rootDir>"],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
     "globals": {
       "ts-jest": {
         "useBabelrc": true
       }
     },
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
