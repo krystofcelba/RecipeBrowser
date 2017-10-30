@@ -9,7 +9,7 @@ export interface Recipe {
   id?: number;
   name: string;
   description: string;
-  image: string;
+  image: string | { uri: string; type: string };
   ingredients: [Ingredient];
   seasonings: [string];
   steps: [string];
@@ -46,4 +46,8 @@ export function* post(path, data, config = {}) {
 
 export function* fetchRecipes() {
   return yield call(get, '/recipes');
+}
+
+export function* postRecipe(recipe: Recipe) {
+  return yield call(post, '/recipes', recipe);
 }

@@ -186,7 +186,6 @@ describe('ui add recipe form reducer', () => {
           seasonings: {},
           steps: {},
         },
-        canBeSubmitted: false,
       },
     };
     const action = { type: RESET_ADD_RECIPE_FORM };
@@ -201,7 +200,6 @@ describe('ui add recipe form reducer', () => {
           seasonings: {},
           steps: {},
         },
-        canBeSubmitted: false,
       },
     };
     Reducer(reducer)

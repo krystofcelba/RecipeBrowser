@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
+import { ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Section, TableView } from 'react-native-tableview-simple';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -12,11 +12,11 @@ import FormIngredientCell from '../components/new-recipe-form/FormIngredientCell
 import FormSeasoningCell from '../components/new-recipe-form/FormSeasoningCell';
 import FormStepCell from '../components/new-recipe-form/FormStepCell';
 import { actionCreators, NewRecipe } from '../redux/reducers/ui';
+import { getAddRecipeFormState } from '../redux/selectors';
 
 interface Props {
   navigator: any;
   newRecipe: NewRecipe;
-  canBeSubmitted: boolean;
   updateName: typeof actionCreators.updateNameInAddRecipeForm;
   updateDescription: typeof actionCreators.updateDescriptionInAddRecipeForm;
   addIngredient: typeof actionCreators.addIngredientToAddRecipeForm;
@@ -27,6 +27,7 @@ interface Props {
   updateStep: typeof actionCreators.updateStepInAddRecipeForm;
   updateImage: typeof actionCreators.updateImageInAddRecipeForm;
   resetForm: typeof actionCreators.resetAddRecipeForm;
+  submitForm: typeof actionCreators.submitAddRecipeForm;
 }
 
 class AddRecipeForm extends Component<Props> {
@@ -40,7 +41,6 @@ class AddRecipeForm extends Component<Props> {
       {
         title: i18n.t('add'),
         id: 'add',
-        disabled: true,
       },
     ],
     leftButtons: [
@@ -53,13 +53,15 @@ class AddRecipeForm extends Component<Props> {
 
   onNavigatorEvent = event => {
     if (event.type === 'NavBarButtonPress') {
-      const { navigator, resetForm } = this.props;
+      const { navigator, resetForm, submitForm } = this.props;
       switch (event.id) {
         case 'cancel':
           resetForm();
           navigator.dismissModal();
           break;
-
+        case 'add':
+          submitForm();
+          break;
         default:
           break;
       }
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({ ui: { addRecipeForm: { newRecipe, canBeSubmitted } } }) => ({ newRecipe, canBeSubmitted });
+const mapStateToProps = state => ({ newRecipe: getAddRecipeFormState(state) });
 
 const mapDispatchToProps = {
   updateName: actionCreators.updateNameInAddRecipeForm,
@@ -168,6 +170,7 @@ const mapDispatchToProps = {
   updateStep: actionCreators.updateStepInAddRecipeForm,
   updateImage: actionCreators.updateImageInAddRecipeForm,
   resetForm: actionCreators.resetAddRecipeForm,
+  submitForm: actionCreators.submitAddRecipeForm,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);

@@ -11,6 +11,7 @@ export const UPDATE_STEP_ADD_RECIPE_FORM = 'UPDATE_STEP_ADD_RECIPE_FORM';
 export const UPDATE_IMAGE_ADD_RECIPE_FORM = 'UPDATE_IMAGE_ADD_RECIPE_FORM';
 
 export const RESET_ADD_RECIPE_FORM = 'RESET_ADD_RECIPE_FORM';
+export const SUBMIT_ADD_RECIPE_FORM = 'SUBMIT_ADD_RECIPE_FORM';
 
 export interface NewIngredient {
   id: number;
@@ -79,6 +80,9 @@ export type Actions = {
   RESET_ADD_RECIPE_FORM: {
     type: typeof RESET_ADD_RECIPE_FORM;
   };
+  SUBMIT_ADD_RECIPE_FORM: {
+    type: typeof SUBMIT_ADD_RECIPE_FORM;
+  };
 };
 
 export const actionCreators = {
@@ -123,6 +127,9 @@ export const actionCreators = {
   resetAddRecipeForm: (): Actions[typeof RESET_ADD_RECIPE_FORM] => ({
     type: RESET_ADD_RECIPE_FORM,
   }),
+  submitAddRecipeForm: (): Actions[typeof SUBMIT_ADD_RECIPE_FORM] => ({
+    type: SUBMIT_ADD_RECIPE_FORM,
+  }),
 };
 
 export type State = {
@@ -142,7 +149,7 @@ const emptyRecipe: NewRecipe = {
 export const reducer = (
   state = {
     recipesList: { searchInput: { text: '' } },
-    addRecipeForm: { newRecipe: emptyRecipe, canBeSubmitted: false },
+    addRecipeForm: { newRecipe: emptyRecipe },
   },
   action: Actions[keyof Actions],
 ) => {
