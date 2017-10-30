@@ -37,6 +37,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app access photo library to let you pick recipe image.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

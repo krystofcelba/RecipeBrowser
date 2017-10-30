@@ -8,6 +8,7 @@ export const ADD_SEASONING_ADD_RECIPE_FORM = 'ADD_SEASONING_ADD_RECIPE_FORM';
 export const UPDATE_SEASONING_ADD_RECIPE_FORM = 'UPDATE_SEASONING_ADD_RECIPE_FORM';
 export const ADD_STEP_ADD_RECIPE_FORM = 'ADD_STEP_ADD_RECIPE_FORM';
 export const UPDATE_STEP_ADD_RECIPE_FORM = 'UPDATE_STEP_ADD_RECIPE_FORM';
+export const UPDATE_IMAGE_ADD_RECIPE_FORM = 'UPDATE_IMAGE_ADD_RECIPE_FORM';
 
 export const RESET_ADD_RECIPE_FORM = 'RESET_ADD_RECIPE_FORM';
 
@@ -30,7 +31,7 @@ export interface NewStep {
 export interface NewRecipe {
   name: string;
   description: string;
-  image: string;
+  image?: { uri: string; type: string };
   ingredients: { [id: number]: NewIngredient };
   seasonings: { [id: number]: NewSeasoning };
   steps: { [id: number]: NewStep };
@@ -69,6 +70,11 @@ export type Actions = {
   UPDATE_STEP_ADD_RECIPE_FORM: {
     type: typeof UPDATE_STEP_ADD_RECIPE_FORM;
     step: NewStep;
+  };
+  UPDATE_IMAGE_ADD_RECIPE_FORM: {
+    type: typeof UPDATE_IMAGE_ADD_RECIPE_FORM;
+    data: string;
+    mime: string;
   };
   RESET_ADD_RECIPE_FORM: {
     type: typeof RESET_ADD_RECIPE_FORM;
@@ -109,6 +115,11 @@ export const actionCreators = {
     type: UPDATE_STEP_ADD_RECIPE_FORM,
     step,
   }),
+  updateImageInAddRecipeForm: (data: string, mime: string): Actions[typeof UPDATE_IMAGE_ADD_RECIPE_FORM] => ({
+    type: UPDATE_IMAGE_ADD_RECIPE_FORM,
+    data,
+    mime,
+  }),
   resetAddRecipeForm: (): Actions[typeof RESET_ADD_RECIPE_FORM] => ({
     type: RESET_ADD_RECIPE_FORM,
   }),
@@ -122,7 +133,7 @@ export type State = {
 const emptyRecipe: NewRecipe = {
   name: '',
   description: '',
-  image: '',
+  image: undefined,
   ingredients: {} as { [id: number]: NewIngredient },
   seasonings: {} as { [id: number]: NewSeasoning },
   steps: {} as { [id: number]: NewStep },
@@ -187,6 +198,16 @@ export const reducer = (
         addRecipeForm: {
           ...state.addRecipeForm,
           newRecipe: { ...newRecipe, steps: { ...newRecipe.steps, [step.id]: step } },
+        },
+      };
+    }
+    case UPDATE_IMAGE_ADD_RECIPE_FORM: {
+      const { data, mime } = action;
+      return {
+        ...state,
+        addRecipeForm: {
+          ...state.addRecipeForm,
+          newRecipe: { ...newRecipe, image: { uri: `data:${mime};base64,${data}`, type: mime } },
         },
       };
     }

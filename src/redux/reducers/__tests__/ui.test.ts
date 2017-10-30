@@ -12,6 +12,7 @@ import {
   UPDATE_INGREDIENT_ADD_RECIPE_FORM,
   UPDATE_SEASONING_ADD_RECIPE_FORM,
   UPDATE_STEP_ADD_RECIPE_FORM,
+  UPDATE_IMAGE_ADD_RECIPE_FORM,
   RESET_ADD_RECIPE_FORM,
 } from '../ui';
 
@@ -91,6 +92,14 @@ describe('add recipe form action creators', () => {
     });
   });
 
+  it('should return UPDATE_IMAGE_ADD_RECIPE_FORM', () => {
+    const image = { mime: 'image/jpeg', data: 'xxxxxxxx' };
+    expect(actionCreators.updateImageInAddRecipeForm(image.data, image.mime)).toEqual({
+      type: UPDATE_IMAGE_ADD_RECIPE_FORM,
+      ...image,
+    });
+  });
+
   it('should return RESET_ADD_RECIPE_FORM', () => {
     expect(actionCreators.resetAddRecipeForm()).toEqual({
       type: RESET_ADD_RECIPE_FORM,
@@ -154,6 +163,17 @@ describe('ui add recipe form reducer', () => {
       .toChangeInState(changes);
   });
 
+  it('should handle UPDATE_IMAGE_ADD_RECIPE_FORM action', () => {
+    const image = { mime: 'image/jpeg', data: 'xxxxxxxx' };
+    const action = { type: UPDATE_IMAGE_ADD_RECIPE_FORM, ...image };
+    const changes = {
+      addRecipeForm: { newRecipe: { image: { type: image.mime, uri: `data:${image.mime};base64,${image.data}` } } },
+    };
+    Reducer(reducer)
+      .expect(action)
+      .toChangeInState(changes);
+  });
+
   it('should handle RESET_ADD_RECIPE_FORM action', () => {
     const state = {
       recipesList: { searchInput: { text: '' } },
@@ -161,7 +181,7 @@ describe('ui add recipe form reducer', () => {
         newRecipe: {
           name: 'Recipe 1',
           description: 'desc',
-          image: '',
+          image: undefined,
           ingredients: { 100: { id: 100, name: 'test', amount: '10', unit: 'kg' } },
           seasonings: {},
           steps: {},
@@ -176,7 +196,7 @@ describe('ui add recipe form reducer', () => {
         newRecipe: {
           name: '',
           description: '',
-          image: '',
+          image: undefined,
           ingredients: {},
           seasonings: {},
           steps: {},

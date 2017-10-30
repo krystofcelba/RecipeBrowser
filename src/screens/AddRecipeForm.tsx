@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Section, TableView } from 'react-native-tableview-simple';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import i18n from '../assets/i18n';
 import FormInputCell from '../components/new-recipe-form/FormInputCell';
@@ -23,6 +25,7 @@ interface Props {
   updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
   addStep: typeof actionCreators.addStepToAddRecipeForm;
   updateStep: typeof actionCreators.updateStepInAddRecipeForm;
+  updateImage: typeof actionCreators.updateImageInAddRecipeForm;
   resetForm: typeof actionCreators.resetAddRecipeForm;
 }
 
@@ -35,14 +38,14 @@ class AddRecipeForm extends Component<Props> {
   static navigatorButtons = {
     rightButtons: [
       {
-        title: i18n.t('add'), // for a textual button, provide the button title (label)
+        title: i18n.t('add'),
         id: 'add',
         disabled: true,
       },
     ],
     leftButtons: [
       {
-        title: i18n.t('cancel'), // for a textual button, provide the button title (label)
+        title: i18n.t('cancel'),
         id: 'cancel',
       },
     ],
@@ -63,9 +66,20 @@ class AddRecipeForm extends Component<Props> {
     }
   };
 
+  onPickImageButtonPress = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+      includeBase64: true,
+    }).then((image: any) => {
+      this.props.updateImage(image.data, image.mime);
+    });
+  };
+
   render() {
     const {
-      newRecipe: { name, description, ingredients, seasonings, steps },
+      newRecipe: { name, description, ingredients, seasonings, steps, image },
       updateName,
       updateDescription,
       addIngredient,
@@ -78,8 +92,15 @@ class AddRecipeForm extends Component<Props> {
     return (
       <View style={styles.container}>
         <ScrollView>
+          <TouchableOpacity style={styles.imageContainer} onPress={this.onPickImageButtonPress}>
+            {image ? (
+              <Image style={styles.recipeImage} source={image} resizeMode="cover" />
+            ) : (
+              <Icon name="ios-images-outline" size={100} />
+            )}
+          </TouchableOpacity>
           <TableView>
-            <Section>
+            <Section sectionPaddingTop={0}>
               <FormInputCell placeholder={i18n.t('name')} value={name} onChangeText={updateName} />
               <FormInputCell
                 placeholder={i18n.t('description')}
@@ -119,6 +140,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFF4',
     flex: 1,
   },
+  imageContainer: {
+    width: '100%',
+    height: 220,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  recipeImage: {
+    flexGrow: 1,
+    width: '100%',
+    height: 220,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 const mapStateToProps = ({ ui: { addRecipeForm: { newRecipe, canBeSubmitted } } }) => ({ newRecipe, canBeSubmitted });
@@ -132,6 +166,7 @@ const mapDispatchToProps = {
   updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
   addStep: actionCreators.addStepToAddRecipeForm,
   updateStep: actionCreators.updateStepInAddRecipeForm,
+  updateImage: actionCreators.updateImageInAddRecipeForm,
   resetForm: actionCreators.resetAddRecipeForm,
 };
 

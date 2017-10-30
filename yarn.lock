@@ -3941,6 +3941,10 @@ react-native-i18n@^2.0.9:
   dependencies:
     i18n-js "^3.0.2"
 
+react-native-image-crop-picker@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.18.1.tgz#ebdbe72def5afb6c69aa6e2ad72fd3a7de8ee408"
+
 react-native-navigation@^1.1.253:
   version "1.1.253"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.253.tgz#a6ec7b141d5ccf32e7d5a49cac73f2d36a86dc9c"
