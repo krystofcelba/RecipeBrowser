@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormSeasoningCell component call onChange as expected 1`] = `
+Array [
+  Array [
+    Object {
+      "id": 1,
+      "seasoning": "a",
+    },
+  ],
+]
+`;
+
+exports[`FormSeasoningCell component renders as expected 1`] = `
+<FormInputCell
+  onChangeText={[Function]}
+  placeholder="Seasoning"
+  value="test"
+/>
+`;

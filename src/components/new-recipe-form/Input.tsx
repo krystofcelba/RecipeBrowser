@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TextInput, StyleProp, TextStyle, Keyboard } from 'react-native';
-import { Cell } from 'react-native-tableview-simple';
+import { StyleSheet, TextInput, StyleProp, TextStyle, Keyboard } from 'react-native';
 
 import { StylesConstants } from '../../assets/constants';
 
