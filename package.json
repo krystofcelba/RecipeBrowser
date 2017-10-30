@@ -51,20 +51,15 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
     "collectCoverage": false,
     "mapCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ]
+    "collectCoverageFrom": ["src/**/*.ts*"],
+    "modulePaths": ["<rootDir>"],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
   }
 }

@@ -40,8 +40,8 @@ export function* submitAddRecipeForm() {
     description,
     image,
     ingredients: Object.keys(ingredients).map(id => ingredients[id]) as [API.Ingredient],
-    seasonings: Object.keys(seasonings).map(id => seasonings[id]) as [string],
-    steps: Object.keys(steps).map(id => steps[id]) as [string],
+    seasonings: Object.keys(seasonings).map(id => seasonings[id].seasoning) as [string],
+    steps: Object.keys(steps).map(id => steps[id].step) as [string],
   });
   console.log(resp);
   if (resp.ok) {

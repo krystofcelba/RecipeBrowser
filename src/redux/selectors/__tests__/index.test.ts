@@ -36,3 +36,9 @@ describe('recipes selectors', () => {
     expect(selectors.getRecipe(state, 31)).toEqual(state.recipes.recipes[31]);
   });
 });
+
+describe('ui selectors', () => {
+  it('should get add recipe form state', () => {
+    expect(selectors.getAddRecipeFormState(mockedState)).toEqual(mockedState.ui.addRecipeForm.newRecipe);
+  });
+});

@@ -14,6 +14,7 @@ import {
   UPDATE_STEP_ADD_RECIPE_FORM,
   UPDATE_IMAGE_ADD_RECIPE_FORM,
   RESET_ADD_RECIPE_FORM,
+  SUBMIT_ADD_RECIPE_FORM,
 } from '../ui';
 
 describe('recipes action creators', () => {
@@ -97,6 +98,12 @@ describe('add recipe form action creators', () => {
     expect(actionCreators.updateImageInAddRecipeForm(image.data, image.mime)).toEqual({
       type: UPDATE_IMAGE_ADD_RECIPE_FORM,
       ...image,
+    });
+  });
+
+  it('should return SUBMIT_ADD_RECIPE_FORM', () => {
+    expect(actionCreators.submitAddRecipeForm()).toEqual({
+      type: SUBMIT_ADD_RECIPE_FORM,
     });
   });
 
