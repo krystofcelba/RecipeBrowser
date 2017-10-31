@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IngredientsBox component renders as expected 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      Object {},
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 20,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Ingredients
+  </Text>
+  <View
+    key="0"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      200 g white fish fillet (cod, plaice, sole; fresh or frozen)
+    </Text>
+  </View>
+  <View
+    key="1"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      0.5  avocados
+    </Text>
+  </View>
+  <View
+    key="2"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      0.5  grapefruits
+    </Text>
+  </View>
+  <View
+    key="3"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      1  chopped jalapeño
+    </Text>
+  </View>
+  <View
+    key="4"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      0.5 bunches coriander
+    </Text>
+  </View>
+  <View
+    key="5"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      0.5  limes (juice)
+    </Text>
+  </View>
+  <View
+    key="6"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      100 g chopped cabbage
+    </Text>
+  </View>
+  <View
+    key="7"
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      1 tsp coconut oil
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+        "marginRight": 10,
+        "marginTop": 5,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Seasonings
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "paddingLeft": 5,
+        }
+      }
+    >
+      Chili flakes, 
+      unrefined salt, 
+      black pepper
+    </Text>
+  </View>
+</View>
+`;

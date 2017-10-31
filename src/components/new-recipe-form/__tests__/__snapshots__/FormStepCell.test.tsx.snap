@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormStepCell component call onChange as expected 1`] = `
+Array [
+  Array [
+    Object {
+      "id": 1,
+      "step": "a",
+    },
+  ],
+]
+`;
+
+exports[`FormStepCell component renders as expected 1`] = `
+<FormInputCell
+  numberOfLines={3}
+  onChangeText={[Function]}
+  placeholder="Step"
+  value="test"
+/>
+`;

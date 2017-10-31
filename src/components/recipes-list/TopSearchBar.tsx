@@ -13,7 +13,7 @@ interface Props {
   showClearIcon?: boolean;
 }
 
-const TopSearchBar = ({ updateRecipesSearchInputText, showClearIcon = false }: Props) => (
+const TopSearchBar = ({ updateRecipesSearchInputText, showClearIcon }: Props) => (
   <View style={styles.container}>
     <SearchBar
       lightTheme

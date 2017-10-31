@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopSearchBar component calls action as expected on text change 1`] = `
+Array [
+  Object {
+    "text": "a",
+    "type": "UPDATE_RECIPES_SEARCH_INPUT_TEXT",
+  },
+]
+`;
+
+exports[`TopSearchBar component renders as expected 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#81b640",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Search
+    containerStyle={
+      Object {
+        "backgroundColor": "#81b640",
+        "borderBottomWidth": 0,
+        "borderTopWidth": 0,
+        "flex": 1,
+      }
+    }
+    icon={
+      Object {
+        "color": "rgba(255, 255, 255, 0.3)",
+        "name": "search",
+      }
+    }
+    inputStyle={
+      Object {
+        "backgroundColor": "#508607",
+        "color": "rgba(255, 255, 255, 1.0)",
+        "fontFamily": "Avenir",
+      }
+    }
+    lightTheme={true}
+    loadingIcon={Object {}}
+    noIcon={false}
+    onChangeText={[Function]}
+    placeholder="Search"
+    placeholderTextColor="rgba(255, 255, 255, 0.3)"
+    round={true}
+    selectionColor="rgba(255, 255, 255, 1.0)"
+    showLoadingIcon={false}
+  />
+</View>
+`;
+
+exports[`TopSearchBar component renders as expected with clear icon when there is some text 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#81b640",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Search
+    clearIcon={
+      Object {
+        "color": "rgba(255, 255, 255, 0.3)",
+        "name": "clear",
+      }
+    }
+    containerStyle={
+      Object {
+        "backgroundColor": "#81b640",
+        "borderBottomWidth": 0,
+        "borderTopWidth": 0,
+        "flex": 1,
+      }
+    }
+    icon={
+      Object {
+        "color": "rgba(255, 255, 255, 0.3)",
+        "name": "search",
+      }
+    }
+    inputStyle={
+      Object {
+        "backgroundColor": "#508607",
+        "color": "rgba(255, 255, 255, 1.0)",
+        "fontFamily": "Avenir",
+      }
+    }
+    lightTheme={true}
+    loadingIcon={Object {}}
+    noIcon={false}
+    onChangeText={[Function]}
+    placeholder="Search"
+    placeholderTextColor="rgba(255, 255, 255, 0.3)"
+    round={true}
+    selectionColor="rgba(255, 255, 255, 1.0)"
+    showLoadingIcon={false}
+  />
+</View>
+`;

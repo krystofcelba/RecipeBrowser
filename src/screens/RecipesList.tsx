@@ -28,7 +28,6 @@ class RecipesList extends Component<Props, any> {
   }
 
   onPressRecipe = (recipe: Recipe) => {
-    console.log('on press recipe: ', recipe.id);
     this.props.navigator.push({
       ...navigatorConfig,
       screen: 'recipeBrowser.RecipeDetail',
@@ -45,20 +44,19 @@ class RecipesList extends Component<Props, any> {
     });
   };
 
+  recipeKeyExtractor = item => item.id;
+
+  renderRecipeFlatListItem = ({ item }) => <RecipeCard recipe={item} onPress={this.onPressRecipe} />;
+
   render() {
     const { recipes } = this.props;
-    console.log(this.props.recipes);
     return (
       <KeyboardAvoidingView
         keyboardVerticalOffset={60}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.container}
       >
-        <FlatList
-          data={recipes}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => <RecipeCard recipe={item as Recipe} onPress={this.onPressRecipe} />}
-        />
+        <FlatList data={recipes} keyExtractor={this.recipeKeyExtractor} renderItem={this.renderRecipeFlatListItem} />
         <ActionButton buttonColor={Colors.secondaryColor} onPress={this.onPressAddButton} hideShadow />
       </KeyboardAvoidingView>
     );

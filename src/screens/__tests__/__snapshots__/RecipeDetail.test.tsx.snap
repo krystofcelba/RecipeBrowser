@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeDetail component renders as expected 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <ScrollViewMock>
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+        }
+      }
+      style={
+        Object {
+          "height": 220,
+          "marginBottom": 10,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "paddingBottom": 15,
+        }
+      }
+    >
+      <TextElement
+        h3={true}
+        style={
+          Object {
+            "color": "#000000",
+            "fontFamily": "Avenir",
+            "paddingLeft": 10,
+            "paddingRight": 20,
+          }
+        }
+      >
+        Mustard Deviled Eggs
+      </TextElement>
+      <TextElement
+        style={
+          Object {
+            "fontFamily": "Avenir",
+            "marginBottom": 5,
+            "paddingLeft": 10,
+            "paddingRight": 20,
+          }
+        }
+      >
+        This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.
+      </TextElement>
+      <IngredientsBox
+        ingredients={
+          Array [
+            Object {
+              "amount": 4,
+              "name": "hard-boiled eggs",
+              "unit": "",
+            },
+            Object {
+              "amount": 2,
+              "name": "Dijon mustard",
+              "unit": "tsp",
+            },
+            Object {
+              "amount": 100,
+              "name": "cottage cheese",
+              "unit": "g",
+            },
+            Object {
+              "amount": 2,
+              "name": "chopped dill",
+              "unit": "tbsp",
+            },
+          ]
+        }
+        seasonings={
+          Array [
+            "Paprika powder",
+          ]
+        }
+        style={
+          Object {
+            "backgroundColor": "#FBE9E7",
+            "paddingBottom": 5,
+            "paddingLeft": 10,
+            "paddingRight": 20,
+            "paddingTop": 5,
+          }
+        }
+      />
+      <StepsBox
+        steps={
+          Array [
+            "Halve eggs and remove yolk.",
+            "Mix yolks with mustard, cottage cheese and half of dill.",
+            "Fill egg halves with yolk mixture and garnish with remaining dill.",
+          ]
+        }
+        style={
+          Object {
+            "paddingBottom": 5,
+            "paddingLeft": 10,
+            "paddingRight": 20,
+            "paddingTop": 5,
+          }
+        }
+      />
+    </View>
+  </ScrollViewMock>
+</View>
+`;

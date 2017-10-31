@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component renders as expected 1`] = `
+<TextInput
+  multiline={false}
+  numberOfLines={1}
+  onChangeText={[Function]}
+  onSubmitEditing={[Function]}
+  placeholder="placeholder"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 15,
+      },
+      Object {
+        "height": 15,
+      },
+      undefined,
+    ]
+  }
+  value=""
+/>
+`;
+
+exports[`Input component renders as expected with defined style 1`] = `
+<TextInput
+  multiline={false}
+  numberOfLines={1}
+  onChangeText={[Function]}
+  onSubmitEditing={[Function]}
+  placeholder="placeholder"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 15,
+      },
+      Object {
+        "height": 15,
+      },
+      Object {
+        "margin": 10,
+      },
+    ]
+  }
+  value=""
+/>
+`;

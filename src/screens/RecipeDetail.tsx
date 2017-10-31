@@ -18,10 +18,11 @@ interface Props {
 class RecipeDetail extends Component<Props> {
   render() {
     const { recipe: { image, name, description, ingredients, seasonings, steps } } = this.props;
+    const imageUri = typeof image === 'string' ? image : image.uri;
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Image style={styles.recipeImage} source={{ uri: image }} resizeMode="cover" />
+          <Image style={styles.recipeImage} source={{ uri: imageUri }} resizeMode="cover" />
           <View style={styles.recipesInfoContainer}>
             <Text style={styles.title} h3>
               {name}

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormButtonCell component renders as expected 1`] = `
+<Cell
+  accessory={false}
+  accessoryColor="#007AFF"
+  allowFontScaling={true}
+  backgroundColor="#FFF"
+  cellAccessoryView={null}
+  cellContentView={null}
+  cellImageView={null}
+  cellStyle="Basic"
+  contentContainerStyle={Object {}}
+  detail=""
+  detailTextStyle={Object {}}
+  disableImageResize={false}
+  highlightActiveOpacity={0.8}
+  highlightUnderlayColor="black"
+  image={null}
+  isDisabled={false}
+  leftDetailColor="#007AFF"
+  onHighlightRow={null}
+  onPress={[Function]}
+  onUnHighlightRow={null}
+  rightDetailColor="#8E8E93"
+  subtitleColor="#000"
+  subtitleTextStyle={Object {}}
+  title="test"
+  titleTextColor="#000"
+  titleTextStyle={
+    Object {
+      "color": "#007AFF",
+      "fontFamily": "Avenir",
+      "fontSize": 15,
+    }
+  }
+  titleTextStyleDisabled={Object {}}
+/>
+`;

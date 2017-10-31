@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeCard component renders as expected 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[Function]}
+>
+  <Card
+    image={
+      Object {
+        "uri": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Avenir",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      MUSTARD DEVILED EGGS
+    </Text>
+  </Card>
+</TouchableOpacity>
+`;

@@ -3,7 +3,6 @@ import { ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-nat
 import { connect } from 'react-redux';
 import { Section, TableView } from 'react-native-tableview-simple';
 import Icon from 'react-native-vector-icons/Ionicons';
-import ImagePicker from 'react-native-image-crop-picker';
 
 import i18n from '../assets/i18n';
 import FormInputCell from '../components/new-recipe-form/FormInputCell';
@@ -25,6 +24,7 @@ interface Props {
   updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
   addStep: typeof actionCreators.addStepToAddRecipeForm;
   updateStep: typeof actionCreators.updateStepInAddRecipeForm;
+  openImagePicker: typeof actionCreators.openImagePickerAddRecipeForm;
   updateImage: typeof actionCreators.updateImageInAddRecipeForm;
   resetForm: typeof actionCreators.resetAddRecipeForm;
   submitForm: typeof actionCreators.submitAddRecipeForm;
@@ -52,31 +52,19 @@ class AddRecipeForm extends Component<Props> {
   };
 
   onNavigatorEvent = event => {
-    if (event.type === 'NavBarButtonPress') {
-      const { navigator, resetForm, submitForm } = this.props;
-      switch (event.id) {
-        case 'cancel':
+    switch (event.type) {
+      case 'NavBarButtonPress':
+        const { navigator, resetForm, submitForm } = this.props;
+        if (event.id === 'cancel') {
           resetForm();
           navigator.dismissModal();
-          break;
-        case 'add':
+        } else if (event.id === 'add') {
           submitForm();
-          break;
-        default:
-          break;
-      }
+        }
+        break;
+      default:
+        break;
     }
-  };
-
-  onPickImageButtonPress = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 400,
-      cropping: true,
-      includeBase64: true,
-    }).then((image: any) => {
-      this.props.updateImage(image.data, image.mime);
-    });
   };
 
   render() {
@@ -90,11 +78,12 @@ class AddRecipeForm extends Component<Props> {
       updateSeasoning,
       addStep,
       updateStep,
+      openImagePicker,
     } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
-          <TouchableOpacity style={styles.imageContainer} onPress={this.onPickImageButtonPress}>
+          <TouchableOpacity style={styles.imageContainer} onPress={openImagePicker}>
             {image ? (
               <Image style={styles.recipeImage} source={image} resizeMode="cover" />
             ) : (
@@ -168,6 +157,7 @@ const mapDispatchToProps = {
   updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
   addStep: actionCreators.addStepToAddRecipeForm,
   updateStep: actionCreators.updateStepInAddRecipeForm,
+  openImagePicker: actionCreators.openImagePickerAddRecipeForm,
   updateImage: actionCreators.updateImageInAddRecipeForm,
   resetForm: actionCreators.resetAddRecipeForm,
   submitForm: actionCreators.submitAddRecipeForm,

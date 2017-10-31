@@ -1,5 +1,8 @@
-import { takeEvery, call, put, select } from 'redux-saga/effects';
+import { takeEvery, takeLatest, call, put, select } from 'redux-saga/effects';
 import { Navigation } from 'react-native-navigation';
+import ImagePicker from 'react-native-image-crop-picker';
+
+import { imagePickerImageSize } from '../../assets/constants';
 
 import {
   actionCreators,
@@ -7,6 +10,7 @@ import {
   ADD_INGREDIENT_ADD_RECIPE_FORM,
   ADD_SEASONING_ADD_RECIPE_FORM,
   ADD_STEP_ADD_RECIPE_FORM,
+  OPEN_IMAGE_PICKER_ADD_RECIPE_FORM,
   SUBMIT_ADD_RECIPE_FORM,
 } from '../reducers/ui';
 import { getAddRecipeFormState } from '../selectors';
@@ -32,6 +36,20 @@ export function* addNewStepToAddRecipeForm() {
   yield put(actionCreators.updateStepInAddRecipeForm({ id, step: '' }));
 }
 
+export function* openImagePicker() {
+  try {
+    const image = yield call(ImagePicker.openPicker, {
+      ...imagePickerImageSize,
+      cropping: true,
+      includeBase64: true,
+    });
+
+    yield put(actionCreators.updateImageInAddRecipeForm(image.data, image.mime));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export function* submitAddRecipeForm() {
   const newRecipe: NewRecipe = yield select(getAddRecipeFormState);
   const { name, description, image, ingredients, seasonings, steps } = newRecipe;
@@ -54,5 +72,6 @@ export default function* root() {
   yield takeEvery(ADD_INGREDIENT_ADD_RECIPE_FORM, addNewIngredientToAddRecipeForm);
   yield takeEvery(ADD_SEASONING_ADD_RECIPE_FORM, addNewSeasoningToAddRecipeForm);
   yield takeEvery(ADD_STEP_ADD_RECIPE_FORM, addNewStepToAddRecipeForm);
+  yield takeLatest(OPEN_IMAGE_PICKER_ADD_RECIPE_FORM, openImagePicker);
   yield takeEvery(SUBMIT_ADD_RECIPE_FORM, submitAddRecipeForm);
 }
