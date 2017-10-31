@@ -53,6 +53,7 @@ exports[`RecipesList component renders as expected 1`] = `
       "marginBottom": 15,
     }
   }
+  testID="recipesListScreen"
 >
   <FlatList
     data={
@@ -334,6 +335,7 @@ exports[`RecipesList component renders as expected on android 1`] = `
       "marginBottom": 15,
     }
   }
+  testID="recipesListScreen"
 >
   <FlatList
     data={
@@ -629,5 +631,6 @@ exports[`RecipesList component renders recipe flat list item as expected 1`] = `
       ],
     }
   }
+  testID="recipeCard_9"
 />
 `;

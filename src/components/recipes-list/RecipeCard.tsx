@@ -6,6 +6,7 @@ import { Recipe } from 'src/services/api';
 import { StylesConstants } from 'src/assets/constants';
 
 interface Props {
+  testID: string;
   recipe: Recipe;
   onPress: (recipe: Recipe) => void;
 }
@@ -17,9 +18,9 @@ class RecipeCard extends React.PureComponent<Props> {
   };
 
   render() {
-    const { recipe } = this.props;
+    const { testID, recipe } = this.props;
     return (
-      <TouchableOpacity onPress={this.onPress}>
+      <TouchableOpacity testID={testID} onPress={this.onPress}>
         <Card image={{ uri: recipe.image }}>
           <Text style={styles.title}>{recipe.name.toUpperCase()}</Text>
         </Card>
