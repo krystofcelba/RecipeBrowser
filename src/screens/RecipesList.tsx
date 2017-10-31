@@ -57,7 +57,7 @@ class RecipesList extends Component<Props, any> {
         style={styles.container}
       >
         <FlatList data={recipes} keyExtractor={this.recipeKeyExtractor} renderItem={this.renderRecipeFlatListItem} />
-        <ActionButton buttonColor={Colors.secondaryColor} onPress={this.onPressAddButton} hideShadow />
+        <ActionButton testID="addButton" buttonColor={Colors.secondaryColor} onPress={this.onPressAddButton} hideShadow />
       </KeyboardAvoidingView>
     );
   }

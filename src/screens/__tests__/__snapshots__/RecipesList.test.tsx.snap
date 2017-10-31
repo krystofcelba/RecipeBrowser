@@ -300,6 +300,7 @@ exports[`RecipesList component renders as expected 1`] = `
     resetToken={null}
     size={56}
     spacing={20}
+    testID="addButton"
     useNativeFeedback={true}
     verticalOrientation="up"
   />
@@ -580,6 +581,7 @@ exports[`RecipesList component renders as expected on android 1`] = `
     resetToken={null}
     size={56}
     spacing={20}
+    testID="addButton"
     useNativeFeedback={true}
     verticalOrientation="up"
   />
