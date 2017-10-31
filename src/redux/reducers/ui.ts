@@ -8,6 +8,8 @@ export const ADD_SEASONING_ADD_RECIPE_FORM = 'ADD_SEASONING_ADD_RECIPE_FORM';
 export const UPDATE_SEASONING_ADD_RECIPE_FORM = 'UPDATE_SEASONING_ADD_RECIPE_FORM';
 export const ADD_STEP_ADD_RECIPE_FORM = 'ADD_STEP_ADD_RECIPE_FORM';
 export const UPDATE_STEP_ADD_RECIPE_FORM = 'UPDATE_STEP_ADD_RECIPE_FORM';
+
+export const OPEN_IMAGE_PICKER_ADD_RECIPE_FORM = 'OPEN_IMAGE_PICKER_ADD_RECIPE_FORM';
 export const UPDATE_IMAGE_ADD_RECIPE_FORM = 'UPDATE_IMAGE_ADD_RECIPE_FORM';
 
 export const RESET_ADD_RECIPE_FORM = 'RESET_ADD_RECIPE_FORM';
@@ -77,6 +79,9 @@ export type Actions = {
     data: string;
     mime: string;
   };
+  OPEN_IMAGE_PICKER_ADD_RECIPE_FORM: {
+    type: typeof OPEN_IMAGE_PICKER_ADD_RECIPE_FORM;
+  };
   RESET_ADD_RECIPE_FORM: {
     type: typeof RESET_ADD_RECIPE_FORM;
   };
@@ -123,6 +128,9 @@ export const actionCreators = {
     type: UPDATE_IMAGE_ADD_RECIPE_FORM,
     data,
     mime,
+  }),
+  openImagePickerAddRecipeForm: (): Actions[typeof OPEN_IMAGE_PICKER_ADD_RECIPE_FORM] => ({
+    type: OPEN_IMAGE_PICKER_ADD_RECIPE_FORM,
   }),
   resetAddRecipeForm: (): Actions[typeof RESET_ADD_RECIPE_FORM] => ({
     type: RESET_ADD_RECIPE_FORM,

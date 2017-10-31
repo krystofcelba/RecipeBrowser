@@ -1,12 +1,13 @@
 import { testSaga, expectSaga } from 'redux-saga-test-plan';
-import * as matchers from 'redux-saga-test-plan/matchers';
 import { Navigation } from 'react-native-navigation';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import uiSaga, {
   generateId,
   addNewIngredientToAddRecipeForm,
   addNewSeasoningToAddRecipeForm,
   addNewStepToAddRecipeForm,
+  openImagePicker,
   submitAddRecipeForm,
 } from '../uiSaga';
 import {
@@ -14,11 +15,13 @@ import {
   UPDATE_INGREDIENT_ADD_RECIPE_FORM,
   UPDATE_SEASONING_ADD_RECIPE_FORM,
   UPDATE_STEP_ADD_RECIPE_FORM,
+  UPDATE_IMAGE_ADD_RECIPE_FORM,
   RESET_ADD_RECIPE_FORM,
 } from 'src/redux/reducers/ui';
 import reducers from 'src/redux/reducers';
 import { getAddRecipeFormState } from '../../selectors';
 import * as API from '../../../services/api';
+import { imagePickerImageSize } from '../../../assets/constants';
 
 const generatedId = 10001010;
 
@@ -72,6 +75,21 @@ it('should call generateId function and put update step action', () => {
     .call(generateId)
     .next(generatedId)
     .put({ type: UPDATE_STEP_ADD_RECIPE_FORM, step: { id: generatedId, step: '' } })
+    .next()
+    .isDone();
+});
+
+it('should open image picker', () => {
+  const image = { data: 'xxxxxxx', mime: 'image/jpeg' };
+  testSaga(openImagePicker)
+    .next()
+    .call(ImagePicker.openPicker, {
+      ...imagePickerImageSize,
+      cropping: true,
+      includeBase64: true,
+    })
+    .next(image)
+    .put({ type: UPDATE_IMAGE_ADD_RECIPE_FORM, ...image })
     .next()
     .isDone();
 });

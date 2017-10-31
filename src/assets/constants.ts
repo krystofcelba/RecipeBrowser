@@ -36,3 +36,8 @@ export const navigatorConfig = {
   navigatorStyle,
   backButtonTitle: '',
 };
+
+export const imagePickerImageSize = {
+  height: 300,
+  width: 400,
+};

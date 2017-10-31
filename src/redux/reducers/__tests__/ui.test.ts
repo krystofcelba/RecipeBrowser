@@ -13,6 +13,7 @@ import {
   UPDATE_SEASONING_ADD_RECIPE_FORM,
   UPDATE_STEP_ADD_RECIPE_FORM,
   UPDATE_IMAGE_ADD_RECIPE_FORM,
+  OPEN_IMAGE_PICKER_ADD_RECIPE_FORM,
   RESET_ADD_RECIPE_FORM,
   SUBMIT_ADD_RECIPE_FORM,
 } from '../ui';
@@ -104,6 +105,12 @@ describe('add recipe form action creators', () => {
   it('should return SUBMIT_ADD_RECIPE_FORM', () => {
     expect(actionCreators.submitAddRecipeForm()).toEqual({
       type: SUBMIT_ADD_RECIPE_FORM,
+    });
+  });
+
+  it('should return OPEN_IMAGE_PICKER_ADD_RECIPE_FORM', () => {
+    expect(actionCreators.openImagePickerAddRecipeForm()).toEqual({
+      type: OPEN_IMAGE_PICKER_ADD_RECIPE_FORM,
     });
   });
 
