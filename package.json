@@ -74,6 +74,7 @@
       "<rootDir>"
     ],
     "globals": {
+      "__DEV__": true,
       "ts-jest": {
         "useBabelrc": true
       }
