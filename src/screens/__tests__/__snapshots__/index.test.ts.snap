@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registerScreens register components as expected 1`] = `
+Array [
+  Array [
+    "recipeBrowser.RecipesListTopBar",
+    [Function],
+    Object {},
+    [Function],
+  ],
+  Array [
+    "recipeBrowser.RecipesList",
+    [Function],
+    Object {},
+    [Function],
+  ],
+  Array [
+    "recipeBrowser.RecipeDetail",
+    [Function],
+    Object {},
+    [Function],
+  ],
+  Array [
+    "recipeBrowser.AddRecipeForm",
+    [Function],
+    Object {},
+    [Function],
+  ],
+]
+`;
