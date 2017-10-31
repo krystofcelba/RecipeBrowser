@@ -52,19 +52,18 @@ class AddRecipeForm extends Component<Props> {
   };
 
   onNavigatorEvent = event => {
-    if (event.type === 'NavBarButtonPress') {
-      const { navigator, resetForm, submitForm } = this.props;
-      switch (event.id) {
-        case 'cancel':
+    switch (event.type) {
+      case 'NavBarButtonPress':
+        const { navigator, resetForm, submitForm } = this.props;
+        if (event.id === 'cancel') {
           resetForm();
           navigator.dismissModal();
-          break;
-        case 'add':
+        } else if (event.id === 'add') {
           submitForm();
-          break;
-        default:
-          break;
-      }
+        }
+        break;
+      default:
+        break;
     }
   };
 

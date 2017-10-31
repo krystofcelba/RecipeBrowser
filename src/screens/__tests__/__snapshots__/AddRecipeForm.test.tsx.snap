@@ -1,0 +1,354 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRecipeForm component dispatches open image picker action as expected on pick image button press 1`] = `
+Array [
+  Object {
+    "type": "OPEN_IMAGE_PICKER_ADD_RECIPE_FORM",
+  },
+]
+`;
+
+exports[`AddRecipeForm component dispatches reset add recipe form action as expected and dismiss the modal on cancel button press 1`] = `
+Array [
+  Object {
+    "type": "RESET_ADD_RECIPE_FORM",
+  },
+]
+`;
+
+exports[`AddRecipeForm component dispatches submit recipe form action as expected on add button press 1`] = `
+Array [
+  Object {
+    "type": "SUBMIT_ADD_RECIPE_FORM",
+  },
+]
+`;
+
+exports[`AddRecipeForm component does not do anything as expected on any other navigator action 1`] = `Array []`;
+
+exports[`AddRecipeForm component renders as expected 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#EFEFF4",
+      "flex": 1,
+    }
+  }
+>
+  <ScrollViewMock>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 220,
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Icon
+        allowFontScaling={false}
+        name="ios-images-outline"
+        size={100}
+      />
+    </TouchableOpacity>
+    <TableView>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header={null}
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={0}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormInputCell
+          onChangeText={[Function]}
+          placeholder="Name"
+          value="recipe"
+        />
+        <FormInputCell
+          numberOfLines={4}
+          onChangeText={[Function]}
+          placeholder="Description"
+          value="desc"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Ingredients"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormIngredientCell
+          ingredient={
+            Object {
+              "amount": "1",
+              "id": 1,
+              "name": "potatoes",
+              "unit": "kg",
+            }
+          }
+          key="1"
+          onChange={[Function]}
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Seasonings"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormSeasoningCell
+          key="2"
+          onChange={[Function]}
+          seasoning={
+            Object {
+              "id": 2,
+              "seasoning": "red powder",
+            }
+          }
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Steps"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormStepCell
+          key="3"
+          onChange={[Function]}
+          step={
+            Object {
+              "id": 3,
+              "step": "do that",
+            }
+          }
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+    </TableView>
+  </ScrollViewMock>
+</View>
+`;
+
+exports[`AddRecipeForm component renders as expected with image 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#EFEFF4",
+      "flex": 1,
+    }
+  }
+>
+  <ScrollViewMock>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 220,
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "data": "data:image/jpeg;base64,xxxxxxxx",
+            "type": "image/jpeg",
+          }
+        }
+        style={
+          Object {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "height": 220,
+            "justifyContent": "center",
+            "width": "100%",
+          }
+        }
+      />
+    </TouchableOpacity>
+    <TableView>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header={null}
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={0}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormInputCell
+          onChangeText={[Function]}
+          placeholder="Name"
+          value="recipe"
+        />
+        <FormInputCell
+          numberOfLines={4}
+          onChangeText={[Function]}
+          placeholder="Description"
+          value="desc"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Ingredients"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormIngredientCell
+          ingredient={
+            Object {
+              "amount": "1",
+              "id": 1,
+              "name": "potatoes",
+              "unit": "kg",
+            }
+          }
+          key="1"
+          onChange={[Function]}
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Seasonings"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormSeasoningCell
+          key="2"
+          onChange={[Function]}
+          seasoning={
+            Object {
+              "id": 2,
+              "seasoning": "red powder",
+            }
+          }
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+      <Section
+        allowFontScaling={true}
+        footer={null}
+        footerComponent={null}
+        footerTextColor="#6d6d72"
+        header="Steps"
+        headerComponent={null}
+        headerTextColor="#6D6D72"
+        hideSeparator={false}
+        sectionPaddingBottom={15}
+        sectionPaddingTop={15}
+        sectionTintColor="#EFEFF4"
+        separatorInsetLeft={15}
+        separatorInsetRight={0}
+        separatorTintColor="#C8C7CC"
+      >
+        <FormStepCell
+          key="3"
+          onChange={[Function]}
+          step={
+            Object {
+              "id": 3,
+              "step": "do that",
+            }
+          }
+        />
+        <FormButtonCell
+          onPress={[Function]}
+          title="+ Add"
+        />
+      </Section>
+    </TableView>
+  </ScrollViewMock>
+</View>
+`;
