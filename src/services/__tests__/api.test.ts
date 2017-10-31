@@ -1,55 +1,69 @@
-import axios from 'axios';
-import { testSaga } from 'redux-saga-test-plan';
+import { AxiosError, AxiosRequestConfig } from 'axios';
 
-import { BASE_URL } from '../../assets/constants';
 import * as API from '../api';
 
-it('should format relative url to absolute url', () => {
-  expect(API.formatApiUrl('/')).toBe(`${BASE_URL}/`);
-});
+describe('API response handlers', () => {
+  it('success', () => {
+    const responseData = {};
+    expect(API.handleSuccessResponse({ data: responseData })).toEqual({ ok: true, data: responseData });
+  });
 
-it('should return response data with ok flag', () => {
-  const responseData = {};
-  expect(API.handleSuccessResponse({ data: responseData })).toEqual({ ok: true, data: responseData });
-});
-
-it('should return response data with errorMessage=error.response.data.error_description', () => {
-  const error = { response: { data: { error_description: 'error desc' } }, request: { responseText: 'error' } };
-  expect(API.handleErrorResponse(error)).toEqual({
-    ok: false,
-    data: error.response.data,
-    errorMessage: error.response.data.error_description,
+  it('error', () => {
+    const error = new Error('error') as AxiosError;
+    error.request = { responseText: 'error' };
+    expect(API.handleErrorResponse(error)).toEqual({ ok: false, data: {}, errorMessage: error.request.responseText });
   });
 });
 
-it('should return response data with errorMessage=error.responseText when error.data.error_description is undefined', () => {
-  const error = { request: { responseText: 'error' } };
-  expect(API.handleErrorResponse(error)).toEqual({ ok: false, data: {}, errorMessage: error.request.responseText });
+describe('API get', () => {
+  it('success', () => {
+    const replyData = { test: 'aaa' };
+    API.apiClient.get = async (_, config?: AxiosRequestConfig): Promise<any> => {
+      return {
+        data: replyData,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    };
+    return expect(API.get('/')).resolves.toEqual({ ok: true, data: replyData });
+  });
+
+  it('error', () => {
+    const errorMessage = 'The Internet connection appears to be offline.';
+    API.apiClient.get = async () => {
+      const error = new Error('error') as AxiosError;
+      error.request = { responseText: errorMessage };
+      throw error;
+    };
+    return expect(API.get('/')).resolves.toEqual({ ok: false, data: {}, errorMessage });
+  });
 });
 
-it('should call axois.get with absolute url, then return data from response', () => {
-  const responseData = {};
-  testSaga(API.get, '')
-    .next()
-    .call(axios.get, API.formatApiUrl(''), {})
-    .next(API.handleSuccessResponse({ data: responseData }))
-    .returns({ ok: true, data: responseData });
-});
+describe('API post', () => {
+  const postData = { test: 'aaa' };
+  it('success', () => {
+    const replyData = { success: true };
+    API.apiClient.post = async (_, config?: AxiosRequestConfig): Promise<any> => {
+      return {
+        data: replyData,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    };
+    return expect(API.post('/', postData)).resolves.toEqual({ ok: true, data: replyData });
+  });
 
-it('should call axois.post with absolute url and post body, then return data from response', () => {
-  const responseData = {};
-  testSaga(API.post, '', '')
-    .next()
-    .call(axios.post, API.formatApiUrl(''), '', {})
-    .next(API.handleSuccessResponse({ data: responseData }))
-    .returns({ ok: true, data: responseData });
-});
-
-it('should get recipes', () => {
-  const response = { ok: true, data: require('../__mockData__/recipes.json') };
-  testSaga(API.fetchRecipes, '')
-    .next()
-    .call(API.get, '/recipes')
-    .next(response)
-    .returns(response);
+  it('error', () => {
+    const errorMessage = 'The Internet connection appears to be offline.';
+    API.apiClient.post = async () => {
+      const error = new Error('error') as AxiosError;
+      error.request = { responseText: errorMessage };
+      throw error;
+    };
+    return expect(API.post('/', postData)).resolves.toEqual({ ok: false, data: {}, errorMessage });
+  });
 });

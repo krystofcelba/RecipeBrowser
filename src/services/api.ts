@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { call } from 'redux-saga/effects';
+import axios, { AxiosError } from 'axios';
 
 import { BASE_URL } from '../assets/constants';
 
@@ -16,38 +15,33 @@ export interface Recipe {
   ingredientsNames?: string;
 }
 
-export const formatApiUrl = path => `${BASE_URL}${path}`;
+export const apiClient = axios.create({
+  baseURL: BASE_URL,
+});
 
-export const handleErrorResponse = e => {
+export const handleErrorResponse = (e: AxiosError) => {
   const response = e.response || { data: {} };
-  const errorMessage = response.data.error_description || e.request.responseText;
+  const errorMessage = e.request.responseText;
   return { ok: false, data: response.data, errorMessage };
 };
 
 export const handleSuccessResponse = resp => ({ ok: true, data: resp.data });
 
-export function* get(path, config = {}) {
+export const get = async (path, config = {}) => {
   try {
-    const resp = yield call(axios.get, formatApiUrl(path), config);
+    const resp = await apiClient.get(path, config);
+    return handleSuccessResponse(resp);
+  } catch (e) {
+    const error = handleErrorResponse(e);
+    return error;
+  }
+};
+
+export const post = async (path, data, config = {}) => {
+  try {
+    const resp = await apiClient.post(path, data, config);
     return handleSuccessResponse(resp);
   } catch (e) {
     return handleErrorResponse(e);
   }
-}
-
-export function* post(path, data, config = {}) {
-  try {
-    const resp = yield call(axios.post, formatApiUrl(path), data, config);
-    return handleSuccessResponse(resp);
-  } catch (e) {
-    return handleErrorResponse(e);
-  }
-}
-
-export function* fetchRecipes() {
-  return yield call(get, '/recipes');
-}
-
-export function* postRecipe(recipe: Recipe) {
-  return yield call(post, '/recipes', recipe);
-}
+};

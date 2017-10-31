@@ -53,7 +53,7 @@ export function* openImagePicker() {
 export function* submitAddRecipeForm() {
   const newRecipe: NewRecipe = yield select(getAddRecipeFormState);
   const { name, description, image, ingredients, seasonings, steps } = newRecipe;
-  const resp = yield call(API.postRecipe, {
+  const resp = yield call(API.post, '/recipes', {
     name,
     description,
     image,
