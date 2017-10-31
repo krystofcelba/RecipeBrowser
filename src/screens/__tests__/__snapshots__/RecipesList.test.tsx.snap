@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RecipesList component call show modal as expected on add button press 1`] = `
+Array [
+  Array [
+    Object {
+      "backButtonTitle": "",
+      "navigatorStyle": Object {
+        "navBarBackgroundColor": "#81b640",
+        "navBarButtonColor": "#ffff",
+        "navBarTextColor": "#ffff",
+        "navBarTextFontFamily": "Avenir",
+        "statusBarColor": "#508607",
+        "statusBarTextColorScheme": "light",
+      },
+      "screen": "recipeBrowser.AddRecipeForm",
+      "title": "Add Recipe",
+    },
+  ],
+]
+`;
+
+exports[`RecipesList component calls push screen as expected on recipe flat list item press 1`] = `
+Array [
+  Array [
+    Object {
+      "backButtonTitle": "",
+      "navigatorStyle": Object {
+        "navBarBackgroundColor": "#81b640",
+        "navBarButtonColor": "#ffff",
+        "navBarTextColor": "#ffff",
+        "navBarTextFontFamily": "Avenir",
+        "statusBarColor": "#508607",
+        "statusBarTextColorScheme": "light",
+      },
+      "passProps": Object {
+        "recipeId": 9,
+      },
+      "screen": "recipeBrowser.RecipeDetail",
+      "title": "Mustard Deviled Eggs",
+    },
+  ],
+]
+`;
+
 exports[`RecipesList component renders as expected 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
@@ -543,22 +586,46 @@ exports[`RecipesList component renders as expected on android 1`] = `
 </KeyboardAvoidingView>
 `;
 
-exports[`RecipesList component show modal as expected on add button press 1`] = `
-Array [
-  Array [
+exports[`RecipesList component renders recipe flat list item as expected 1`] = `
+<RecipeCard
+  onPress={[Function]}
+  recipe={
     Object {
-      "backButtonTitle": "",
-      "navigatorStyle": Object {
-        "navBarBackgroundColor": "#81b640",
-        "navBarButtonColor": "#ffff",
-        "navBarTextColor": "#ffff",
-        "navBarTextFontFamily": "Avenir",
-        "statusBarColor": "#508607",
-        "statusBarTextColorScheme": "light",
-      },
-      "screen": "recipeBrowser.AddRecipeForm",
-      "title": "Add Recipe",
-    },
-  ],
-]
+      "description": "This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.",
+      "id": 9,
+      "image": "https://nutrition-assets.freeletics.com/recipes/large/mustard_deviled_eggs.jpg",
+      "ingredients": Array [
+        Object {
+          "amount": 4,
+          "name": "hard-boiled eggs",
+          "unit": "",
+        },
+        Object {
+          "amount": 2,
+          "name": "Dijon mustard",
+          "unit": "tsp",
+        },
+        Object {
+          "amount": 100,
+          "name": "cottage cheese",
+          "unit": "g",
+        },
+        Object {
+          "amount": 2,
+          "name": "chopped dill",
+          "unit": "tbsp",
+        },
+      ],
+      "name": "Mustard Deviled Eggs",
+      "seasonings": Array [
+        "Paprika powder",
+      ],
+      "steps": Array [
+        "Halve eggs and remove yolk.",
+        "Mix yolks with mustard, cottage cheese and half of dill.",
+        "Fill egg halves with yolk mixture and garnish with remaining dill.",
+      ],
+    }
+  }
+/>
 `;

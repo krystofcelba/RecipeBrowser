@@ -44,6 +44,10 @@ class RecipesList extends Component<Props, any> {
     });
   };
 
+  recipeKeyExtractor = item => item.id;
+
+  renderRecipeFlatListItem = ({ item }) => <RecipeCard recipe={item} onPress={this.onPressRecipe} />;
+
   render() {
     const { recipes } = this.props;
     return (
@@ -52,11 +56,7 @@ class RecipesList extends Component<Props, any> {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.container}
       >
-        <FlatList
-          data={recipes}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => <RecipeCard recipe={item as Recipe} onPress={this.onPressRecipe} />}
-        />
+        <FlatList data={recipes} keyExtractor={this.recipeKeyExtractor} renderItem={this.renderRecipeFlatListItem} />
         <ActionButton buttonColor={Colors.secondaryColor} onPress={this.onPressAddButton} hideShadow />
       </KeyboardAvoidingView>
     );

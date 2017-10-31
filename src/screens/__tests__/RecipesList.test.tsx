@@ -31,17 +31,17 @@ const initialState = {
 };
 
 describe('RecipesList component', () => {
-  const setStyleSpy = jest.fn();
-  const showModalSpy = jest.fn();
   const navigator = {
-    setStyle: setStyleSpy,
-    showModal: showModalSpy,
+    setStyle: () => {},
   };
 
   it('renders as expected', () => {
-    const wrapper = shallow(<RecipesList navigator={navigator} />, { context: { store: mockStore(initialState) } });
+    const setStyle = jest.fn();
+    const wrapper = shallow(<RecipesList navigator={{ ...navigator, setStyle }} />, {
+      context: { store: mockStore(initialState) },
+    });
     expect(wrapper.dive()).toMatchSnapshot();
-    expect(setStyleSpy.mock.calls).toMatchSnapshot();
+    expect(setStyle.mock.calls).toMatchSnapshot();
   });
 
   it('renders as expected on android', () => {
@@ -50,12 +50,53 @@ describe('RecipesList component', () => {
     expect(wrapper.dive()).toMatchSnapshot();
   });
 
-  it('show modal as expected on add button press', () => {
-    const wrapper = shallow(<RecipesList navigator={navigator} />, { context: { store: mockStore(initialState) } });
+  it('call show modal as expected on add button press', () => {
+    const showModal = jest.fn();
+    const wrapper = shallow(<RecipesList navigator={{ ...navigator, showModal }} />, {
+      context: { store: mockStore(initialState) },
+    });
     const render = wrapper.dive();
     render.find('ActionButton').forEach(child => {
       child.simulate('press');
-      expect(showModalSpy.mock.calls).toMatchSnapshot();
+      expect(showModal.mock.calls).toMatchSnapshot();
     });
+  });
+
+  it('returns recipe id as key', () => {
+    const recipe = mockedRecipes[0];
+    const wrapper = shallow(<RecipesList navigator={navigator} />, { context: { store: mockStore(initialState) } });
+    expect(
+      wrapper
+        .dive()
+        .instance()
+        .recipeKeyExtractor(recipe),
+    ).toBe(recipe.id);
+  });
+
+  it('renders recipe flat list item as expected', () => {
+    const wrapper = shallow(<RecipesList navigator={navigator} />, { context: { store: mockStore(initialState) } });
+    expect(
+      wrapper
+        .dive()
+        .instance()
+        .renderRecipeFlatListItem({ item: mockedRecipes[0] }),
+    ).toMatchSnapshot();
+  });
+
+  it('calls push screen as expected on recipe flat list item press', () => {
+    const push = jest.fn();
+    const wrapper = shallow(<RecipesList navigator={{ ...navigator, push }} />, {
+      context: { store: mockStore(initialState) },
+    });
+
+    const itemWrapper = shallow(
+      wrapper
+        .dive()
+        .instance()
+        .renderRecipeFlatListItem({ item: mockedRecipes[0] }),
+    );
+    itemWrapper.simulate('press');
+
+    expect(push.mock.calls).toMatchSnapshot();
   });
 });
