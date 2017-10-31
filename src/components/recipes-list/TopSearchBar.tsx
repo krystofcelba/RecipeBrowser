@@ -16,6 +16,7 @@ interface Props {
 const TopSearchBar = ({ updateRecipesSearchInputText, showClearIcon }: Props) => (
   <View style={styles.container}>
     <SearchBar
+      testID="topSearchBar"
       lightTheme
       round
       containerStyle={styles.searchBar}

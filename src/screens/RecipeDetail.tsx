@@ -20,7 +20,7 @@ class RecipeDetail extends Component<Props> {
     const { recipe: { image, name, description, ingredients, seasonings, steps } } = this.props;
     const imageUri = typeof image === 'string' ? image : image.uri;
     return (
-      <View style={styles.container}>
+      <View style={styles.container} testID="recipeDetailScreen">
         <ScrollView>
           <Image style={styles.recipeImage} source={{ uri: imageUri }} resizeMode="cover" />
           <View style={styles.recipesInfoContainer}>
