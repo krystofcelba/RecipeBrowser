@@ -113,7 +113,7 @@ it('should make Recipe from NewRecipe and post it to server, then put reset form
     .next()
     .select(getAddRecipeFormState)
     .next(state.ui.addRecipeForm.newRecipe)
-    .call(API.postRecipe, {
+    .call(API.post, '/recipes', {
       name: 'Recipe 1',
       description: 'desc',
       image: { type: 'image/jpeg', data: 'xxxxxx' },

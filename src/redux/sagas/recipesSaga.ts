@@ -4,7 +4,7 @@ import { FETCH_RECIPES, actionCreators } from '../reducers/recipes';
 import * as API from '../../services/api';
 
 export function* fetchAllRecipes() {
-  const resp = yield call(API.fetchRecipes);
+  const resp = yield call(API.get, '/recipes');
   if (resp.ok) {
     const recipes: [API.Recipe] = resp.data;
     yield put(actionCreators.fetchRecipesSuccess(recipes));
