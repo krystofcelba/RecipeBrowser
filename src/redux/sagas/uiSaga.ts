@@ -45,9 +45,7 @@ export function* openImagePicker() {
     });
 
     yield put(actionCreators.updateImageInAddRecipeForm(image.data, image.mime));
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 
 export function* submitAddRecipeForm() {
