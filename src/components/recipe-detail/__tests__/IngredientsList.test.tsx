@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import IngredientsBox from '../IngredientsBox';
+import IngredientsList from '../IngredientsList';
 
 const mockedRecipes = require('../../../services/__mockData__/recipes.json');
 
-describe('IngredientsBox component', () => {
+describe('IngredientsList component', () => {
   const mockedRecipe = mockedRecipes[2];
   it('renders as expected', () => {
     const wrapper = shallow(
-      <IngredientsBox style={{}} ingredients={mockedRecipe.ingredients} seasonings={mockedRecipe.seasonings} />,
+      <IngredientsList ingredients={mockedRecipe.ingredients} seasonings={mockedRecipe.seasonings} />,
     );
     expect(wrapper).toMatchSnapshot();
   });

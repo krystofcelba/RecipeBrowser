@@ -8,8 +8,6 @@ describe('RecipesList screen', () => {
     await element(by.id('topSearchBar')).typeText('grape\n');
     await expect(element(by.id('recipeCard_2'))).toNotExist();
 
-    // await expect(element(by.id('recipeCard_31'))).toBeVisible();
-
     await element(by.id('recipeCard_31')).tap();
 
     await expect(element(by.id('recipeDetailScreen'))).toBeVisible();

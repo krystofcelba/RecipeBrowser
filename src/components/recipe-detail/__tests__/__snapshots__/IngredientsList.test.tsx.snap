@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IngredientsList component renders as expected 1`] = `
+<glamorous.View
+  flex={1}
+>
+  <SubTitleText>
+    Ingredients
+  </SubTitleText>
+  <glamorous.View
+    flexDirection="row"
+    key="0"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      200 g white fish fillet (cod, plaice, sole; fresh or frozen)
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="1"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      0.5  avocados
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="2"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      0.5  grapefruits
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="3"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      1  chopped jalapeño
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="4"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      0.5 bunches coriander
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="5"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      0.5  limes (juice)
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="6"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      100 g chopped cabbage
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="7"
+  >
+    <LeftPaddedText>
+      •
+    </LeftPaddedText>
+    <LeftPaddedText>
+      1 tsp coconut oil
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="column"
+  >
+    <BoldText>
+      Seasonings
+    </BoldText>
+    <LeftPaddedText>
+      Chili flakes, 
+      unrefined salt, 
+      black pepper
+    </LeftPaddedText>
+  </glamorous.View>
+</glamorous.View>
+`;

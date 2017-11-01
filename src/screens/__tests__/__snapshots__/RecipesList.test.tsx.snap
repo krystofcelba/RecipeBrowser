@@ -50,12 +50,16 @@ exports[`RecipesList component renders as expected 1`] = `
   style={
     Object {
       "flex": 1,
-      "marginBottom": 15,
     }
   }
   testID="recipesListScreen"
 >
   <FlatList
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 10,
+      }
+    }
     data={
       Array [
         Object {
@@ -332,12 +336,16 @@ exports[`RecipesList component renders as expected on android 1`] = `
   style={
     Object {
       "flex": 1,
-      "marginBottom": 15,
     }
   }
   testID="recipesListScreen"
 >
   <FlatList
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 10,
+      }
+    }
     data={
       Array [
         Object {

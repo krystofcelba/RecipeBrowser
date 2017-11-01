@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Cell } from 'react-native-tableview-simple';
 
-import { StylesConstants, Colors } from '../../assets/constants';
+import AppTheme from 'src/assets/appTheme';
 
 interface Props {
   title: string;
@@ -15,9 +15,9 @@ const FormButtonCell = ({ title, onPress }: Props) => (
 
 const styles = StyleSheet.create({
   title: {
-    color: Colors.formButtonCellColor,
-    fontFamily: StylesConstants.fontFamily,
-    fontSize: StylesConstants.inputFontSize,
+    color: AppTheme.secondaryColor,
+    fontFamily: AppTheme.fontFamily,
+    fontSize: AppTheme.defaultFontSize,
   },
 });
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { Recipe } from 'src/services/api';
-import { StylesConstants } from 'src/assets/constants';
+import { SubTitleText } from 'src/components/common';
 
 interface Props {
   testID: string;
@@ -22,19 +22,11 @@ class RecipeCard extends React.PureComponent<Props> {
     return (
       <TouchableOpacity testID={testID} onPress={this.onPress}>
         <Card image={{ uri: recipe.image }}>
-          <Text style={styles.title}>{recipe.name.toUpperCase()}</Text>
+          <SubTitleText>{recipe.name}</SubTitleText>
         </Card>
       </TouchableOpacity>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    fontFamily: StylesConstants.fontFamily,
-  },
-});
 
 export default RecipeCard;

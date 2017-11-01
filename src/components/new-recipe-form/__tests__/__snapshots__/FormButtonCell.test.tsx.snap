@@ -29,9 +29,9 @@ exports[`FormButtonCell component renders as expected 1`] = `
   titleTextColor="#000"
   titleTextStyle={
     Object {
-      "color": "#007AFF",
+      "color": "#FF5722",
       "fontFamily": "Avenir",
-      "fontSize": 15,
+      "fontSize": 14,
     }
   }
   titleTextStyleDisabled={Object {}}

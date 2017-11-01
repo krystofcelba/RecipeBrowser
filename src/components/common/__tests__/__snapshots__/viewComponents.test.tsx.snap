@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View components PaddedView renders as expected 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "padding": 10,
+      },
+    ]
+  }
+/>
+`;

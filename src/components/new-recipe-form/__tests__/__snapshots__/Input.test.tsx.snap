@@ -11,10 +11,10 @@ exports[`Input component renders as expected 1`] = `
     Array [
       Object {
         "fontFamily": "Avenir",
-        "fontSize": 15,
+        "fontSize": 14,
       },
       Object {
-        "height": 15,
+        "height": 14,
       },
       undefined,
     ]
@@ -34,10 +34,10 @@ exports[`Input component renders as expected with defined style 1`] = `
     Array [
       Object {
         "fontFamily": "Avenir",
-        "fontSize": 15,
+        "fontSize": 14,
       },
       Object {
-        "height": 15,
+        "height": 14,
       },
       Object {
         "margin": 10,
