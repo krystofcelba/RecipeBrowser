@@ -1,10 +1,8 @@
 import React from 'react';
-import glamorous from 'glamorous-native';
-const { View } = glamorous;
 
 import i18n from 'src/assets/i18n';
 import { Ingredient } from 'src/services/api';
-import { SubTitleText, BoldText, LeftPaddedText } from 'src/components/common';
+import { View, SubTitleText, BoldText, LeftPaddedText } from 'src/components/common';
 
 interface Props {
   ingredients: [Ingredient];

@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { ScrollView, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import glamorous from 'glamorous-native';
-const { View } = glamorous;
 
 import { Recipe } from 'src/services/api';
 import { getRecipe } from 'src/redux/selectors';
 import IngredientsList from 'src/components/recipe-detail/IngredientsList';
 import StepsList from 'src/components/recipe-detail/StepsList';
 import AppTheme from 'src/assets/appTheme';
-import { PaddedView, Text, TitleText, namedGlamorous } from 'src/components/common';
+import { View, PaddedView, Text, TitleText, namedGlamorous } from 'src/components/common';
 
 const DescriptionContainer = namedGlamorous(PaddedView, 'DescriptionContainer')({
   paddingBottom: 0,
 });
+
 const IngredientsContainer = namedGlamorous(PaddedView, 'IngredientsContainer')({
+  paddingRight: AppTheme.defaultPadding * 2.5,
   paddingVertical: AppTheme.defaultPadding / 2,
   marginVertical: AppTheme.defaultPadding / 2,
-  paddingRight: AppTheme.defaultPadding * 2.5,
   backgroundColor: AppTheme.lightSecondaryColor,
 });
+
 const StepsContainer = namedGlamorous(PaddedView, 'StepsContainer')({
   paddingTop: 0,
   paddingRight: AppTheme.defaultPadding * 2.5,
