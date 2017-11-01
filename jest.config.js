@@ -4,6 +4,7 @@ module.exports = {
     '^.+\\.jsx?$': '<rootDir>/node_modules/babel-jest',
     '^.+\\.tsx?$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
   },
+  transformIgnorePatterns: ['node_modules/(?!(jest-)?react-native|glamorous-native)'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverage: false,

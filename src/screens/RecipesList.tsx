@@ -5,7 +5,7 @@ import ActionButton from 'react-native-action-button';
 
 import { actionCreators } from '../redux/reducers/recipes';
 import { Recipe } from '../services/api';
-import { navigatorStyle, navigatorConfig, StylesConstants, Colors } from '../assets/constants';
+import AppTheme, { navigatorStyle, navigatorConfig } from '../assets/appTheme';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
 import i18n from '../assets/i18n';
@@ -59,10 +59,15 @@ class RecipesList extends Component<Props, any> {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.container}
       >
-        <FlatList data={recipes} keyExtractor={this.recipeKeyExtractor} renderItem={this.renderRecipeFlatListItem} />
+        <FlatList
+          data={recipes}
+          keyExtractor={this.recipeKeyExtractor}
+          renderItem={this.renderRecipeFlatListItem}
+          contentContainerStyle={{ paddingBottom: AppTheme.defaultPadding }}
+        />
         <ActionButton
           testID="addButton"
-          buttonColor={Colors.secondaryColor}
+          buttonColor={AppTheme.secondaryColor}
           onPress={this.onPressAddButton}
           hideShadow
         />
@@ -74,7 +79,6 @@ class RecipesList extends Component<Props, any> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: StylesConstants.defaultMargin * 1.5,
   },
 });
 

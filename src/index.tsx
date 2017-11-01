@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 
 import configureStore from './redux';
 import { registerScreens } from './screens';
-import { navigatorStyle } from './assets/constants';
+import { navigatorStyle } from './assets/appTheme';
 
 const store = configureStore();
 registerScreens(store, Provider);

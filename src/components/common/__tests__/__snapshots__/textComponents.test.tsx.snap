@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text components BoldText renders as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+      },
+      Object {
+        "fontWeight": "bold",
+      },
+    ]
+  }
+>
+  text
+</Text>
+`;
+
+exports[`Text components LeftPaddedText renders as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+      },
+      Object {
+        "paddingLeft": 5,
+      },
+    ]
+  }
+>
+  text
+</Text>
+`;
+
+exports[`Text components SubTitleText renders as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+      },
+      Object {
+        "fontWeight": "bold",
+      },
+      Object {
+        "fontSize": 20,
+      },
+    ]
+  }
+>
+  text
+</Text>
+`;
+
+exports[`Text components Text renders as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+      },
+    ]
+  }
+>
+  text
+</Text>
+`;
+
+exports[`Text components TitleText renders as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+      },
+      Object {
+        "fontSize": 32,
+      },
+    ]
+  }
+>
+  text
+</Text>
+`;

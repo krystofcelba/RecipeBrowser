@@ -37,7 +37,7 @@ exports[`TopSearchBar component renders as expected 1`] = `
     inputStyle={
       Object {
         "backgroundColor": "#508607",
-        "color": "rgba(255, 255, 255, 1.0)",
+        "color": "#ffff",
         "fontFamily": "Avenir",
       }
     }
@@ -48,7 +48,7 @@ exports[`TopSearchBar component renders as expected 1`] = `
     placeholder="Search"
     placeholderTextColor="rgba(255, 255, 255, 0.3)"
     round={true}
-    selectionColor="rgba(255, 255, 255, 1.0)"
+    selectionColor="#ffff"
     showLoadingIcon={false}
     testID="topSearchBar"
   />
@@ -89,7 +89,7 @@ exports[`TopSearchBar component renders as expected with clear icon when there i
     inputStyle={
       Object {
         "backgroundColor": "#508607",
-        "color": "rgba(255, 255, 255, 1.0)",
+        "color": "#ffff",
         "fontFamily": "Avenir",
       }
     }
@@ -100,7 +100,7 @@ exports[`TopSearchBar component renders as expected with clear icon when there i
     placeholder="Search"
     placeholderTextColor="rgba(255, 255, 255, 0.3)"
     round={true}
-    selectionColor="rgba(255, 255, 255, 1.0)"
+    selectionColor="#ffff"
     showLoadingIcon={false}
     testID="topSearchBar"
   />

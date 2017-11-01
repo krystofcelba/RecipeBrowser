@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput, StyleProp, TextStyle, Keyboard } from 'react-native';
 
-import { StylesConstants } from '../../assets/constants';
+import AppTheme from '../../assets/appTheme';
 
 interface Props {
   placeholder: string;
@@ -16,7 +16,7 @@ const Input = ({ placeholder, numberOfLines = 1, value, onChangeText, style, ...
     value={value}
     onChangeText={onChangeText}
     numberOfLines={numberOfLines}
-    style={[styles.input, { height: numberOfLines * StylesConstants.inputFontSize }, style && style]}
+    style={[styles.input, { height: numberOfLines * AppTheme.defaultFontSize }, style && style]}
     placeholder={placeholder}
     multiline={numberOfLines > 1}
     onSubmitEditing={Keyboard.dismiss}
@@ -26,8 +26,8 @@ const Input = ({ placeholder, numberOfLines = 1, value, onChangeText, style, ...
 
 const styles = StyleSheet.create({
   input: {
-    fontFamily: StylesConstants.fontFamily,
-    fontSize: StylesConstants.inputFontSize,
+    fontFamily: AppTheme.fontFamily,
+    fontSize: AppTheme.defaultFontSize,
   },
 });
 

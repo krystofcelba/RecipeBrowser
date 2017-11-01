@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecipeDetail component renders as expected 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<glamorous.View
+  flex={1}
   testID="recipeDetailScreen"
 >
   <ScrollViewMock>
@@ -20,44 +16,20 @@ exports[`RecipeDetail component renders as expected 1`] = `
       style={
         Object {
           "height": 220,
-          "marginBottom": 10,
           "width": "100%",
         }
       }
     />
-    <View
-      style={
-        Object {
-          "paddingBottom": 15,
-        }
-      }
-    >
-      <TextElement
-        h3={true}
-        style={
-          Object {
-            "color": "#000000",
-            "fontFamily": "Avenir",
-            "paddingLeft": 10,
-            "paddingRight": 20,
-          }
-        }
-      >
+    <DescriptionContainer>
+      <TitleText>
         Mustard Deviled Eggs
-      </TextElement>
-      <TextElement
-        style={
-          Object {
-            "fontFamily": "Avenir",
-            "marginBottom": 5,
-            "paddingLeft": 10,
-            "paddingRight": 20,
-          }
-        }
-      >
+      </TitleText>
+      <Text>
         This buffet classic can also be healthy! Mayonnaise is replaced by cottage cheese. You can blend the filling for more creaminess.
-      </TextElement>
-      <IngredientsBox
+      </Text>
+    </DescriptionContainer>
+    <IngredientsContainer>
+      <IngredientsList
         ingredients={
           Array [
             Object {
@@ -87,17 +59,10 @@ exports[`RecipeDetail component renders as expected 1`] = `
             "Paprika powder",
           ]
         }
-        style={
-          Object {
-            "backgroundColor": "#FBE9E7",
-            "paddingBottom": 5,
-            "paddingLeft": 10,
-            "paddingRight": 20,
-            "paddingTop": 5,
-          }
-        }
       />
-      <StepsBox
+    </IngredientsContainer>
+    <StepsContainer>
+      <StepsList
         steps={
           Array [
             "Halve eggs and remove yolk.",
@@ -105,16 +70,8 @@ exports[`RecipeDetail component renders as expected 1`] = `
             "Fill egg halves with yolk mixture and garnish with remaining dill.",
           ]
         }
-        style={
-          Object {
-            "paddingBottom": 5,
-            "paddingLeft": 10,
-            "paddingRight": 20,
-            "paddingTop": 5,
-          }
-        }
       />
-    </View>
+    </StepsContainer>
   </ScrollViewMock>
-</View>
+</glamorous.View>
 `;

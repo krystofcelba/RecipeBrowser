@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepsList component renders as expected 1`] = `
+<glamorous.View
+  flex={1}
+>
+  <SubTitleText>
+    Steps
+  </SubTitleText>
+  <glamorous.View
+    flexDirection="row"
+    key="0"
+  >
+    <LeftPaddedBoldText>
+      1.
+    </LeftPaddedBoldText>
+    <LeftPaddedText>
+      Halve eggs and remove yolk.
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="1"
+  >
+    <LeftPaddedBoldText>
+      2.
+    </LeftPaddedBoldText>
+    <LeftPaddedText>
+      Mix yolks with mustard, cottage cheese and half of dill.
+    </LeftPaddedText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="2"
+  >
+    <LeftPaddedBoldText>
+      3.
+    </LeftPaddedBoldText>
+    <LeftPaddedText>
+      Fill egg halves with yolk mixture and garnish with remaining dill.
+    </LeftPaddedText>
+  </glamorous.View>
+</glamorous.View>
+`;

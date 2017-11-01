@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Cell } from 'react-native-tableview-simple';
 
-import { StylesConstants } from '../../assets/constants';
 import Input from './Input';
 
 interface Props {
@@ -24,11 +23,6 @@ const FormInputCell = (props: Props) => (
 
 const styles = StyleSheet.create({
   container: { flex: 1, paddingVertical: 10 },
-  input: {
-    flex: 1,
-    fontFamily: StylesConstants.fontFamily,
-    fontSize: StylesConstants.inputFontSize,
-  },
 });
 
 export default FormInputCell;
