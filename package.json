@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "glamorous-native": "^1.2.0",
     "react": "16.0.0-beta.5",
     "react-native": "0.49.3",
     "react-native-action-button": "https://github.com/lacasseio/react-native-action-button.git#issue-234-wire-testID",
