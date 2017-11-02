@@ -16,10 +16,61 @@ exports[`FormInputCell component renders as expected 1`] = `
       <Field
         component={[Function]}
         name="input"
-        onChangeText={[Function]}
         placeholder="placeholder"
         style={false}
-        value=""
+      />
+    </glamorous.View>
+  }
+  cellImageView={null}
+  cellStyle="Basic"
+  contentContainerStyle={Object {}}
+  detail=""
+  detailTextStyle={Object {}}
+  disableImageResize={false}
+  highlightActiveOpacity={0.8}
+  highlightUnderlayColor="black"
+  image={null}
+  isDisabled={false}
+  leftDetailColor="#007AFF"
+  onHighlightRow={null}
+  onPress={false}
+  onUnHighlightRow={null}
+  rightDetailColor="#8E8E93"
+  subtitleColor="#000"
+  subtitleTextStyle={Object {}}
+  title=""
+  titleTextColor="#000"
+  titleTextStyle={Object {}}
+  titleTextStyleDisabled={Object {}}
+/>
+`;
+
+exports[`FormInputCell component renders as expected with index 1`] = `
+<Cell
+  accessory={false}
+  accessoryColor="#007AFF"
+  allowFontScaling={true}
+  backgroundColor="#FFF"
+  cellAccessoryView={null}
+  cellContentView={
+    <glamorous.View
+      flex={1}
+      flexDirection="row"
+      paddingVertical={5}
+    >
+      <BoldText>
+        #
+        1
+      </BoldText>
+      <Field
+        component={[Function]}
+        name="input"
+        placeholder="placeholder"
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
       />
     </glamorous.View>
   }
