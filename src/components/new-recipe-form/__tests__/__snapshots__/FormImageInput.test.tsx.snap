@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormImageInput component calls onChange as expected 1`] = `
+Array [
+  Array [
+    "data:image/json;base64,xxxxxxx",
+  ],
+]
+`;
+
+exports[`FormImageInput component renders as expected 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 220,
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    name="ios-images-outline"
+    size={100}
+  />
+</TouchableOpacity>
+`;
+
+exports[`FormImageInput component renders as expected with image 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 220,
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "data:image/jpeg;base64,xxxxxxxxx",
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  />
+</TouchableOpacity>
+`;

@@ -3,7 +3,7 @@ import reducer from '../../reducers';
 import { actionCreators as uiActionCreators } from '../../reducers/ui';
 import { actionCreators as recipesActionCreators } from '../../reducers/recipes';
 
-const mockedRecipes = require('../../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 
 const mockedState = reducer(undefined, { type: '@@INIT' });
 
@@ -34,11 +34,5 @@ describe('recipes selectors', () => {
 
   it('should get recipe with id', () => {
     expect(selectors.getRecipe(state, 31)).toEqual(state.recipes.recipes[31]);
-  });
-});
-
-describe('ui selectors', () => {
-  it('should get add recipe form state', () => {
-    expect(selectors.getAddRecipeFormState(mockedState)).toEqual(mockedState.ui.addRecipeForm.newRecipe);
   });
 });

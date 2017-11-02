@@ -4,10 +4,8 @@ exports[`RecipesList component call show modal as expected on add button press 1
 Array [
   Array [
     Object {
-      "backButtonTitle": "",
       "navigatorStyle": Object {
         "navBarBackgroundColor": "#81b640",
-        "navBarButtonColor": "#ffff",
         "navBarTextColor": "#ffff",
         "navBarTextFontFamily": "Avenir",
         "statusBarColor": "#508607",
@@ -45,8 +43,6 @@ Array [
 
 exports[`RecipesList component renders as expected 1`] = `
 <KeyboardAvoidingView
-  behavior="padding"
-  keyboardVerticalOffset={60}
   style={
     Object {
       "flex": 1,
@@ -317,7 +313,6 @@ Array [
   Array [
     Object {
       "navBarBackgroundColor": "#81b640",
-      "navBarButtonColor": "#ffff",
       "navBarComponentAlignment": "center",
       "navBarCustomView": "recipeBrowser.RecipesListTopBar",
       "navBarCustomViewInitialProps": Object {},
@@ -332,7 +327,6 @@ Array [
 
 exports[`RecipesList component renders as expected on android 1`] = `
 <KeyboardAvoidingView
-  keyboardVerticalOffset={60}
   style={
     Object {
       "flex": 1,

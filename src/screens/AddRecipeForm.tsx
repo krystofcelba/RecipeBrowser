@@ -1,65 +1,52 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import { Section, TableView } from 'react-native-tableview-simple';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
+import { Field, FieldArray, reduxForm } from 'redux-form/immutable';
+import { Map } from 'immutable';
 
-import i18n from '../assets/i18n';
-import FormInputCell from '../components/new-recipe-form/FormInputCell';
-import FormButtonCell from '../components/new-recipe-form/FormButtonCell';
-import FormIngredientCell from '../components/new-recipe-form/FormIngredientCell';
-import FormSeasoningCell from '../components/new-recipe-form/FormSeasoningCell';
-import FormStepCell from '../components/new-recipe-form/FormStepCell';
-import { actionCreators, NewRecipe } from '../redux/reducers/ui';
-import { getAddRecipeFormState } from '../redux/selectors';
+import { validateNewRecipeFormValues } from 'src/utils';
+import i18n from 'src/assets/i18n';
+import AppTheme from 'src/assets/appTheme';
+import { KeyboardAvoidingView } from 'src/components/common';
+import {
+  FormImageInput,
+  TextInputCell,
+  IngredientInputsCell,
+  FieldArraySection,
+  ErrorsSectionFooter,
+} from 'src/components/new-recipe-form';
+import { actionCreators } from 'src/redux/reducers/ui';
 
 interface Props {
   navigator: any;
-  newRecipe: NewRecipe;
-  updateName: typeof actionCreators.updateNameInAddRecipeForm;
-  updateDescription: typeof actionCreators.updateDescriptionInAddRecipeForm;
-  addIngredient: typeof actionCreators.addIngredientToAddRecipeForm;
-  updateIngredient: typeof actionCreators.updateIngredientInAddRecipeForm;
-  addSeasoning: typeof actionCreators.addSeasoningToAddRecipeForm;
-  updateSeasoning: typeof actionCreators.updateSeasoningInAddRecipeForm;
-  addStep: typeof actionCreators.addStepToAddRecipeForm;
-  updateStep: typeof actionCreators.updateStepInAddRecipeForm;
-  openImagePicker: typeof actionCreators.openImagePickerAddRecipeForm;
-  updateImage: typeof actionCreators.updateImageInAddRecipeForm;
-  resetForm: typeof actionCreators.resetAddRecipeForm;
-  submitForm: typeof actionCreators.submitAddRecipeForm;
+  validationErrors: any;
+  invalid: boolean;
+  submit: () => Promise<any>;
 }
 
-class AddRecipeForm extends Component<Props> {
+export class AddRecipeFormComponent extends Component<Props> {
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    this.updateNavigatorButtons(this.props.invalid);
   }
 
-  static navigatorButtons = {
-    rightButtons: [
-      {
-        title: i18n.t('add'),
-        id: 'add',
-      },
-    ],
-    leftButtons: [
-      {
-        title: i18n.t('cancel'),
-        id: 'cancel',
-      },
-    ],
-  };
+  componentWillReceiveProps(nextProps: Props) {
+    const { invalid } = nextProps;
+    if (invalid !== this.props.invalid) {
+      this.updateNavigatorButtons(invalid);
+    }
+  }
 
   onNavigatorEvent = event => {
     switch (event.type) {
       case 'NavBarButtonPress':
-        const { navigator, resetForm, submitForm } = this.props;
+        const { navigator, submit } = this.props;
         if (event.id === 'cancel') {
-          resetForm();
           navigator.dismissModal();
         } else if (event.id === 'add') {
-          submitForm();
+          submit();
         }
         break;
       default:
@@ -67,61 +54,73 @@ class AddRecipeForm extends Component<Props> {
     }
   };
 
+  updateNavigatorButtons = invalid => {
+    const { navigator } = this.props;
+    navigator.setButtons({
+      rightButtons: [
+        {
+          title: i18n.t('add'),
+          id: 'add',
+          testID: 'add',
+          disabled: invalid,
+          buttonColor: invalid ? AppTheme.topBarDisabledButtonTextColor : AppTheme.topBarTextColor,
+        },
+      ],
+      leftButtons: [
+        {
+          title: i18n.t('cancel'),
+          id: 'cancel',
+          testID: 'cancel',
+          buttonColor: AppTheme.topBarTextColor,
+        },
+      ],
+    });
+  };
+
   render() {
-    const {
-      newRecipe: { name, description, ingredients, seasonings, steps, image },
-      updateName,
-      updateDescription,
-      addIngredient,
-      updateIngredient,
-      addSeasoning,
-      updateSeasoning,
-      addStep,
-      updateStep,
-      openImagePicker,
-    } = this.props;
+    const { validationErrors } = this.props;
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <ScrollView>
-          <TouchableOpacity style={styles.imageContainer} onPress={openImagePicker}>
-            {image ? (
-              <Image style={styles.recipeImage} source={image} resizeMode="cover" />
-            ) : (
-              <Icon name="ios-images-outline" size={100} />
-            )}
-          </TouchableOpacity>
           <TableView>
-            <Section sectionPaddingTop={0}>
-              <FormInputCell placeholder={i18n.t('name')} value={name} onChangeText={updateName} />
-              <FormInputCell
-                placeholder={i18n.t('description')}
-                numberOfLines={4}
-                value={description}
-                onChangeText={updateDescription}
-              />
+            <Field name="image" component={FormImageInput} />
+            <Section
+              sectionPaddingTop={0}
+              footerComponent={
+                <ErrorsSectionFooter
+                  errors={{ name: validationErrors.name, description: validationErrors.description }}
+                />
+              }
+            >
+              <TextInputCell name="name" placeholder={i18n.t('name')} />
+              <TextInputCell name="description" placeholder={i18n.t('description')} numberOfLines={4} />
             </Section>
-            <Section header={i18n.t('ingredients')}>
-              {Object.keys(ingredients).map(id => {
-                const ingredient = ingredients[id];
-                return <FormIngredientCell key={id} ingredient={ingredient} onChange={updateIngredient} />;
-              })}
-              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addIngredient} />
-            </Section>
-            <Section header={i18n.t('seasonings')}>
-              {Object.keys(seasonings).map(id => {
-                return <FormSeasoningCell key={id} seasoning={seasonings[id]} onChange={updateSeasoning} />;
-              })}
-              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addSeasoning} />
-            </Section>
-            <Section header={i18n.t('steps')}>
-              {Object.keys(steps).map(id => {
-                return <FormStepCell key={id} step={steps[id]} onChange={updateStep} />;
-              })}
-              <FormButtonCell title={`+ ${i18n.t('add')}`} onPress={addStep} />
-            </Section>
+            <FieldArray
+              name="ingredients"
+              component={FieldArraySection}
+              fieldComponent={IngredientInputsCell}
+              header={i18n.t('ingredients')}
+              errors={validationErrors.ingredients}
+            />
+            <FieldArray
+              name="seasonings"
+              component={FieldArraySection}
+              fieldComponent={TextInputCell}
+              header={i18n.t('seasonings')}
+              placeholder={i18n.t('seasoning')}
+              errors={validationErrors.seasonings}
+            />
+            <FieldArray
+              name="steps"
+              component={FieldArraySection}
+              fieldComponent={TextInputCell}
+              header={i18n.t('steps')}
+              placeholder={i18n.t('step')}
+              errors={validationErrors.steps}
+            />
           </TableView>
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -131,36 +130,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFF4',
     flex: 1,
   },
-  imageContainer: {
-    width: '100%',
-    height: 220,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  recipeImage: {
-    flexGrow: 1,
-    width: '100%',
-    height: 220,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
 
-const mapStateToProps = state => ({ newRecipe: getAddRecipeFormState(state) });
+const mapStateToProps = ({ form }: { form: Map<string, any> }) => ({
+  validationErrors:
+    form.get('newRecipe') && form.get('newRecipe').get('syncErrors') ? form.get('newRecipe').get('syncErrors') : {},
+});
 
-const mapDispatchToProps = {
-  updateName: actionCreators.updateNameInAddRecipeForm,
-  updateDescription: actionCreators.updateDescriptionInAddRecipeForm,
-  addIngredient: actionCreators.addIngredientToAddRecipeForm,
-  updateIngredient: actionCreators.updateIngredientInAddRecipeForm,
-  addSeasoning: actionCreators.addSeasoningToAddRecipeForm,
-  updateSeasoning: actionCreators.updateSeasoningInAddRecipeForm,
-  addStep: actionCreators.addStepToAddRecipeForm,
-  updateStep: actionCreators.updateStepInAddRecipeForm,
-  openImagePicker: actionCreators.openImagePickerAddRecipeForm,
-  updateImage: actionCreators.updateImageInAddRecipeForm,
-  resetForm: actionCreators.resetAddRecipeForm,
-  submitForm: actionCreators.submitAddRecipeForm,
+const onSubmit = (immutableValues: Map<string, any>, dispatch) => {
+  const values = immutableValues.toJS();
+  dispatch(actionCreators.submitAddRecipeForm(values));
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: 'newRecipe',
+    validate: validateNewRecipeFormValues,
+    onSubmit,
+  })(AddRecipeFormComponent),
+);

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input component renders as expected 1`] = `
+exports[`FormTextInput component renders as expected 1`] = `
 <TextInput
   multiline={false}
   numberOfLines={1}
@@ -12,18 +12,18 @@ exports[`Input component renders as expected 1`] = `
       Object {
         "fontFamily": "Avenir",
         "fontSize": 14,
+        "width": "100%",
       },
-      Object {
-        "height": 14,
-      },
+      false,
       undefined,
     ]
   }
+  testID=""
   value=""
 />
 `;
 
-exports[`Input component renders as expected with defined style 1`] = `
+exports[`FormTextInput component renders as expected with defined style 1`] = `
 <TextInput
   multiline={false}
   numberOfLines={1}
@@ -35,15 +35,15 @@ exports[`Input component renders as expected with defined style 1`] = `
       Object {
         "fontFamily": "Avenir",
         "fontSize": 14,
+        "width": "100%",
       },
-      Object {
-        "height": 14,
-      },
+      false,
       Object {
         "margin": 10,
       },
     ]
   }
+  testID=""
   value=""
 />
 `;

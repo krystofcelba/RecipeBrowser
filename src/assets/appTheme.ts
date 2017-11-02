@@ -7,8 +7,10 @@ export const Colors = {
 
   topBarTextColor: '#ffff',
   searchBarPlaceholderTextColor: 'rgba(255, 255, 255, 0.3)',
+  topBarDisabledButtonTextColor: 'rgba(255, 255, 255, 0.5)',
 
   primaryTextColor: '#000000',
+  errorTextColor: '#FF3D00',
 };
 
 const AppTheme = {
@@ -17,6 +19,7 @@ const AppTheme = {
   defaultFontSize: 14,
   titleFontSize: 32,
   subTitleFontSize: 20,
+  errorFontSize: 12,
   ...Colors,
 };
 
@@ -27,11 +30,10 @@ export const navigatorStyle = {
   statusBarColor: Colors.darkPrimaryColor,
   navBarBackgroundColor: Colors.primaryColor,
   navBarTextColor: Colors.topBarTextColor,
-  navBarButtonColor: Colors.topBarTextColor,
   navBarTextFontFamily: AppTheme.fontFamily,
 };
 
 export const navigatorConfig = {
-  navigatorStyle,
+  navigatorStyle: { ...navigatorStyle, navBarButtonColor: Colors.topBarTextColor },
   backButtonTitle: '',
 };

@@ -13,6 +13,12 @@ const strings = {
   seasoning: 'Seasoning',
   seasonings: 'Seasonings',
   step: 'Step',
+  cannotBeEmptyError: 'The {{field}} cannot be empty.',
+  requiredError: '{{field}} is required',
+  atLeastOneError: 'At least one {{field}} must be entered',
+  mustBeNumberError: '{{field}} must be a number',
+  ingredient: 'Ingredient',
+  value: 'Value',
 };
 
 export default strings;

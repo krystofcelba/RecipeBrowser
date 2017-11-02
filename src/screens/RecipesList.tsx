@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { KeyboardAvoidingView, StyleSheet, FlatList, Platform } from 'react-native';
+import { StyleSheet, FlatList, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import ActionButton from 'react-native-action-button';
 
@@ -9,6 +9,7 @@ import AppTheme, { navigatorStyle, navigatorConfig } from '../assets/appTheme';
 import RecipeCard from '../components/recipes-list/RecipeCard';
 import { getFilteredRecipes } from '../redux/selectors';
 import i18n from '../assets/i18n';
+import { KeyboardAvoidingView } from 'src/components/common';
 
 interface Props {
   navigator: any;
@@ -38,7 +39,7 @@ class RecipesList extends Component<Props, any> {
 
   onPressAddButton = () => {
     this.props.navigator.showModal({
-      ...navigatorConfig,
+      navigatorStyle,
       screen: 'recipeBrowser.AddRecipeForm',
       title: i18n.t('addRecipe'),
     });
@@ -53,12 +54,7 @@ class RecipesList extends Component<Props, any> {
   render() {
     const { recipes } = this.props;
     return (
-      <KeyboardAvoidingView
-        testID="recipesListScreen"
-        keyboardVerticalOffset={60}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        style={styles.container}
-      >
+      <KeyboardAvoidingView testID="recipesListScreen" style={styles.container}>
         <FlatList
           data={recipes}
           keyExtractor={this.recipeKeyExtractor}

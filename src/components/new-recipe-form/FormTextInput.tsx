@@ -4,19 +4,28 @@ import { StyleSheet, TextInput, StyleProp, TextStyle, Keyboard } from 'react-nat
 import AppTheme from '../../assets/appTheme';
 
 interface Props {
-  placeholder: string;
+  placeholder?: string;
   numberOfLines?: number;
-  value: string;
-  onChangeText: (text: string) => void;
   style?: StyleProp<TextStyle>;
+  input: {
+    name: string;
+    value: string;
+    onChange: (text: string) => void;
+  };
 }
 
-const Input = ({ placeholder, numberOfLines = 1, value, onChangeText, style, ...otherProps }: Props) => (
+const FormTextInput = ({
+  placeholder = '',
+  numberOfLines = 1,
+  style,
+  input: { name, value, onChange, ...otherProps },
+}: Props) => (
   <TextInput
-    value={value}
-    onChangeText={onChangeText}
+    testID={name}
+    value={typeof value === 'string' ? value : ''}
+    onChangeText={onChange}
     numberOfLines={numberOfLines}
-    style={[styles.input, { height: numberOfLines * AppTheme.defaultFontSize }, style && style]}
+    style={[styles.input, numberOfLines > 1 && { height: numberOfLines * AppTheme.defaultFontSize }, style && style]}
     placeholder={placeholder}
     multiline={numberOfLines > 1}
     onSubmitEditing={Keyboard.dismiss}
@@ -28,7 +37,8 @@ const styles = StyleSheet.create({
   input: {
     fontFamily: AppTheme.fontFamily,
     fontSize: AppTheme.defaultFontSize,
+    width: '100%',
   },
 });
 
-export default Input;
+export default FormTextInput;

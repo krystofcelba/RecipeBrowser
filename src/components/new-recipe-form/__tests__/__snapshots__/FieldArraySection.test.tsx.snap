@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldArraySection component renders as expected 1`] = `
+<Section
+  allowFontScaling={true}
+  footer={null}
+  footerComponent={
+    <ErrorsSectionFooter
+      errors={Object {}}
+    />
+  }
+  footerTextColor="#6d6d72"
+  header="header"
+  headerComponent={null}
+  headerTextColor="#6D6D72"
+  hideSeparator={false}
+  sectionPaddingBottom={15}
+  sectionPaddingTop={15}
+  sectionTintColor="#EFEFF4"
+  separatorInsetLeft={15}
+  separatorInsetRight={0}
+  separatorTintColor="#C8C7CC"
+>
+  <ButtonCell
+    onPress={[Function]}
+    title="+ Add"
+  />
+</Section>
+`;
+
+exports[`FieldArraySection component renders as expected with fields 1`] = `
+<Section
+  allowFontScaling={true}
+  footer={null}
+  footerComponent={
+    <ErrorsSectionFooter
+      errors={Object {}}
+    />
+  }
+  footerTextColor="#6d6d72"
+  header="header"
+  headerComponent={null}
+  headerTextColor="#6D6D72"
+  hideSeparator={false}
+  sectionPaddingBottom={15}
+  sectionPaddingTop={15}
+  sectionTintColor="#EFEFF4"
+  separatorInsetLeft={15}
+  separatorInsetRight={0}
+  separatorTintColor="#C8C7CC"
+>
+  <TextInputCell
+    index={0}
+    key="0"
+    name="field[0]"
+    placeholder="placeholder"
+  />
+  <ButtonCell
+    onPress={[Function]}
+    title="+ Add"
+  />
+</Section>
+`;

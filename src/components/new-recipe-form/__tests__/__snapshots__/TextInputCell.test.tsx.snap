@@ -8,20 +8,20 @@ exports[`FormInputCell component renders as expected 1`] = `
   backgroundColor="#FFF"
   cellAccessoryView={null}
   cellContentView={
-    <View
-      style={
-        Object {
-          "flex": 1,
-          "paddingVertical": 10,
-        }
-      }
+    <glamorous.View
+      flex={1}
+      flexDirection="row"
+      paddingVertical={5}
     >
-      <Input
+      <Field
+        component={[Function]}
+        name="input"
         onChangeText={[Function]}
         placeholder="placeholder"
+        style={false}
         value=""
       />
-    </View>
+    </glamorous.View>
   }
   cellImageView={null}
   cellStyle="Basic"

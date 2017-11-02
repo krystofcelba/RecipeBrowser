@@ -9,7 +9,6 @@ Array [
       },
       "screen": Object {
         "navBarBackgroundColor": "#81b640",
-        "navBarButtonColor": "#ffff",
         "navBarTextColor": "#ffff",
         "navBarTextFontFamily": "Avenir",
         "screen": "recipeBrowser.RecipesList",

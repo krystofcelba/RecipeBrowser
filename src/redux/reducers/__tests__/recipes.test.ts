@@ -10,7 +10,7 @@ import {
 } from '../recipes';
 import { Recipe } from 'src/services/api';
 
-const mockedRecipes = require('../../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 
 describe('recipes action creators', () => {
   it('should return FETCH_RECIPES action', () => {
