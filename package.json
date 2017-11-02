@@ -8,7 +8,7 @@
     "test-with-coverage": "yarn test --collectCoverage",
     "build:e2e:ios": "detox build --configuration ios.sim.debug",
     "test:e2e:ios": "detox test --configuration ios.sim.debug",
-    "test:e2e:ios:dev": "detox test --reuse --configuration ios.sim.debug",
+    "test:e2e:ios:reuse": "yarn test:e2e:ios --reuse",
     "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
