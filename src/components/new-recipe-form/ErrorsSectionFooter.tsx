@@ -6,14 +6,15 @@ import { isNumber } from 'src/utils';
 
 interface Props {
   errors: {};
+  testIDcontext: string;
 }
 
-const ErrorsSectionFooter = ({ errors }: Props) => (
+const ErrorsSectionFooter = ({ errors, testIDcontext }: Props) => (
   <View paddingLeft={AppTheme.defaultPadding / 2} paddingTop={AppTheme.defaultPadding / 2}>
     {Object.keys(errors).map(key => {
       const error = errors[key];
       return error ? (
-        <View flexDirection="row" key={key}>
+        <View testID={`${testIDcontext}:error:${key}`} flexDirection="row" key={key}>
           <LeftPaddedBoldErrorText>{isNumber(key) ? `#${Number(key) + 1}` : '\u2022'}</LeftPaddedBoldErrorText>
           <LeftPaddedErrorText>{error}</LeftPaddedErrorText>
         </View>

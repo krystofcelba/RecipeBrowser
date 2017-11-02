@@ -63,7 +63,7 @@ export class AddRecipeFormComponent extends Component<Props> {
           id: 'add',
           testID: 'add',
           disabled: invalid,
-          buttonColor: invalid ? AppTheme.topBarDisabledButtonTextColor : AppTheme.topBarTextColor,
+          buttonColor: AppTheme.topBarTextColor,
         },
       ],
       leftButtons: [
@@ -80,7 +80,7 @@ export class AddRecipeFormComponent extends Component<Props> {
   render() {
     const { validationErrors } = this.props;
     return (
-      <KeyboardAvoidingView style={styles.container}>
+      <KeyboardAvoidingView testID="addRecipeFormScreen" style={styles.container}>
         <ScrollView>
           <TableView>
             <Field name="image" component={FormImageInput} />
@@ -88,6 +88,7 @@ export class AddRecipeFormComponent extends Component<Props> {
               sectionPaddingTop={0}
               footerComponent={
                 <ErrorsSectionFooter
+                  testIDcontext="base"
                   errors={{ name: validationErrors.name, description: validationErrors.description }}
                 />
               }
@@ -101,6 +102,7 @@ export class AddRecipeFormComponent extends Component<Props> {
               fieldComponent={IngredientInputsCell}
               header={i18n.t('ingredients')}
               errors={validationErrors.ingredients}
+              testIDcontext="ingredients"
             />
             <FieldArray
               name="seasonings"
@@ -109,6 +111,7 @@ export class AddRecipeFormComponent extends Component<Props> {
               header={i18n.t('seasonings')}
               placeholder={i18n.t('seasoning')}
               errors={validationErrors.seasonings}
+              testIDcontext="seasonings"
             />
             <FieldArray
               name="steps"
@@ -117,6 +120,7 @@ export class AddRecipeFormComponent extends Component<Props> {
               header={i18n.t('steps')}
               placeholder={i18n.t('step')}
               errors={validationErrors.steps}
+              testIDcontext="steps"
             />
           </TableView>
         </ScrollView>
