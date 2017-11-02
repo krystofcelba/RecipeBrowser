@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormIngredientCell component renders as expected 1`] = `
+<Cell
+  accessory={false}
+  accessoryColor="#007AFF"
+  allowFontScaling={true}
+  backgroundColor="#FFF"
+  cellAccessoryView={null}
+  cellContentView={
+    <glamorous.View
+      flex={1}
+      flexDirection="row"
+    >
+      <BoldText>
+        #
+        NaN
+      </BoldText>
+      <glamorous.View
+        style={
+          Object {
+            "flexDirection": "row",
+            "paddingHorizontal": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Field
+          component={[Function]}
+          name="ingredient0.name"
+          placeholder="Name"
+          style={
+            Object {
+              "width": "60%",
+            }
+          }
+        />
+        <Field
+          component={[Function]}
+          name="ingredient0.amount"
+          placeholder="Amount"
+          style={
+            Object {
+              "textAlign": "center",
+              "width": "20%",
+            }
+          }
+        />
+        <Field
+          component={[Function]}
+          name="ingredient0.unit"
+          placeholder="Unit"
+          style={
+            Object {
+              "textAlign": "right",
+              "width": "20%",
+            }
+          }
+        />
+      </glamorous.View>
+    </glamorous.View>
+  }
+  cellImageView={null}
+  cellStyle="Basic"
+  contentContainerStyle={Object {}}
+  detail=""
+  detailTextStyle={Object {}}
+  disableImageResize={false}
+  highlightActiveOpacity={0.8}
+  highlightUnderlayColor="black"
+  image={null}
+  isDisabled={false}
+  leftDetailColor="#007AFF"
+  onHighlightRow={null}
+  onPress={false}
+  onUnHighlightRow={null}
+  rightDetailColor="#8E8E93"
+  subtitleColor="#000"
+  subtitleTextStyle={Object {}}
+  title=""
+  titleTextColor="#000"
+  titleTextStyle={Object {}}
+  titleTextStyleDisabled={Object {}}
+/>
+`;

@@ -7,7 +7,7 @@ import * as API from 'src/services/api';
 import { actionCreators, concatIngredientsNames, FETCH_RECIPES_SUCCESS } from 'src/redux/reducers/recipes';
 import reducers from 'src/redux/reducers';
 
-const mockedRecipes = require('../../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 
 /*************** unit tests ***************/
 

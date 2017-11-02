@@ -9,7 +9,7 @@ interface Props {
   onPress: () => void;
 }
 
-const FormButtonCell = ({ title, onPress }: Props) => (
+const ButtonCell = ({ title, onPress }: Props) => (
   <Cell title={title} titleTextStyle={styles.title} onPress={onPress} />
 );
 
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FormButtonCell;
+export default ButtonCell;

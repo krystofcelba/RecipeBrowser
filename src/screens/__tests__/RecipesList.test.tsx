@@ -4,9 +4,9 @@ import configureStore from 'redux-mock-store';
 import { Platform } from 'react-native';
 
 import RecipesList from '../RecipesList';
-import { concatIngredientsNames } from '../../redux/reducers/recipes';
+import { concatIngredientsNames } from 'src/redux/reducers/recipes';
 
-const mockedRecipes = require('../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 
 const middlewares = [];
 const mockStore = configureStore(middlewares);

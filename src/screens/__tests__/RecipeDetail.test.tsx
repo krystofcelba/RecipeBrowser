@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 
 import RecipeDetail from '../RecipeDetail';
 
-const mockedRecipes = require('../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 const mockedRecipe = mockedRecipes[0];
 
 const middlewares = [];

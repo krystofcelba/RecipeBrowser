@@ -8,7 +8,7 @@ export interface Recipe {
   id?: number;
   name: string;
   description: string;
-  image: string | { uri: string; type: string };
+  image: string;
   ingredients: [Ingredient];
   seasonings: [string];
   steps: [string];
@@ -38,6 +38,7 @@ export const get = async (path, config = {}) => {
 };
 
 export const post = async (path, data, config = {}) => {
+  console.log(data);
   try {
     const resp = await apiClient.post(path, data, config);
     return handleSuccessResponse(resp);

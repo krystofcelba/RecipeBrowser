@@ -2,87 +2,100 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 
-import AddRecipeForm from '../AddRecipeForm';
-
-const middlewares = [];
-const mockStore = configureStore(middlewares);
-
-const initialState = {
-  ui: {
-    addRecipeForm: {
-      newRecipe: {
-        name: 'recipe',
-        description: 'desc',
-        ingredients: { 1: { id: 1, name: 'potatoes', amount: '1', unit: 'kg' } },
-        seasonings: { 2: { id: 2, seasoning: 'red powder' } },
-        steps: { 3: { id: 3, step: 'do that' } },
-      },
-    },
-  },
-};
+import { AddRecipeFormComponent } from '../AddRecipeForm';
 
 describe('AddRecipeForm component', () => {
   const navigator = {
     setOnNavigatorEvent: () => {},
+    setButtons: () => {},
   };
 
   it('renders as expected', () => {
     const setOnNavigatorEvent = jest.fn();
+    const setButtons = jest.fn();
 
-    const wrapper = shallow(<AddRecipeForm navigator={{ ...navigator, setOnNavigatorEvent }} />, {
-      context: { store: mockStore(initialState) },
-    });
-    expect(wrapper.dive()).toMatchSnapshot();
+    const wrapper = shallow(
+      <AddRecipeFormComponent
+        navigator={{ ...navigator, setOnNavigatorEvent, setButtons }}
+        validationErrors={{ name: 'error', description: 'description error' }}
+        invalid={true}
+        submit={() => new Promise<any>(resolve => resolve())}
+      />,
+      {},
+    );
+    expect(wrapper).toMatchSnapshot();
     expect(setOnNavigatorEvent).toBeCalled();
+    expect(setButtons.mock.calls).toMatchSnapshot();
   });
 
-  it('renders as expected with image', () => {
-    const image = { type: 'image/jpeg', data: 'data:image/jpeg;base64,xxxxxxxx' };
-    const state = {
-      ...initialState,
-      ui: { addRecipeForm: { newRecipe: { ...initialState.ui.addRecipeForm.newRecipe, image } } },
-    };
-    const wrapper = shallow(<AddRecipeForm navigator={navigator} />, {
-      context: {
-        store: mockStore(state),
-      },
-    });
-    expect(wrapper.dive()).toMatchSnapshot();
+  it('renders valid form as expected', () => {
+    const setButtons = jest.fn();
+
+    const wrapper = shallow(
+      <AddRecipeFormComponent
+        navigator={{ ...navigator, setButtons }}
+        validationErrors={{}}
+        invalid={false}
+        submit={() => new Promise<any>(resolve => resolve())}
+      />,
+      {},
+    );
+    expect(wrapper).toMatchSnapshot();
+    expect(setButtons.mock.calls).toMatchSnapshot();
   });
 
-  it('dispatches open image picker action as expected on pick image button press', () => {
-    const store = mockStore(initialState);
-    const wrapper = shallow(<AddRecipeForm navigator={navigator} />, { context: { store } });
-    const render = wrapper.dive();
-    render.find('TouchableOpacity').forEach(child => {
-      child.simulate('press');
-    });
-    expect(store.getActions()).toMatchSnapshot();
+  it('calls updateNavigatorButtons on componentWillReceiveProps', () => {
+    const wrapper = shallow(
+      <AddRecipeFormComponent
+        navigator={{ ...navigator }}
+        validationErrors={{}}
+        invalid={false}
+        submit={() => new Promise<any>(resolve => resolve())}
+      />,
+      {},
+    );
+    const updateNavigatorButtons = jest.fn();
+    wrapper.instance().updateNavigatorButtons = updateNavigatorButtons;
+    wrapper.setProps({ navigator, validationErrors: {}, invalid: true });
+    expect(updateNavigatorButtons).toBeCalledWith(true);
   });
 
-  it('dispatches reset add recipe form action as expected and dismiss the modal on cancel button press', () => {
+  it('calls dismissModal on cancel button', () => {
     const dismissModal = jest.fn();
-    const store = mockStore(initialState);
-    const wrapper = shallow(<AddRecipeForm navigator={{ ...navigator, dismissModal }} />, { context: { store } });
-    const render = wrapper.dive();
-    render.instance().onNavigatorEvent({ type: 'NavBarButtonPress', id: 'cancel' });
+
+    const wrapper = shallow(
+      <AddRecipeFormComponent
+        navigator={{ ...navigator, dismissModal }}
+        validationErrors={{}}
+        invalid={false}
+        submit={() => new Promise<any>(resolve => resolve())}
+      />,
+      {},
+    );
+    wrapper.instance().onNavigatorEvent({ type: 'NavBarButtonPress', id: 'cancel' });
     expect(dismissModal).toBeCalled();
-    expect(store.getActions()).toMatchSnapshot();
   });
 
-  it('dispatches submit recipe form action as expected on add button press', () => {
-    const store = mockStore(initialState);
-    const wrapper = shallow(<AddRecipeForm navigator={navigator} />, { context: { store } });
-    const render = wrapper.dive();
-    render.instance().onNavigatorEvent({ type: 'NavBarButtonPress', id: 'add' });
-    expect(store.getActions()).toMatchSnapshot();
+  it('calls submit on add button', () => {
+    const submit = jest.fn();
+
+    const wrapper = shallow(
+      <AddRecipeFormComponent navigator={{ ...navigator }} validationErrors={{}} invalid={false} submit={submit} />,
+      {},
+    );
+    wrapper.instance().onNavigatorEvent({ type: 'NavBarButtonPress', id: 'add' });
+    expect(submit).toBeCalled();
   });
 
   it('does not do anything as expected on any other navigator action', () => {
-    const store = mockStore(initialState);
-    const wrapper = shallow(<AddRecipeForm navigator={navigator} />, { context: { store } });
-    const render = wrapper.dive();
-    render.instance().onNavigatorEvent({ type: 'anything' });
-    expect(store.getActions()).toMatchSnapshot();
+    const wrapper = shallow(
+      <AddRecipeFormComponent
+        navigator={navigator}
+        validationErrors={{}}
+        invalid={false}
+        submit={() => new Promise<any>(resolve => resolve())}
+      />,
+    );
+    wrapper.instance().onNavigatorEvent({ type: 'anything' });
   });
 });

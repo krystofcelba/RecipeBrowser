@@ -8,8 +8,6 @@ export const getRecipesById = (state: RootState) => state.recipes.recipesById;
 export const getRecipes = (state: RootState) => state.recipes.recipes;
 export const getRecipe = (state: RootState, id: number) => getRecipes(state)[id];
 
-export const getAddRecipeFormState = (state: RootState) => state.ui.addRecipeForm.newRecipe;
-
 export const getFilteredRecipes = createSelector(
   [getRecipesSearchInputText, getRecipesById, getRecipes],
   (searchInputText, recipesById, recipes): Recipe[] => {

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationErrors component renders as expected 1`] = `
+<glamorous.View
+  paddingLeft={5}
+  paddingTop={5}
+/>
+`;
+
+exports[`ValidationErrors component renders as expected with defined errors 1`] = `
+<glamorous.View
+  paddingLeft={5}
+  paddingTop={5}
+>
+  <glamorous.View
+    flexDirection="row"
+    key="name"
+  >
+    <LeftPaddedBoldErrorText>
+      •
+    </LeftPaddedBoldErrorText>
+    <ErrorText>
+      error
+    </ErrorText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="description"
+  >
+    <LeftPaddedBoldErrorText>
+      •
+    </LeftPaddedBoldErrorText>
+    <ErrorText>
+      error1
+    </ErrorText>
+  </glamorous.View>
+</glamorous.View>
+`;
+
+exports[`ValidationErrors component renders as expected with defined errors for arrays 1`] = `
+<glamorous.View
+  paddingLeft={5}
+  paddingTop={5}
+>
+  <glamorous.View
+    flexDirection="row"
+    key="0"
+  >
+    <LeftPaddedBoldErrorText>
+      #1
+    </LeftPaddedBoldErrorText>
+    <ErrorText>
+      array error 0
+    </ErrorText>
+  </glamorous.View>
+  <glamorous.View
+    flexDirection="row"
+    key="1"
+  >
+    <LeftPaddedBoldErrorText>
+      #2
+    </LeftPaddedBoldErrorText>
+    <ErrorText>
+      array error 1
+    </ErrorText>
+  </glamorous.View>
+</glamorous.View>
+`;

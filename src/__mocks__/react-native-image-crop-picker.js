@@ -1,4 +1,6 @@
 import { NativeModules } from 'react-native';
 
-NativeModules.ImageCropPicker = { openPicker: () => {} };
+import { mockedImagePickerImage } from 'src/__mockData__';
+
+NativeModules.ImageCropPicker = { openPicker: () => Promise.resolve(mockedImagePickerImage) };
 export default NativeModules.ImageCropPicker;

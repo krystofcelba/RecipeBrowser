@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import RecipeCard from '../RecipeCard';
 
-const mockedRecipes = require('../../../services/__mockData__/recipes.json');
+const mockedRecipes = require('src/__mockData__/recipes.json');
 
 describe('RecipeCard component', () => {
   const mockedRecipe = mockedRecipes[0];
