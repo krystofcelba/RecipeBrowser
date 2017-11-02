@@ -45,3 +45,7 @@ export const LeftPaddedBoldErrorText = namedGlamorous(LeftPaddedBoldText, 'LeftP
   fontSize: AppTheme.errorFontSize,
   color: AppTheme.errorTextColor,
 });
+
+export const ButtonCellText = namedGlamorous(Text, 'AddButtonText')({
+  color: AppTheme.cellButtonTextColor,
+});

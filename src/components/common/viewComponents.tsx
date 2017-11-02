@@ -5,7 +5,7 @@ import namedGlamorous from './namedGlamorous';
 
 import AppTheme from 'src/assets/appTheme';
 
-export const { View } = glamorous;
+export const { View, TouchableOpacity } = glamorous;
 
 export const PaddedView = namedGlamorous(View, 'PaddedView')({
   padding: AppTheme.defaultPadding,
@@ -13,8 +13,7 @@ export const PaddedView = namedGlamorous(View, 'PaddedView')({
 
 export const KeyboardAvoidingView = ({ children, ...otherProps }) => (
   <RNKeyboardAvoidingView
-    testID="recipesListScreen"
-    keyboardVerticalOffset={60}
+    keyboardVerticalOffset={64}
     behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     {...otherProps}
   >
