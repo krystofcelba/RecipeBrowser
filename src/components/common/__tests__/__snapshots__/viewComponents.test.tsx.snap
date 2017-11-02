@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`View components KeyboardAvoidingView renders as expected 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  keyboardVerticalOffset={64}
+>
+  <glamorous.View />
+</KeyboardAvoidingView>
+`;
+
+exports[`View components KeyboardAvoidingView renders as expected on Android 1`] = `
+<KeyboardAvoidingView
+  keyboardVerticalOffset={64}
+>
+  <glamorous.View />
+</KeyboardAvoidingView>
+`;
+
 exports[`View components PaddedView renders as expected 1`] = `
 <View
   style={
