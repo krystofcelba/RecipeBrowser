@@ -22,12 +22,4 @@ const ButtonCell = ({ title, testID, onPress }: Props) => (
   />
 );
 
-const styles = StyleSheet.create({
-  title: {
-    color: AppTheme.secondaryColor,
-    fontFamily: AppTheme.fontFamily,
-    fontSize: AppTheme.defaultFontSize,
-  },
-});
-
 export default ButtonCell;

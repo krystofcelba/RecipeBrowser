@@ -7,7 +7,17 @@ exports[`FormButtonCell component renders as expected 1`] = `
   allowFontScaling={true}
   backgroundColor="#FFF"
   cellAccessoryView={null}
-  cellContentView={null}
+  cellContentView={
+    <glamorous.TouchableOpacity
+      flex={1}
+      onPress={[Function]}
+      testID="test:add"
+    >
+      <AddButtonText>
+        test
+      </AddButtonText>
+    </glamorous.TouchableOpacity>
+  }
   cellImageView={null}
   cellStyle="Basic"
   contentContainerStyle={Object {}}
@@ -20,20 +30,14 @@ exports[`FormButtonCell component renders as expected 1`] = `
   isDisabled={false}
   leftDetailColor="#007AFF"
   onHighlightRow={null}
-  onPress={[Function]}
+  onPress={false}
   onUnHighlightRow={null}
   rightDetailColor="#8E8E93"
   subtitleColor="#000"
   subtitleTextStyle={Object {}}
-  title="test"
+  title=""
   titleTextColor="#000"
-  titleTextStyle={
-    Object {
-      "color": "#FF5722",
-      "fontFamily": "Avenir",
-      "fontSize": 14,
-    }
-  }
+  titleTextStyle={Object {}}
   titleTextStyleDisabled={Object {}}
 />
 `;

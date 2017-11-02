@@ -15,6 +15,7 @@ exports[`ValidationErrors component renders as expected with defined errors 1`] 
   <glamorous.View
     flexDirection="row"
     key="name"
+    testID="undefined:error:name"
   >
     <LeftPaddedBoldErrorText>
       •
@@ -26,6 +27,7 @@ exports[`ValidationErrors component renders as expected with defined errors 1`] 
   <glamorous.View
     flexDirection="row"
     key="description"
+    testID="undefined:error:description"
   >
     <LeftPaddedBoldErrorText>
       •
@@ -45,6 +47,7 @@ exports[`ValidationErrors component renders as expected with defined errors for 
   <glamorous.View
     flexDirection="row"
     key="0"
+    testID="undefined:error:0"
   >
     <LeftPaddedBoldErrorText>
       #1
@@ -56,6 +59,7 @@ exports[`ValidationErrors component renders as expected with defined errors for 
   <glamorous.View
     flexDirection="row"
     key="1"
+    testID="undefined:error:1"
   >
     <LeftPaddedBoldErrorText>
       #2
