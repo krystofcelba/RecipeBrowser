@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 1`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Object {
+    "_error": "At least one ingredient must be entered",
+  },
+  "name": "Name is required",
+  "seasonings": Object {
+    "_error": "At least one seasoning must be entered",
+  },
+  "steps": Object {
+    "_error": "At least one step must be entered",
+  },
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 2`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Array [],
+  "name": "Name is required",
+  "seasonings": Object {
+    "_error": "At least one seasoning must be entered",
+  },
+  "steps": Object {
+    "_error": "At least one step must be entered",
+  },
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 3`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Array [
+    "Name is required. Amount is required. Unit is required. ",
+  ],
+  "name": "Name is required",
+  "seasonings": Object {
+    "_error": "At least one seasoning must be entered",
+  },
+  "steps": Object {
+    "_error": "At least one step must be entered",
+  },
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 4`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Array [
+    "Name is required. Amount must be a number. Unit is required. ",
+  ],
+  "name": "Name is required",
+  "seasonings": Object {
+    "_error": "At least one seasoning must be entered",
+  },
+  "steps": Object {
+    "_error": "At least one step must be entered",
+  },
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 5`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Object {
+    "_error": "At least one ingredient must be entered",
+  },
+  "name": "Name is required",
+  "seasonings": Array [
+    "",
+  ],
+  "steps": Array [
+    "",
+  ],
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 6`] = `
+Object {
+  "description": "Description is required",
+  "ingredients": Object {
+    "_error": "At least one ingredient must be entered",
+  },
+  "name": "Name is required",
+  "seasonings": Array [
+    "Value is required. ",
+  ],
+  "steps": Array [
+    "Value is required. ",
+  ],
+}
+`;
+
+exports[`validateNewRecipeFormValues should return validations errors as expected 7`] = `
+Object {
+  "ingredients": Array [
+    "",
+  ],
+  "seasonings": Array [
+    "",
+  ],
+  "steps": Array [
+    "",
+  ],
+}
+`;
