@@ -8,8 +8,10 @@ import { extractMimeType } from 'src/utils';
 export function* handleAddRecipeFormSubmission(action) {
   const { recipe } = action;
   const imageUri = recipe.image;
-  const imageType = imageUri.length ? yield call(extractMimeType, imageUri) : '';
-  const image = { uri: imageUri, type: imageType };
+  const image =
+    imageUri && imageUri.length
+      ? { uri: imageUri, type: yield call(extractMimeType, imageUri) }
+      : { uri: '', type: '' };
   const resp = yield call(API.post, '/recipes', { ...recipe, image });
   console.log(resp);
   if (resp.ok) {

@@ -5,7 +5,6 @@ exports[`FormTextInput component renders as expected 1`] = `
   multiline={false}
   numberOfLines={1}
   onChangeText={[Function]}
-  onSubmitEditing={[Function]}
   placeholder="placeholder"
   style={
     Array [
@@ -28,7 +27,6 @@ exports[`FormTextInput component renders as expected with defined style 1`] = `
   multiline={false}
   numberOfLines={1}
   onChangeText={[Function]}
-  onSubmitEditing={[Function]}
   placeholder="placeholder"
   style={
     Array [

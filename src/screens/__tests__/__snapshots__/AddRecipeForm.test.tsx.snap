@@ -8,6 +8,7 @@ exports[`AddRecipeForm component renders as expected 1`] = `
       "flex": 1,
     }
   }
+  testID="addRecipeFormScreen"
 >
   <ScrollViewMock>
     <TableView>
@@ -26,6 +27,7 @@ exports[`AddRecipeForm component renders as expected 1`] = `
                 "name": "error",
               }
             }
+            testIDcontext="base"
           />
         }
         footerTextColor="#6d6d72"
@@ -55,6 +57,7 @@ exports[`AddRecipeForm component renders as expected 1`] = `
         fieldComponent={[Function]}
         header="Ingredients"
         name="ingredients"
+        testIDcontext="ingredients"
       />
       <FieldArray
         component={[Function]}
@@ -62,6 +65,7 @@ exports[`AddRecipeForm component renders as expected 1`] = `
         header="Seasonings"
         name="seasonings"
         placeholder="Seasoning"
+        testIDcontext="seasonings"
       />
       <FieldArray
         component={[Function]}
@@ -69,6 +73,7 @@ exports[`AddRecipeForm component renders as expected 1`] = `
         header="Steps"
         name="steps"
         placeholder="Step"
+        testIDcontext="steps"
       />
     </TableView>
   </ScrollViewMock>
@@ -89,7 +94,7 @@ Array [
       ],
       "rightButtons": Array [
         Object {
-          "buttonColor": "rgba(255, 255, 255, 0.5)",
+          "buttonColor": "#ffff",
           "disabled": true,
           "id": "add",
           "testID": "add",
@@ -109,6 +114,7 @@ exports[`AddRecipeForm component renders valid form as expected 1`] = `
       "flex": 1,
     }
   }
+  testID="addRecipeFormScreen"
 >
   <ScrollViewMock>
     <TableView>
@@ -127,6 +133,7 @@ exports[`AddRecipeForm component renders valid form as expected 1`] = `
                 "name": undefined,
               }
             }
+            testIDcontext="base"
           />
         }
         footerTextColor="#6d6d72"
@@ -156,6 +163,7 @@ exports[`AddRecipeForm component renders valid form as expected 1`] = `
         fieldComponent={[Function]}
         header="Ingredients"
         name="ingredients"
+        testIDcontext="ingredients"
       />
       <FieldArray
         component={[Function]}
@@ -163,6 +171,7 @@ exports[`AddRecipeForm component renders valid form as expected 1`] = `
         header="Seasonings"
         name="seasonings"
         placeholder="Seasoning"
+        testIDcontext="seasonings"
       />
       <FieldArray
         component={[Function]}
@@ -170,6 +179,7 @@ exports[`AddRecipeForm component renders valid form as expected 1`] = `
         header="Steps"
         name="steps"
         placeholder="Step"
+        testIDcontext="steps"
       />
     </TableView>
   </ScrollViewMock>

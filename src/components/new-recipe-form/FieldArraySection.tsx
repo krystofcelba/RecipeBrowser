@@ -11,12 +11,13 @@ interface Props {
   fields: GenericFieldArray;
   fieldComponent: React.SFC<any> | React.ComponentClass<any> | string;
   errors?: [string];
+  testIDcontext: string;
 }
 
-const FieldArraySection = ({ fields, errors = {}, header, fieldComponent, ...otherProps }: Props) => (
-  <Section header={header} footerComponent={<ErrorsSectionFooter errors={errors} />}>
+const FieldArraySection = ({ fields, errors = {}, header, fieldComponent, testIDcontext, ...otherProps }: Props) => (
+  <Section header={header} footerComponent={<ErrorsSectionFooter testIDcontext={testIDcontext} errors={errors} />}>
     {fields.map((field, i) => React.createElement(fieldComponent, { ...otherProps, key: i, index: i, name: field }))}
-    <ButtonCell title={`+ ${i18n.t('add')}`} onPress={fields.push} />
+    <ButtonCell testID={`${testIDcontext}:add`} title={`+ ${i18n.t('add')}`} onPress={fields.push} />
   </Section>
 );
 

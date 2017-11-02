@@ -4,7 +4,6 @@ describe('RecipesList screen', () => {
   });
 
   it('should be able to search for a recipe with grapefruits and see its detail', async () => {
-    await element(by.id('topSearchBar')).tap();
     await element(by.id('topSearchBar')).typeText('grape\n');
     await expect(element(by.id('recipeCard_2'))).toNotExist();
 

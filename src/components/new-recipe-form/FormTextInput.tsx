@@ -28,7 +28,6 @@ const FormTextInput = ({
     style={[styles.input, numberOfLines > 1 && { height: numberOfLines * AppTheme.defaultFontSize }, style && style]}
     placeholder={placeholder}
     multiline={numberOfLines > 1}
-    onSubmitEditing={Keyboard.dismiss}
     {...otherProps}
   />
 );

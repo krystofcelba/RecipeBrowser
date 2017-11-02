@@ -4,6 +4,7 @@ exports[`RecipeCard component renders as expected 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
   onPress={[Function]}
+  testID="recipeCard_0"
 >
   <Card
     image={

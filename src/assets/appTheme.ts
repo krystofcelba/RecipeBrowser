@@ -11,6 +11,8 @@ export const Colors = {
 
   primaryTextColor: '#000000',
   errorTextColor: '#FF3D00',
+
+  cellButtonTextColor: '#2196F3',
 };
 
 const AppTheme = {
