@@ -8,8 +8,10 @@ export const formatImageBase64Uri = ({ mime, data }: { mime: string; data: strin
 export const extractMimeType = (base64Uri: string) => base64Uri.slice(5, base64Uri.indexOf(';base64,'));
 
 export const validateNewRecipeFormValues = (values: Map<string, any>) => {
-  let errors = {};
+  // the immutable.js version of redux-form must be used as a workaround because that the original, throwing an error if FieldArray is used on RN
   const { name, description, ingredients, seasonings, steps } = values.toJS();
+
+  let errors = {};
   if (!name) {
     errors = { ...errors, name: i18n.t('requiredError', { field: i18n.t('name') }) };
   }

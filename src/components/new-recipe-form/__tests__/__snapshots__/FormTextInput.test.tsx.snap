@@ -22,6 +22,30 @@ exports[`FormTextInput component renders as expected 1`] = `
 />
 `;
 
+exports[`FormTextInput component renders as expected multiline 1`] = `
+<TextInput
+  multiline={true}
+  numberOfLines={3}
+  onChangeText={[Function]}
+  placeholder=""
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+        "width": "100%",
+      },
+      Object {
+        "height": 42,
+      },
+      undefined,
+    ]
+  }
+  testID=""
+  value=""
+/>
+`;
+
 exports[`FormTextInput component renders as expected with defined style 1`] = `
 <TextInput
   multiline={false}
@@ -42,6 +66,28 @@ exports[`FormTextInput component renders as expected with defined style 1`] = `
     ]
   }
   testID=""
+  value=""
+/>
+`;
+
+exports[`FormTextInput component renders as expected with non string value 1`] = `
+<TextInput
+  multiline={false}
+  numberOfLines={1}
+  onChangeText={[Function]}
+  placeholder=""
+  style={
+    Array [
+      Object {
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+        "width": "100%",
+      },
+      false,
+      undefined,
+    ]
+  }
+  testID={String {}}
   value=""
 />
 `;

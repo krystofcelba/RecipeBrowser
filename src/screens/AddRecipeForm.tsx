@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Section, TableView } from 'react-native-tableview-simple';
 import { connect } from 'react-redux';
 import { Field, FieldArray, reduxForm } from 'redux-form/immutable';
