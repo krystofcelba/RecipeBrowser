@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, TextInput, StyleProp, TextStyle, Keyboard } from 'react-native';
+import { StyleSheet, TextInput, StyleProp, TextStyle } from 'react-native';
 
 import AppTheme from '../../assets/appTheme';
+import { isString } from 'src/utils';
 
 interface Props {
   placeholder?: string;
@@ -22,7 +23,7 @@ const FormTextInput = ({
 }: Props) => (
   <TextInput
     testID={name}
-    value={typeof value === 'string' ? value : ''}
+    value={isString(value) ? value : ''}
     onChangeText={onChange}
     numberOfLines={numberOfLines}
     style={[styles.input, numberOfLines > 1 && { height: numberOfLines * AppTheme.defaultFontSize }, style && style]}

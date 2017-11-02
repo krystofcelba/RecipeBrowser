@@ -10,6 +10,16 @@ describe('FormTextInput component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders as expected multiline', () => {
+    const wrapper = shallow(<FormTextInput numberOfLines={3} input={{ name: '', value: '', onChange: () => {} }} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders as expected with non string value', () => {
+    const wrapper = shallow(<FormTextInput input={{ name: '', value: Object(''), onChange: () => {} }} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders as expected with defined style', () => {
     const wrapper = shallow(
       <FormTextInput
